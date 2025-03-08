@@ -6,6 +6,23 @@
         <description>Recent content in Categories on Example Site</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>Example Person</copyright><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>clp</copyright>
+        <lastBuildDate>Sat, 08 Mar 2025 00:48:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>First</title>
+        <link>http://localhost:1313/categories/first/</link>
+        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/first/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/first/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post First" /&gt;</description>
+        </item>
+        <item>
+        <title>Test</title>
+        <link>http://localhost:1313/categories/test/</link>
+        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/test/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        </item>
+        
     </channel>
 </rss>

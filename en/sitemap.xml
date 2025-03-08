@@ -11,19 +11,12 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ar"
-                href="http://localhost:1313/ar/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/"
                 />
   </url><url>
-    <loc>http://localhost:1313/first/</loc>
-    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -31,25 +24,44 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="ar"
-                href="http://localhost:1313/ar/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/categories/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/categories/first/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/p/first/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/p/first/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/%E4%B8%BB%E9%A1%B5/first/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/test/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/%E4%B8%BB%E9%A1%B5/</loc>
+    <lastmod>2025-03-08T00:48:44+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/page/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/search/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
                 href="http://localhost:1313/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ar"
-                href="http://localhost:1313/ar/tags/"
                 />
     <xhtml:link
                 rel="alternate"
