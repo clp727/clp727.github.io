@@ -7,92 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>clp</copyright>
-        <lastBuildDate>Sat, 08 Mar 2025 00:48:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>2024会议论文</title>
-        <link>http://localhost:1313/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/</guid>
-        <description>&lt;h2 id=&#34;sigir-2024&#34;&gt;SIGIR 2024
-&lt;/h2&gt;&lt;p&gt;13/107&lt;/p&gt;
-&lt;p&gt;Self-Augmented Graph Neural Networks for Sequential Recommendation
-IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT
-Disentangled Contrastive Hypergraph Learning for Next POI Recommendation
-A Generic Behavior-Aware Data Augmentation Framework for Sequential Recommendation
-Exploring Fine-grained Sequential Recommendation 探索细粒度的顺序推荐
-Sequential Recommendation with Latent Relations based on Large Language Model
-Sequential Recommendation with Collaborative Explanation via Mutual Information Maximization
-Enhancing Sequential Recommenders with Augmented Knowledge from Aligned Large Language Models
-Modeling User Fatigue for Sequential Recommendation
-Scaling Sequential Recommendation Models with Transformers
-Sequential Recommendation for Optimizing Both Immediate Feedback and Long-term Retention
-Explainable Uncertainty Attribution for Sequential Recommendation
-Multi-intent-aware Session-based Recommendation
-13/107&lt;/p&gt;
-&lt;h2 id=&#34;www-2024&#34;&gt;WWW 2024
-&lt;/h2&gt;&lt;p&gt;8/65
-Intelligent Model Update Strategy for Sequential Recommendation
-Rethinking Cross-Domain Sequential Recommendation under Open-World Assumptions
-Harnessing Large Language Models for Text-Rich Sequential Recommendation
-Efficient Noise-Decoupling for Multi-Behavior Sequential Recommendation
-UnifiedSSR: A Unified Framework of Sequential Search and Recommendation
-ReLLa: Retrieval-enhanced Large Language Models for Lifelong Sequential Behavior Comprehension in Recommendation
-（Modeling Balanced Explicit and¬†Implicit Relations with Contrastive Learning for Knowledge Concept Recommendation in MOOCs）&lt;/p&gt;
-&lt;p&gt;Is Contrastive Learning Necessary? A Study of Data Augmentation vs Contrastive Learning in Sequential Recommendation&lt;/p&gt;
-&lt;h2 id=&#34;aaai-2024&#34;&gt;AAAI 2024
-&lt;/h2&gt;&lt;p&gt;5/37
-Sparse Enhanced Network: An Adversarial Generation Method for Robust Augmentation in Sequential Recommendation
-Temporal Graph Contrastive Learning for Sequential Recommendation
-Dual-view Whitening on Pre-trained Text Embeddings for Sequential Recommendation
-Ada-Retrieval: An Adaptive Multi-Round Retrieval Paradigm for Sequential Recommendations
-An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention&lt;/p&gt;
-&lt;h2 id=&#34;kdd&#34;&gt;KDD
-&lt;/h2&gt;&lt;h2 id=&#34;recsys-2024&#34;&gt;RecSys 2024
-&lt;/h2&gt;&lt;p&gt;序列推荐[3,18,42,45,46,48]
-对比学习[6,11,12,27,33]
-Adaptive Fusion of Multi-View for Graph Contrastive Recommendation
-CALRec: Contrastive Alignment of Generative LLMs For Sequential Recommendation&lt;/p&gt;
-&lt;p&gt;Information-Controllable Graph Contrastive Learning for Recommendation
-MMGCL: Meta Knowledge-Enhanced Multi-view Graph Contrastive Learning for Recommendations&lt;/p&gt;
-&lt;p&gt;（ ConFit: Improving Resume-Job Matching using Data Augmentation and Contrastive Learning）&lt;/p&gt;
-&lt;h3 id=&#34;wsdm-2024&#34;&gt;WSDM 2024
-&lt;/h3&gt;&lt;p&gt;13/112
-Debiasing Sequential Recommenders through Distributionally Robust Optimization over System Exposure
-Global Heterogeneous Graph and Target Interest Denoising for Multi-behavior Sequential Recommendation
-To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Neural Sequential Recommenders
-Linear Recurrent Units for Sequential Recommendation
-User Behavior Enriched Temporal Knowledge Graph for Sequential Recommendation
-Intent Contrastive Learning with Cross Subsequences for Sequential Recommendation
-Collaboration and Transition: Distilling Item Transitions into Multi-Query Self-Attention for Sequential Recommendation
-Contextual MAB Oriented Embedding Denoising for Sequential Recommendation
-Mixed Attention Network for Cross-domain Sequential Recommendation
-Multi-Sequence Attentive User Representation Learning for Side-information Integrated Sequential Recommendation
-RecJPQ: Training Large-Catalogue Sequential Recommenders
-Attribute Simulation for Item Embedding Enhancement in Multi-interest Recommendation
-Global Heterogeneous Graph and Target Interest Denoising for Multi-behavior Sequential Recommendation&lt;/p&gt;
-&lt;h2 id=&#34;icde-2024&#34;&gt;ICDE 2024
-&lt;/h2&gt;&lt;p&gt;Sequential Recommendation with User Causal Behavior Discovery
-Incremental Learning for Multi-Interest Sequential Recommendation
-Contrastive Enhanced Slide Filter Mixer for Sequential Recommendation&lt;/p&gt;
-&lt;p&gt;Large Language Models for Intent-Driven Session Recommendations
-&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2312.07552&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/pdf/2312.07552&lt;/a&gt;
-LLaRA: Large Language-Recommendation Assistant
-&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2312.02445&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/pdf/2312.02445&lt;/a&gt;
-Sequential Recommendation with Latent Relations based on Large Language Model
-&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2403.18348&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://arxiv.org/pdf/2403.18348&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;MA-GCL: Model Augmentation Tricks for Graph Contrastive Learning （AAAI’23）
-Disentangled Contrastive Collaborative Filtering (SIGIR’23)解耦对比协同过滤「简述：」作者认为现有的图对比学习算法忽略了用户-物品交互行为通常由多样的潜在意图因素驱动的事实，并且它们引入的非自适应增强技术容易受到噪声信息的影响。为了解决这些问题，作者提出了一个解耦对比协同过滤框架，通过学习具有全局上下文的解耦表示来实现意图解耦，并利用参数化交互掩码生成器引入跨视图对比学习任务以实现自适应增强&lt;/p&gt;
-&lt;p&gt;Meta-optimized Contrastive Learning for Sequential Recommendation (SIGIR’23)序列推荐中的元优化对比学习「简述：」论文提出了一种元优化对比学习框架MCLRec，用于序列推荐。该模型通过应用数据增强和可学习的模型增强操作来创新标准的CL框架，以自适应地捕捉隐藏在随机数据增强中的有信息的特征。此外，MCLRec利用元学习方式指导模型增强器的更新，以提高对比对的质量，而无需增加输入数据的数量。最后，作者引入了一个对比正则化项，以鼓励增强模型生成更具信息量的增强视图，并避免在元更新中出现过于相似的对比对。在常用的数据集上的实验结果表明，MCLRec是有效的。&lt;/p&gt;
-&lt;p&gt;Dual Contrastive Transformer for Hierarchical Preference Modeling in Sequential Recommendation (SIGIR’23)用于序列推荐中层次化偏好建模的双对比Transformer「简述：」本文提出了一种新的层次化偏好建模框架，用于准确地进行序列推荐。该框架设计了一个新颖的双重转换器模块和双重对比学习方案，以区分性地学习用户的低层次和高层次偏好，并有效地增强低层次和高层次偏好的学习。此外，还设计了一种新的语义增强上下文嵌入模块，以生成更丰富的上下文嵌入，进一步提高推荐性能。在六个真实数据集上的大量实验表明，该方法优于现有方法，并且设计合理。&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <lastBuildDate>Thu, 27 Feb 2025 00:48:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</title>
         <link>http://localhost:1313/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/</guid>
         <description>&lt;p&gt;标题：在顺序推荐中优于自注意力的一种注意归纳偏差&lt;/p&gt;
@@ -106,9 +24,140 @@ Disentangled Contrastive Collaborative Filtering (SIGIR’23)解耦对比协同�
 </description>
         </item>
         <item>
+        <title>Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation</title>
+        <link>http://localhost:1313/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;SIGIR 2023&lt;/p&gt;
+&lt;p&gt;代码链接：https://github.com/sudaada/FEARec&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;序列推荐里经常用到Self-Attention技术，但研究表明，&lt;strong&gt;SA是一个低通滤波器，不足以捕获高频信息。&lt;strong&gt;此外，由于用户行为中的各种item相互交织，现有模型无法区分时域中隐藏的固有周期性。因此，本文将视角转移到频域，提出了一种用于顺序推荐的频率增强混合注意网络，即 FEARec。本文首先用&lt;/strong&gt;斜坡结构&lt;/strong&gt;改进频域中的原始时域自注意力，使模型可以明确地学习低频和高频信息。然后设计了一个&lt;strong&gt;频域自相关的注意机制&lt;/strong&gt;，以捕获周期性特征并在联合模型中融合时间和频率级别的注意。最后，利用&lt;strong&gt;对比学习和频率正则化&lt;/strong&gt;来确保多个视图在时域和频域中对齐。&lt;/p&gt;
+&lt;p&gt;Self-Attention的优势在于显式地建模了item之间的相关性，但SA本质上是一个低通滤波器，它会不断擦除序列中的高频信息。（p.s.这是一把双刃剑，如果高频信息是噪声，那过滤掉就完全没有问题；如果用户在短时间内有频繁的交互，那过滤高频信息就会造成信息损失。）&lt;/p&gt;
+&lt;p&gt;为了缓解这些问题，现有方法以不同方式导入局部约束以补充基于 Transformer 的模型。例如 LSAN采用了一种新颖的双注意范式，分别通过自注意分支和卷积分支模块捕获全局和局部偏好信号。  LOCKER将五个本地编码器与现有的全局注意力头相结合，以增强短期用户动态建模。然而，上述模型几乎都是从时域的角度来处理历史交互，而很少考虑在频域中应对这一挑战，因为在频域中可以很容易地获得减少的高频信息。以图1(a)为例，从时域来看，所有的item都是按时间顺序排列的，并且沿着t轴相互交织。通过离散傅立叶变换 (DFT)，可以将每个用户的历史项目序列特征分解为沿 w轴具有不同频率的多个行为模式，然后将输入时间特征转换到频域。最终，&lt;strong&gt;直接在频域中操作会更有效地提高self-attention捕获高频信息的能力&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240705174754010.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705174754010&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;此外，用户在互联网上的行为往往呈现出一定的周期性趋势。以图1(b)为例，Bob的低频交互项中隐藏着一个周期性的行为模式：买了手机就带了手表和笔记本。当他最近再次购买具有类似特性的产品时，笔记本电脑可能是给他的一个很好的推荐。然而，通过直接计算项目在时域的整体注意力得分，很难找到隐藏在序列中的周期性行为模式。&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法
+&lt;/h2&gt;&lt;p&gt;频率增强混合注意网络（FEARec）主要包括三个部分。最后，我们应用对比学习和频域损失来改善时域和频域的表示
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181049984.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;embedding-layer&#34;&gt;embedding layer
+&lt;/h3&gt;&lt;p&gt;加了位置编码和layer norm：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181148206.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;frequency-enhanced-hybrid-attention-encoder&#34;&gt;Frequency Enhanced Hybrid Attention Encoder
+&lt;/h3&gt;&lt;p&gt;混合注意力模块主要由三个模块构成：频率斜坡结构，混合注意力层和逐点前馈网络。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.2.1 频率斜坡结构&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个概念应该是参考了&lt;a class=&#34;link&#34; href=&#34;https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2205.12956.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Inception Transformer&lt;/a&gt; 这篇论文。频率斜坡结构就是：在低层给高频mixer分配更多特征，在高层给低频mixer分配更多特征。每一层提取一个频率子集，以保证不同的注意力块关注不同的频谱
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181204999.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181244040.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.2.2 时域自注意层&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;因为前面已经做了傅立叶变换，所以做个傅立叶反变换将频域转换到时域。&lt;/p&gt;
+&lt;p&gt;因为前面对频域进行了采样，所以增加个padding操作保证shape一致。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.2.3 频域自注意层&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过在频域计算自相关，捕获周期性行为模式。这一步是在建模图(1)(b)。&lt;/p&gt;
+&lt;p&gt;首先定义延时函数Roll，其实就是一个循环数组：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181310832.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;操作和时域差不多，多了一个点乘操作（element-wise product）。为什么频域的点乘会是自相关操作呢？这是根据维纳-辛钦定理得到的，通俗点说就是：时域卷积=频域相乘。
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181322450.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181339680.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;预估层&#34;&gt;预估层
+&lt;/h3&gt;&lt;p&gt;预估层是一个典型的序列推荐的输出，对候选矩阵E求内积再softmax：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181356205.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;多任务学习&#34;&gt;多任务学习
+&lt;/h3&gt;&lt;p&gt;从损失函数上加强频率分段注意力与周期性提取。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对比学习&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;简单的数据增强（裁剪、屏蔽和重新排序）&lt;strong&gt;不能保证高水平的语义相似性&lt;/strong&gt;，本文采用dropout作为增强方式。就是对嵌入层和混合注意模块进行dropout，作为正样本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;频域正则&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由于时域和频域特征表示相同的语义，只是在不同的域中，因此假设&lt;strong&gt;相似的时域特征的频谱也应该相似&lt;/strong&gt;。
+&lt;img src=&#34;http://localhost:1313/img/image-20240705181413394.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;img/image-20240705181413394.png&#34; alt=&#34;image-20240705181413394&#34; style=&#34;zoom:50%;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;实验&#34;&gt;实验
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240705181504587.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Graph Neural Networks in Recommender Systems: A Survey</title>
         <link>http://localhost:1313/p/graph-neural-networks-in-recommender-systems-a-survey/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/graph-neural-networks-in-recommender-systems-a-survey/</guid>
         <description>&lt;p&gt;由北大及阿里巴巴整合211篇论文后于2022年五月发表在ACM Computing Surveys上，该论文阐述了图神经网络(Graph Neural  Network,GNN）在推荐系统中的应用综述。GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。&lt;/p&gt;
@@ -839,9 +888,367 @@ Disentangled Contrastive Collaborative Filtering (SIGIR’23)解耦对比协同�
 </description>
         </item>
         <item>
+        <title>Graph Transformer for Recommendation</title>
+        <link>http://localhost:1313/p/graph-transformer-for-recommendation/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/graph-transformer-for-recommendation/</guid>
+        <description>&lt;p&gt;论文：https://arxiv.org/abs/2306.02330&lt;/p&gt;
+&lt;p&gt;代码：https://github.com/HKUDS/GFormer&lt;/p&gt;
+&lt;p&gt;SIGIR2023&lt;/p&gt;
+&lt;h2 id=&#34;研究动机&#34;&gt;研究动机
+&lt;/h2&gt;&lt;p&gt;什么样的监督信号才应该被保留和增强以最大化模型的效果？以及，基于人工设计的增强方案往往难以适应各个场景的推荐任务，有没有一种方案能够自适应的根据下游任务来提取最合适的自监督信号以适应性增强模型的表达能力呢？&lt;/p&gt;
+&lt;p&gt;为了解决上述问题，我们提出了Graph Transformer for Recommendation (GFormer) 模型，能够自适应的根据不同的场景信息以提取出最重要的监督信号来进行协同过滤信号的增强。具体来说，我们受到Rationale-aware方法和Transformer的启发，通过RA子图发掘方法和self-attention的结合来捕获最重要的RA子图结构，并据此进行下游任务自适应监督信号的效果增强&lt;/p&gt;
+&lt;h2 id=&#34;模型介绍&#34;&gt;模型介绍
+&lt;/h2&gt;&lt;p&gt;本文所介绍的GFormer模型，其主要模块包含全局拓扑信息注入层、协同信号RA发掘层以及自监督信号增强模块。GFormer模型的框架图如下所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240816162022803.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816162022803&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;21-全局拓扑信息注入层&#34;&gt;2.1 全局拓扑信息注入层
+&lt;/h3&gt;&lt;p&gt;全局关系信息与GNN的结合的在很多场景下都能发挥不错的效果，受到位置感知GNN方法的启发，我们通过注入高阶信息的依赖来提升模型协同信号的发掘能力。
+&lt;img src=&#34;http://localhost:1313/img/image-20240816162204377.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;具体来说，我们首先选出一部分锚点，然后为了捕获全局拓扑信息，我们分别计算图节点相对于&lt;strong&gt;锚集的相对位置信息，&lt;strong&gt;结合节点和锚点的表征信息来生成全局上下文信息。如此，我们的RA子图发掘模块就可以&lt;/strong&gt;捕获全局关系并识别出重要的用户商品交互信息&lt;/strong&gt;以进行SSL数据增强。&lt;/p&gt;
+&lt;h3 id=&#34;22-适应性ra子图发掘模块&#34;&gt;2.2 适应性RA子图发掘模块
+&lt;/h3&gt;&lt;p&gt;为了筛选出具有场景适应性的重要交互信息，我们提出了一种自适应的RA子图发掘方法，并以此为基础进行后续选择性的SSL的监督信号增强。
+&lt;img src=&#34;http://localhost:1313/img/640.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;具体来说，将包含了全局上下文和局部拓扑信息的用户商品表征信息注入到GT模块并通过自适应任务模块的引导来产生场景适应性的用户商品交互评分，并以此来筛选出包含重要交互信息特征的RA拓扑结构子图。同时，为了减少噪声带来的负面影响，我们增加了&lt;strong&gt;补图独立性模块&lt;/strong&gt;的设计，以更好的增加模型的鲁棒性。&lt;/p&gt;
+&lt;h3 id=&#34;23-自监督信号增强模块&#34;&gt;2.3 自监督信号增强模块
+&lt;/h3&gt;&lt;p&gt;传统的SSL范式的自监督模型监督信号的增强方案是通过人工设计对比视图，并通过互信息最大化的方法来引入额外的自监督信号，辅助主推荐任务的学习。然而，人工设计的视图缺乏场景适应性，且会引入多余的人工噪声。为了解决这个问题，我们设计了基于MAE框架的监督信号增强方法，跳出了传统SSL增强范式的桎梏。通过适应性重构重要交互信息的方式，较少了无关噪声影响的同时，取得了更好的模型效果。
+&lt;img src=&#34;http://localhost:1313/img/img/640-1723797187561-4.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Modeling User Fatigue for Sequential Recommendation</title>
+        <link>http://localhost:1313/p/modeling-user-fatigue-for-sequential-recommendation/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/modeling-user-fatigue-for-sequential-recommendation/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;SIGIR2024&lt;/p&gt;
+&lt;p&gt;之前有过一些讨论用户行为周期性的文章，目的是给用户重复推荐。这篇文章从相反的角度出发，提出了一个序列推荐模型 &lt;strong&gt;FRec&lt;/strong&gt; 用于用户疲劳建模，思考如何不给用户重复推荐。&lt;/p&gt;
+&lt;p&gt;代码链接：https://github.com/tsinghua-fib-lab/SIGIR24-FRec&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;用户疲劳的定义：用户可能会对与自己在短时间内接触过的内容过于相似的推荐感到厌倦。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下图展示了同类视频与非同类视频的有效观看率（EVTR，effective view-through  rate，应该就是观看超过多少秒视为有效观看）的变化曲线。与其他类别的视频相比，当用户对同一类别的有效观看次数过多时，目标类别视频的 EVTR  显著下降，并且持续较低。这是用户对重复观看类似视频感到疲劳的明显证据。&lt;/p&gt;
+&lt;p&gt;现有的推荐系统很少探讨用户疲劳问题，它有三个主要挑战：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;哪些特征支持它；&lt;/li&gt;
+&lt;li&gt;它如何影响用户兴趣；&lt;/li&gt;
+&lt;li&gt;它的显式信号如何获得。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法
+&lt;/h2&gt;&lt;p&gt;因为是序列推荐，输入就是用户历史行为序列&lt;/p&gt;
+&lt;p&gt;FRec的模型结构如下，主要包括三部分：兴趣感知相似度矩阵（ISM）、疲劳增强多兴趣融合（利用DCN增强表示）、疲劳门控循环单元（CNN+GRU）。
+&lt;img src=&#34;http://localhost:1313/img/image-20240705184137382.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;细粒度的兴趣感知相似度矩阵&#34;&gt;细粒度的兴趣感知相似度矩阵
+&lt;/h3&gt;&lt;p&gt;两个item之间的相似性可以源于多个方面并且对应于用户的多个子兴趣。例如，视频的相似度可以通过拍摄风格、视频基调、主题等方面来表征，这些都可以用来模拟用户观看时的疲劳程度。&lt;/p&gt;
+&lt;p&gt;这一节的目的就是提取K个target和历史行为的相似度。首先用self-attention从历史行为中提取K个兴趣：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705184152336.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://localhost:1313/img/image-20240705184224352.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;疲劳增强多兴趣融合&#34;&gt;疲劳增强多兴趣融合
+&lt;/h3&gt;&lt;p&gt;用户疲劳对兴趣的影响是复杂的，因此作者用DCN的方法处理相似度矩阵F的T维度：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195057128.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+再用相同的方式得到进行了疲劳增强融合的用户长期兴趣嵌入
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195117098.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;
+这个 h 会作为后续gru的初始状态：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195125029.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;疲劳门控循环单元&#34;&gt;疲劳门控循环单元
+&lt;/h3&gt;&lt;p&gt;历史序列中最近消耗的项目对于导致用户疲劳很重要。同样还是用DCN的方法处理相似度矩阵F的K维度：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195354194.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;此外，最近项目序列中包含的时间模式对于疲劳建模也是必要的。例如，连续消耗五个与目标项目相似的项目会比无序地消耗更强烈的疲劳感。因此用CNN建模：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195416215.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;最后再GRU
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195531065.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;疲劳监督对比学习&#34;&gt;疲劳监督对比学习
+&lt;/h3&gt;&lt;p&gt;对比思想：用户重复消费次数越多，他们会感到更加疲劳。&lt;/p&gt;
+&lt;p&gt;按下图构建增强数据：
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195553743.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后重新得到gru中的Q，并计算对比损失：&lt;/p&gt;
+&lt;h2 id=&#34;预估&#34;&gt;预估
+&lt;/h2&gt;&lt;p&gt;在交互预测中既考虑了用户的长期和短期兴趣，也要减去用户在对目标项目做出决策时的疲劳程度。用户和目标项目的预测分数计算如下
+&lt;img src=&#34;http://localhost:1313/img/image-20240705195635434.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Repetition and Exploration in Sequential Recommendation</title>
+        <link>http://localhost:1313/p/repetition-and-exploration-in-sequential-recommendation/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/repetition-and-exploration-in-sequential-recommendation/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;SIGIR 2023&lt;/p&gt;
+&lt;p&gt;代码链接：https://github.com/liming-7/Repetition-exploration-SR&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;动机&#34;&gt;动机
+&lt;/h2&gt;&lt;p&gt;目前的序列推荐文章没有从重复和探索的角度进行分析。在这篇文章中，从以用户为中心和以项目为中心的角度来考虑这问题。定义了项目重复暴露和项目探索暴露，并从重复和探索两个角度考察了序贯推荐模型的推荐性能。发现：(I)在准确性和难度方面存在不平衡。在SR场景中的重复和探索，(Ii)使用传统的平均总体准确率和显著性检验不能完全代表模型的推荐精度，以及(Iii)面向准确度的顺序推荐模型可能遭受较少/零项目探索暴露问题，其中项目大部分(甚至只)被推荐给他们的重复用户，而不能到达潜在的新用户&lt;/p&gt;
+&lt;p&gt;重复：下一项推荐什么时候出现在用户的历史交互序列中。&lt;/p&gt;
+&lt;p&gt;探索：什么时候首次出现与历史交互序列不同的项目。&lt;/p&gt;
+&lt;h2 id=&#34;定义&#34;&gt;定义
+&lt;/h2&gt;&lt;p&gt;物品曝光分为两个部分：来自从重复用户和来自探索用户的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240706133644744.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705201724523&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240706133654731.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705201724523&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;rq&#34;&gt;RQ
+&lt;/h2&gt;&lt;p&gt;RQ1SR模型如何执行重复和探索？在NBR之前的工作中报告的重复和探索之间的不平衡是否也存在于SR场景中？&lt;/p&gt;
+&lt;p&gt;RQ2我们是否应该考虑SR中的项目探索暴露？序贯推荐模型是如何执行物品探索性曝光和物品重复曝光？&lt;/p&gt;
+&lt;p&gt;RQ3重复的“快捷方式”是否强加了SR模型来为EXPLE-NEXT用户推荐重复的项目？&lt;/p&gt;
+&lt;p&gt;RQ4在纯探索性场景中，序列推荐模型的重复偏向是否仍然存在？&lt;/p&gt;
+&lt;p&gt;RQ5我们如何避免这种重复偏见的潜在影响&lt;/p&gt;
+&lt;h2 id=&#34;数据集&#34;&gt;数据集
+&lt;/h2&gt;&lt;p&gt;Diginetica and Yoochoose&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240706134226532.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705201724523&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;方法&#34;&gt;方法
+&lt;/h2&gt;&lt;p&gt;本文的目的是为了从一个新的角度进行性能评估和模型设计，而不是设计一个最佳模型，因此根据影响力、代表性，一致性选择现有模型进行分析。&lt;/p&gt;
+&lt;p&gt;分为重复用户（在下一步中购买重复物品的用户）和探索用户（在下一步中购物新物品）&lt;/p&gt;
+&lt;p&gt;文中使用了一个简单的办法们就是删除推荐结果中的重复项目。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>SelfGNN: Self-Supervised Graph Neural Networks for Sequential Recommendation</title>
+        <link>http://localhost:1313/p/selfgnn-self-supervised-graph-neural-networks-for-sequential-recommendation/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/selfgnn-self-supervised-graph-neural-networks-for-sequential-recommendation/</guid>
+        <description>&lt;h2 id=&#34;selfgnn-self-supervised-graph-neural-networks-for-sequential-recommendation&#34;&gt;SelfGNN: Self-Supervised Graph Neural Networks for Sequential Recommendation
+&lt;/h2&gt;&lt;h4 id=&#34;动机&#34;&gt;动机
+&lt;/h4&gt;&lt;p&gt;（1）现有的序列推荐模型主要集中于长期建模个别交互序列，忽视了不同用户行为之间宝贵的短期合作关系。&lt;/p&gt;
+&lt;p&gt;（2）现实世界的数据通常包含噪声，特别是在用户的短期行为中，这可能源于临时意图或误点击，这种噪声对图模型和序列模型的准确性产生负面影响，进一步复杂化了建模过程&lt;/p&gt;
+&lt;p&gt;SelfGNN能够捕捉多粒度的用户行为模式：基于图神经网络（GNN）对&lt;strong&gt;时间片段&lt;/strong&gt;内的交互行为建模，考虑了短期的高阶协同关系；基于序列模型对用户跨时间片段的行为进行关联学习，捕捉长期的时序变化模式。此外，研究人员提出了一种个性化自增强学习方法，通过对比长短期用户行为模式来降低数据噪音的影响，从而增强模型的稳健性。&lt;/p&gt;
+&lt;p&gt;阶段性的协同关系
+&lt;img src=&#34;http://localhost:1313/img/image-20240816171247169.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;引入了一种创新的自监督图推荐框架，通过集成基于&lt;strong&gt;区间级别的周期性协作关系学习&lt;/strong&gt;和&lt;strong&gt;关注实例级别&lt;/strong&gt;的顺序建模，有效地捕捉动态用户兴趣。&lt;/p&gt;
+&lt;p&gt;结合了个性化的自我增强学习组件，能够有效去噪稀疏短期图中的嘈杂交互。它还生成个性化权重以适应不同用户，增强模型适应个人偏好和稳定性的能力。&lt;/p&gt;
+&lt;h3 id=&#34;模型&#34;&gt;模型
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240816171843415.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816171843415&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;短期交互模型编码&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如图1所示，u1和u2在第一个周期具有明显的协同信号，而在第二个周期具有u3与u2相似的行为。&lt;/p&gt;
+&lt;p&gt;因此，SelfGNN根据时间间隔T（可调节的超参数）将全局数据划分为多个短期图At，i，j（表示在第t个时间段里用户i和物品j的隐式交互关系），然后利用l层图卷积神经网络（GCN）协同传播高阶信息。&lt;/p&gt;
+&lt;p&gt;将每个用户和每个项目在每个时间t下投影得到嵌入向量Et（u）和Et（v）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240816172908773.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816172908773.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;双粒度长期行为建模&#34;&gt;双粒度长期行为建模
+&lt;/h4&gt;&lt;p&gt;SelfGNN通过间隔级别（interval-level）融合和实例级别（instance-level）行为建模在双粒度级别捕获长期用户和项商品表示。从两个不同的层次进行长期特征学习，能够使得两个层次互相补偿，增加可学习的信息。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;区间级序列模式建模&lt;/strong&gt;，它将短期特征整合到基于时间注意力的长期嵌入中，捕捉不同时期之间的动态变化；&lt;/p&gt;
+&lt;p&gt;先用GRU构建每个阶段的表示，然后把每个阶段的表示构成序列。再用多头自注意力得到长期嵌入。
+&lt;img src=&#34;http://localhost:1313/img/image-20240816182049739.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816182049739.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;**实例级序列模式建模，**它直接学习特定项实例之间的成对关系。
+&lt;img src=&#34;http://localhost:1313/img/image-20240816190302520.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816190302520.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;多视角融合和预测&#34;&gt;&lt;strong&gt;多视角融合和预测&lt;/strong&gt;
+&lt;/h4&gt;&lt;p&gt;在进行预测之前，我们聚合来自实例级和间隔级方法得出的多视图用户特征，并按如下方式进行最终预测
+&lt;img src=&#34;http://localhost:1313/img/image-20240816190622590.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816190622590.pn&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;在ˆA_T+1,i,j ∈ R中，表示通过计算用户和物品之间的相似度，预测未来（T + 1）时间段中用户ui与物品vj的交互。接下来，正样本包括用户已有交互的物品，而负样本包括用户未曾交互的物品。为了避免预测值过大，我们采用限制条件来优化以下损失函数：
+&lt;img src=&#34;http://localhost:1313/img/image-20240816190631985.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816190631985.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;个性化自监督去噪&#34;&gt;&lt;strong&gt;个性化自监督去噪&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;为了缓解用户序列行为数据中普遍存在的数据稀疏性和数据噪声问题，SelfGNN通过一个个性化去噪自监督学习任务进行了进一步增强。&lt;/p&gt;
+&lt;p&gt;这里的“噪声”指的是暂时性的意图或误点击。他们不能被视为长期用户兴趣或新近兴趣点的预测。&lt;/p&gt;
+&lt;p&gt;具体而言，&lt;strong&gt;SelfGNN的自监督任务专注于使用长期行为模式过滤短期非固有用户偏好。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个设计基于以下观察：用户的行为可能受到短期随机兴趣的驱动，例如，一个不喜欢徒步旅行的用户也可能因为一次性活动购买徒步鞋和能量饮料。这种噪声行为数据可能会干扰用户长期真实兴趣的建模。&lt;/p&gt;
+&lt;p&gt;此外，为了准确识别这些噪声的短期行为，根据不同用户的兴趣多样性对去噪SSL任务进行了个性化，如图3所示。
+&lt;img src=&#34;http://localhost:1313/img/image-20240816194801165.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240816194801165.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Sequential Recommender Systems: Challenges, Progress and Prospects</title>
         <link>http://localhost:1313/p/sequential-recommender-systems-challenges-progress-and-prospects/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/sequential-recommender-systems-challenges-progress-and-prospects/</guid>
         <description>&lt;h3 id=&#34;一简介&#34;&gt;一、简介
@@ -923,7 +1330,7 @@ CNN就是将序列的embedding矩阵看作一个图片（跟NLP差不多）。CN
         <item>
         <title>Time Interval Aware Self-Attention for Sequential Recommendation</title>
         <link>http://localhost:1313/p/time-interval-aware-self-attention-for-sequential-recommendation/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/time-interval-aware-self-attention-for-sequential-recommendation/</guid>
         <description>&lt;h3 id=&#34;摘要&#34;&gt;摘要
@@ -940,9 +1347,114 @@ CNN就是将序列的embedding矩阵看作一个图片（跟NLP差不多）。CN
 </description>
         </item>
         <item>
+        <title>To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Sequential Recommendation</title>
+        <link>http://localhost:1313/p/to-copy-or-not-to-copy-that-is-a-critical-issue-of-the-output-softmax-layer-in-sequential-recommendation/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/to-copy-or-not-to-copy-that-is-a-critical-issue-of-the-output-softmax-layer-in-sequential-recommendation/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;WSDM 2024&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/iesl/softmax_CPR_recommend&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/iesl/softmax_CPR_recommend&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;引言&#34;&gt;引言
+&lt;/h3&gt;&lt;p&gt;现有方法并不能很好地决定是否复制或排除用户历史行为中出现过的商品。本文从这个动机出发，确定了这个问题的根源在softmax层，并在缓解 softmax 的问题后得到了显着的性能改进。&lt;/p&gt;
+&lt;p&gt;在协同过滤中，softmax/矩阵分解层有几个优点：**它会鼓励相似的项目具有相似的emb，并且相似的输入序列会被编码为相似的用户emb。**比如可乐和雪碧在用户的历史行为中共现次数很多，神经网络会给共现次数多的商品有相近的emb映射。如下图所示，softmax函数会拉近分子，拉远分母。&lt;/p&gt;
+&lt;p&gt;尽管softmax/矩阵分解层很有效，但其&lt;strong&gt;相似性结构是全局的&lt;/strong&gt;，有时会阻止神经推荐器输出所需的分布。如下图所示，如果一个用户重复购买了尿布产品和苹果汁产品，则下一个商品很可能是尿布产品或苹果汁产品。为了输出分布，神经推荐器需要输出介于尿布嵌入和苹果汁嵌入之间的用户嵌入，这可能会意外地接近苹果味婴儿食品的嵌入和/或苹果汁的嵌入孩子们。在这种情况下，softmax 层中的单个隐藏状态嵌入和静态项目嵌入导致难以正确复制历史项目序列中的项目。当嵌入空间非常拥挤时（例如，项目数量很大），这个问题会变得更加严重。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/assets/image-20240705201724523.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705201724523&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;另一方面，相似性结构也可能迫使神经推荐器不正确地复制先前的项目。如下图所示，如果一个用户刚刚购买了《复仇者联盟》电影的 DVD，则该用户可能想观看其他漫威电影，例如《钢铁侠》或《美国队长》（即类似《复仇者联盟》的电影，但不是《复仇者联盟》本身）  。然而，接近所有其他漫威电影的用户嵌入将不可避免地接近复仇者联盟的嵌入，因为复仇者联盟电影与所有其他漫威电影相关。这可能会迫使神经推荐器继续推荐用户以前看过的电影。在这种情况下，softmax层会导致难以正确排除历史项目序列中的项目。&lt;/p&gt;
+&lt;p&gt;由于问题的本质在于softmax函数无法在copy和exclude之间有效切换，即所谓的softmax瓶颈问题，因此本文提出将softmax-CPR函数应用在序列推荐上。softmax-CPR最初提出是为了减少语言生成模型的幻觉。&lt;/p&gt;
+&lt;h3 id=&#34;方法&#34;&gt;方法
+&lt;/h3&gt;&lt;p&gt;softmax 层如下所示，会拉近分子，拉远分母：
+&lt;img src=&#34;http://localhost:1313/assets/image-20240705202106301.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705202106301.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Softmax-CPR 包括三个部分：上下文分区、指针网络和Reranker分区。如下图所示：
+&lt;img src=&#34;http://localhost:1313/assets/image-20240705202131040.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705202131040.png&#34;
+	
+	
+&gt;
+&lt;img src=&#34;http://localhost:1313/assets/image-20240705202402000.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705202402000.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-实验&#34;&gt;3 实验
+&lt;/h3&gt;</description>
+        </item>
+        <item>
+        <title>各种掩码介绍</title>
+        <link>http://localhost:1313/p/%E5%90%84%E7%A7%8D%E6%8E%A9%E7%A0%81%E4%BB%8B%E7%BB%8D/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E5%90%84%E7%A7%8D%E6%8E%A9%E7%A0%81%E4%BB%8B%E7%BB%8D/</guid>
+        <description>&lt;h2 id=&#34;前瞻掩码-look-ahead-mask&#34;&gt;前瞻掩码 Look-ahead Mask
+&lt;/h2&gt;&lt;p&gt;前瞻掩码通过在自注意力机制中屏蔽（即设置为一个非常小的负值，如负无穷大）未来时间步的信息来工作。这确保了在计算每个元素的输出时，模型只能使用到当前和之前的信息，而不能使用后面的信息。这种机制对于保持自回归属性（即一次生成一个输出，且依赖于前面的输出）是必要的。&lt;/p&gt;
+&lt;p&gt;在实现时，前瞻掩码通常表示为一个上三角矩阵，其中对角线及对角线以下的元素为0（表示这些位置的信息是可见的），对角线以上的元素为1（表示这些位置的信息是不可见的）。在计算注意力时，这些为1的位置会被设置为一个非常小的负数（通常是负无穷），这样经过softmax函数后，这些位置的权重接近于0，从而不会对输出产生影响。&lt;/p&gt;
+&lt;h2 id=&#34;序列掩码&#34;&gt;序列掩码
+&lt;/h2&gt;&lt;p&gt;在使用如Transformer模型时，序列掩码用于避免在计算注意力分数时考虑到填充位置的影响。这确保了模型的注意力是集中在实际有意义的数据上，而不是无关的填充数据。&lt;/p&gt;
+&lt;p&gt;RNNs本身可以处理不同长度的序列，但在批处理和某些架构中，仍然需要固定长度的输入。序列掩码在这里可以帮助RNN忽略掉序列中的填充部分，特别是在计算最终序列输出或状态时。&lt;/p&gt;
+&lt;p&gt;在训练模型时，序列掩码也可以用来确保在计算损失函数时，不会将填充部分的预测误差纳入总损失中，从而提高模型训练的准确性和效率。&lt;/p&gt;
+&lt;p&gt;序列掩码通常表示为一个与序列数据维度相同的二进制矩阵或向量，其中1表示实际数据，0表示填充数据&lt;/p&gt;
+&lt;h2 id=&#34;填充掩码&#34;&gt;填充掩码
+&lt;/h2&gt;&lt;p&gt;填充掩码就是用来指示哪些数据是真实的，哪些是填充的。在模型处理这些数据时，掩码会用来避免在计算损失或者梯度时考虑填充的部分，确保模型的学习只关注于有效的数据。在使用诸如Transformer这样的模型时，填充掩码特别重要，因为它们可以帮助模型在进行自注意力计算时忽略掉填充的位置。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>序列加宽</title>
+        <link>http://localhost:1313/p/%E5%BA%8F%E5%88%97%E5%8A%A0%E5%AE%BD/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E5%BA%8F%E5%88%97%E5%8A%A0%E5%AE%BD/</guid>
+        <description>&lt;h2 id=&#34;序列加宽&#34;&gt;序列加宽
+&lt;/h2&gt;&lt;p&gt;序列再长也只是这一个用户的序列，这篇论文直接从别的用户的行为中寻找item。用所有用户的行为序列构建一个item图，图上的每个节点都是一个item，item有边代表有用户依次点击过这两个item。&lt;/p&gt;
+&lt;p&gt;本文首先定义了一个图上的triangle，triangle的定义不是重点，可以把&lt;strong&gt;triangle简单的理解为图上的邻居&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下图中的红框部分就是一个类似于DIN的计算attention的网络，左边是处理triangle的，有边是计算多阶triangle（理解为图上的多阶邻居）attention的网络。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240705114803682.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20240705114803682&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;某阶的TriangleNet：每一阶会有多个triangle，每个triangle会有3个item，所以就先内部聚合（intra），简单的avg pooling；再外部聚合（inter），multi-head self-attention。&lt;/p&gt;
+&lt;p&gt;玩法一：加item的属性。这个属性的选择非常有讲究，&lt;strong&gt;得是变化的、且用户非常敏感的&lt;/strong&gt;，比如价钱、比如补贴；不能是那种无关痛痒的属性。属性的文章讲了3篇，分别是&lt;strong&gt;多属性attention&lt;/strong&gt;、考虑&lt;strong&gt;属性间关系的attenion&lt;/strong&gt;、考虑&lt;strong&gt;属性某种具体的相互关系（结构信息）的attention&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;玩法二：加更多的item，不过不是加长，而是通过&lt;strong&gt;图（本质是通过其他用户），引入一些用户以前没见过（或没交互过）但可能感兴趣的item&lt;/strong&gt;；这种加item的方式可以离线完成，可以用一些“高大上”的方法吹牛逼。个人感觉，这种方法有效的本质是&lt;strong&gt;学习了更多的共现关系。&lt;strong&gt;之前在给user选择poi时，只学习了user自己历史内的poi的共现关系；通过某种合理的方式（如其他用户的历史行为）引入更多&lt;/strong&gt;共现关系&lt;/strong&gt;可以拓宽模型的视野。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>序列推荐中sideinfo的处理方法</title>
         <link>http://localhost:1313/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</guid>
         <description>&lt;p&gt;除了商品以外，所有的信息都是side information（辅助信息）&lt;/p&gt;
@@ -1206,1888 +1718,9 @@ ASIF的ID和sideinfo在表示空间的分布也更加一致。（但好像有个
 </description>
         </item>
         <item>
-        <title>推荐系统相关论文</title>
-        <link>http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/</guid>
-        <description>&lt;h2 id=&#34;从技术角度分类&#34;&gt;从技术角度分类
-&lt;/h2&gt;&lt;h3 id=&#34;基于注意力模型&#34;&gt;基于注意力模型
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Decoupled Side Information Fusion for Sequential Recommendation(SIGIR 2022)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/AIM-SE/DIF-SR&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/AIM-SE/DIF-SR&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当前大多数方法都采用自注意力网络，并专注于探索各种解决方案，以集成商品embedding和辅助信息embedding。然而，作者分析表明，由于秩瓶颈 (rank bottleneck)，各种embedding的早期集成限制了注意力矩阵的表达能力，并限制了梯度的灵活性。此外，它涉及不同异构信息资源之间的混合相关性，给注意力计算带来了额外的干扰。受此启发，提出了序列推荐的解耦辅助信息融合方法 (DIF-SR)，它将辅助信息从输入层移动到注意力层，简化了边信息和项目表示的注意力计算。从理论上和经验上表明，所提出的解决方案允许更高秩的注意力矩阵 (higher-rank attention matrices)和灵活的梯度来增强辅助信息融合的建模能力。此外，本文还提出了辅助属性预测器 以进一步激活辅助信息和商品表示学习之间的有益交互。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;模型&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Adaptive Disentangled Transformer for Sequential Recommendation（KDD 2023）
-用于序列推荐的自适应解纠缠Transformer&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/defineZYP/ADT&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/defineZYP/ADT&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;然而，现有的Transformer架构缺乏显式的正则化逐层解纠缠，这无法利用解纠缠表示的推荐，并导致次优性能。在本文中，我们研究了逐层解纠缠Transformer架构的问题，并提出了自适应解纠缠Transformer（ADT）框架，它能够自适应地确定不同层内的注意头的最佳解纠缠度。具体地说，我们建议通过要求独立性约束，通过互信息估计的注意头和采用辅助目标，以防止信息崩溃成无用的噪音，以鼓励解开。我们进一步提出了一个渐进的调度程序，通过进化过程自适应地调整控制解纠缠度的权重。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Amazon&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cseweb.ucsd.edu/~jmcauley/datasets.html#steam_data&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Steam（该数据集包含从Steam游戏平台抓取的大量用户评论。）&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;MovieLens&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Mixed Attention Network for Cross-domain Sequential Recommendation（WSDM 2024）
-基于混合注意力网络的跨域顺序推荐&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sequential Recommendation via Stochastic Self-Attention（WWW 2022）
-基于随机自注意的顺序推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/zfan20/STOSA&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/zfan20/STOSA&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用户的真实世界的顺序行为是不确定的。基于点积的方法不能完全捕获协作传递性。且BPR损失对正样本和采样的负样本没有约束，这会误导优化过程。我们提出了一种新颖的STOchastic Self-Attention (STOSA)来解决这些问题。STOSA特别将每个项目嵌入为一个随机高斯分布，其中的协方差编码了不确定性。我们设计了一个新颖的Wasserstein Self-Attention模块来表征序列中项目-项目的位置关系，有效地将不确定性纳入模型训练。Wasserstein注意力还启示了协同转移学习，因为它满足三角不等式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention（AAAI 2024）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/yehjin-shin/bsarec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/yehjin-shin/bsarec&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;基于图神经网络&#34;&gt;基于图神经网络
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Graph Neural Networks in Recommender Systems: A Survey（ACM  Computing Surveys 2022）
-图神经网络在推荐系统中的应用&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;论文链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/wusw14/GNN-in-RS&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/wusw14/GNN-in-RS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2 背景和分类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;推荐系统&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;GNN&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;graph convolutional network (GCN)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;graph attention network (GAT)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;gated graph neural network (GGNN)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;GraphSage&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为什么将图神经网络应用于推荐系统&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;基于图神经网络推荐的分类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;分类的依据如下：图的结构在很大程度上取决于信息的类型。例如：社交网络可以自然地看作是一个同构图，用户-物品交互关系可以被认为是一个二分图或者是两个同构图（即  用户-用户和物品-物品图）。而且，推荐系统的任务和被使用信息的类型是高度相关的。例如，社交网络通过利用社交网络信息来构建推荐，知识图谱通过利用物品与物品之间的语义关系来增强物品的表示&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3 用户-物品 协同过滤&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;四个问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图结构&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;邻居聚合&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息更新&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最终节点表示&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;代表性方法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;GC-MC&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;矩阵补完&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;只考虑一跳邻居，并且丢弃原始节点信息&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;采用 mean-pooling 去聚合邻居节点&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一视同仁的对待用户和物品&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;只用结点的最后一层进行预测&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;STAR-GCN&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;堆叠 GCN&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;引入重构机制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在训练过程中注重标签泄漏问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在训练阶段对部分结点进行掩码，并在掩码的节点上增加重构损失&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;利用重构策略缓解过拟合&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;平等的对待用户和物品&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;只用结点的最后一层进行预测&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;NGCF&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;利用不同层的表示来获得结点的 embedding&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;利用残差网络的优势&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;通过对邻居采用激活函数做summing up得到&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;PinSage&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;结合随机游走方法和图卷积&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;采样固定数量的邻居&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;从特定结点开始模仿随机游走策略的过程，然后计算出L1归一化后的结点访问次数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;结点u的邻居是前T个具有最高归一化访问次数的结点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;那些不直接与u相邻的结点也可能是它的邻居&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在聚合时，利用归一化访问次数来作为衡量邻居重要性的指标&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;importance-pooling 比 mean-pooling 采样方法更好&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这意味着并不是所有邻居结点在表示中心结点时都发挥相同的作用&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;由于随机游走策略，失去了原始图结构&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;因为并不是以邻居来作为表示&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;IG-MC&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;也是矩阵补全，方法同 GC-MC&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;先构造子图，然后在子图上操作&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;减少对原始图结构的依赖性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缓解了在稀疏数据集上性能下降的问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用户集合&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;由目标用户和与目标物品交互过的用户组成&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;物品集合&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;由目标物品和与目标用户交互过的物品组成&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;针对数据稀疏性和冷启动问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;总结&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图的构造（Graph Construction）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;原始图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;构造子图&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;邻居聚合（Neighbor Aggregation）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;聚合函数&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;mean pooling 无区别对待邻居结点&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;degree normalization 通过图结构赋值结点的权重&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;attentive pooling 利用注意力机制来区分邻居的重要性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Central node augmentation 考虑结点之间的关联性，并利用中心结点来过滤邻居的消息&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息更新（Information Update）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;mean-pooling&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;sum-pooling&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;concatenation with transformation&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;最终结点表示（Final Node Representation）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;用最后一层作为表示&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用 weighted-pooling 或 concatenation operation 集成所有层的表示&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;4 序列推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;总体框架&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;就是在序列推荐模型前，用GCN提取用户行为中的特征&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;把GNN应用在序列推荐上的三个问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图的构造&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;怎么把序列数据转换成有序图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;顺序行为的构造策略
-由于在很多情况下用户行为序列较短，直接在连读单击的两个项目之间添加节点的办法包含的信息太少。最近的研究提出了几种丰富原有序列图结构的策略，可分为两大主流。
-一种主流方法是利用额外的序列（比如整个数据集中的序列）来丰富项目之间的转换。另一种是调整当前序列的图结构&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息传播&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;怎么设计高效的传播机制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;GGNN框架被广泛采用来在有向图上传播信息。具体来说，它采用均值池分别聚合前一项和下一项的信息;组合两个聚合表示;并利用GRU组件整合邻居和中心节点的信息。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;序列偏好&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;怎么捕获用户的时间相关偏好&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;考虑到序列中的项目具有不同的优先级，因此采用注意机制进行集成。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;总结&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图的构造&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;SR-GNN链接两个相邻的点击物品&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;MG-GNN提取三个后续项，并在它们之间添加边，这样可以同等对待最后三个项&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;序列建模依赖于构造的图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;迄今为止，这里没有证据显示哪种策略更好，另外，现有的作品忽略了连续项目之间的时间间隔，这可能会进一步提高性能&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;信息传播&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用 mean-pooling 去一视同仁的聚合&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用注意力机制去区分邻居的影响&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用GRU&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;序列偏好&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;GNN组件的输出是结点表示形式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一个结点序列的表示需要被整合成顺序表示&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;MA-GNN使用 mean-pooling 去聚合&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用注意力机制&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;SR-GNN&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;GC-SAN&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A-PGNN&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;FGNN 使用GRU和ATT&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;增强物品之间的顺序关系&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;5 社交化推荐系统&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;两个问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;朋友的影响是否相同？如果不同，应该怎么区分&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;怎么从社会影响角度和交互行为整合用户表示&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;社交网络增强&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;两个策略&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;将社交网络作为图数据&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;从图结构角度考虑社交信息和用户-物品交互&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DGRec&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;将社交网络作为图数据&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;每个用户动态兴趣从它们最近的session行为中使用LSTM抽取&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在社交网络中用户的表征是动态的&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;考虑到社交影响可能会随着上下文有所不同，DGRec使用GAT去区分朋友的影响&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;消融研究表明，与有社会网络的一般推荐和无侧信息模型的顺序推荐相比，DGRec具有显著的性能&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;结果表明了在顺序推荐中考虑动态社会影响的合理性。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;代表性方法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;DiffNet&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/PeiJieSun/diffnet&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/PeiJieSun/diffnet&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用 graphSage 模拟社会扩散过程对用户的影响&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用 mean-pooling去聚合用户的表示&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对历史物品使用mean-pooling得到物品空间中用户的偏好&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在扩散完毕后，使用得到的用户表示来代替原始的用户 embedding&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Note that taking the average representation of interacted item embeddings as the user preference in item space is equivalent to aggregate one-hop neighbors for the user vector&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;没看明白&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;与TrustSVD相比，DiffNet通过利用GNN机制捕获了更深层次的社会扩散过程。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特点与不足之处：假定邻居的影响力相同&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;GraphRec&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;考虑社交关系图和用户物品二部图这两张图，各自应用注意力机制&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;用att来学习用户和物品的embedding&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用att来区分邻居的影响&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;邻居对用户的影响取决于他们潜在向量之间的相似性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用户表示由物品空间表示和社交空间表示组合而成&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;注意力机制由于区分了邻居的影响和物品的重要性得到了性能提升&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;社会影响可能并没有被充分利用，因为GraphRec只使用了一层GAT来模拟社会图中的社会影响&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DANSER&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;以往工作假定社会影响是静态的，本文用GAN去学习动态的影响&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;具体做法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用GAN去学习双重社会影响&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;其中一个由特定的注意权重建模&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;另一个由动态的上下文感知注意权重建模&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;捕捉静态&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;传播固有的用户偏好向量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;捕捉动态&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;传播上下文感知的用户向量&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;依赖于目标目标物品&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用 max-pooling 计算&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;贡献&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;整合了静态和动态的用户偏好&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DiffNet、GraphRec、DANSER的小结&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;上面的方法要么使用社会图建模，要么学习社会空间和物品空间中的用户向量然后再整合&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;都没有充分利用节点在不同层次的嵌入&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DiffNet++&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;首先在二部图和社交网络中用GAT聚合邻居结点的信息&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;注意力机制被用来融合邻居的两个状态&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用户节点的表示被附加的融合向量更新&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对于物品结点，使用GAT传播交互用户的信息&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用不同隐藏层去表示全体结点&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;总结&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;影响力建模&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用注意力机制来捕捉不同朋友的影响力&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;考虑到朋友的影响力可能会因为物品而边花&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;DANSER对特定的物品考虑啊动态的用户表示&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;偏好整合&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;6 基于知识图谱推荐系统&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;引入知识图谱的三个好处&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;KG具有丰富的语义，能够探索物品间潜在的联系&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;提高推荐的多样性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;引入可解释性&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;基于KG的RS的三个挑战&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图的简化&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;KG具有非常复杂的结构，如何简化图达到更好的传播效果&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;多关系传播&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;KG的结点具有非常多的连接，如何传播信息&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用户整合&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;怎么融合KG和用户特征&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;代表方法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;KGCN&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 user-specific relation-aware graph neural network 去聚合邻居实体信息&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;KGNN-LS&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;KGAT&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;IntentGC&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;AKGE&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;总结&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;图构建&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;可感知聚合&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;7 其他工作&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;兴趣点推荐&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;群推荐&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;捆绑推荐&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;点击预测&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;多媒体推荐&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;8 数据集、评估指标和应用&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;		- [MovieLens](https://grouplens.org/datasets/movielens/.)
-
-		- [Amazon](http://jmcauley.ucsd.edu/data/amazon/links.html)
-
-		- [Yelp](https://www.yelp.com/dataset)
-
-		- [Gowalla](http://snap.stanford.edu/data/loc-gowalla.html)
-
-		- Yoochoose
-
-		- [Diginetica](http://cikm2016.cs.iupui.edu/cikm-cup)
-
-		- [RetailRocket](https://www.kaggle.com/retailrocket/ecommerce-dataset)
-
-	- 评估指标
-
-		- HR
-
-		- Precision，recall
-
-		- NDCG
-
-		- MAP
-
-		- AUC
-
-- 9 未来的研究方向
-
-	- 多样化和不确定性的表示
-
-		- 单重向量很难捕捉用户兴趣中的特征，已有一些研究用多个向量来表示用户。或者是用密度表示用户，比如用高斯嵌入捕获用户的不确定偏好。
-
-	- 推荐系统中GNN的拓展性
-
-		- 直接使用 GNN，在工业界的大规模数据上效率很低。一种思路是使用采样策略降低图的大小，另一种思路是设计可扩展的高效的 GNN
-
-	- 推荐系统中的动态图
-
-		- 实际场景中 users、items 以及他们之间的关系都是动态变化的，为了能做到 up-to-date recommendation，模型需要能够迭代更新。但是目前很少研究关注动态图。
-
-	- 推荐系统中的GNN的感受野
-
-		- 对于推荐中的图数据，节点的度呈现长尾分布;即，活跃用户与项目的交互较多，而冷用户与项目的交互较少，与热门项目和冷项目的交互相似.因此，在所有节点上应用相同的传播步骤可能是次优的
-
-	- 自监督学习
-
-		- 自监督学习（SSL）是一种提高数据利用率的新兴范式，它可以帮助缓解稀疏性问题
-
-	- 基于GNN推荐系统的鲁棒性
-
-	- 隐私保护
-
-		- 使用联邦学习来训练推荐系统，而无需将用户数据上传到中央服务器。然而，本地用户数据仅包含一阶用户-项目交互，这使得在没有隐私链接的情况下很难捕获高阶连接。另一种方法是在推荐系统的过程中采用差分隐私来保证用户隐私，但通常会降低性能
-
-	- 基于GNN推荐系统的公平性
-
-		- 对于不同人口统计群体的用户的推荐性能应该接近，并且每个项目应该具有相等的总体曝光概率
-
-	- 可解释性
-
-		- 这些方法可以分为两类：实例级方法通过识别预测的重要输入特征来提供特定于示例的解释;模型级方法提供高级解释和对深度图模型如何工作的一般理解。也有一些关于基于GNN的建议的可解释性的尝试。它们大多利用知识图中的语义信息进行事后解释。到目前为止，可解释的基于GNN的推荐系统还没有得到充分的探索，
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Session-based Recommendation with Graph Neural Networks(AAAI 2019)
-基于图神经网络的会话推荐&lt;/p&gt;
-&lt;p&gt;基于会话的推荐旨在仅根据用户当前的连续会话数据来预测用户下一步将点击哪一项，而无需访问长期偏好配置文件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/CRIPAC-DIG/SR-GNN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/CRIPAC-DIG/SR-GNN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;存在问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;传统工作直接把 session 处理成序列然后对用户建模，忽略了复杂的物品转移模式
-传统序列推荐的几个 limitations：session 如果不够长，那么很难有效的生成用户表示；忽略了物品复杂的转移模式，远距离的依赖往往被忽略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;模型&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;第一次将图神经网络（GNN）应用于序列推荐，提出了 SR-GNN 模型，模型把将每个会话序列当做一个有向图（而不是建模成序列），针对重复的边和节点，其中采取了边权重均一化，然后利用 GNN 得到节点潜在向量，通过门控制，得到最好的节点向量表示，最后通过对局部和全局向量的拼接，得到了结合了长期短期偏好相结合的序列向量表示。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;	  首先，所有会话序列都被建模为有向会话图，其中每个会话序列都可以看作一个子图。然后依次对每个会话图进行处理，通过门图神经网络得到每个会话图中所有节点的潜在向量。每个会话嵌入由全局兴趣和局部兴趣构成，全局兴趣嵌入使用attention机制获得和局部兴趣则选择使用会话中最后一个item。最后，对于每个会话，我们预测每个项目成为下一次点击的概率。
-	  对于每个 session，构造 session graph 和邻接矩阵
-	  对于 session graph 上的每个 node，生成它们的 embedding
-	  对于 node embedding，分别获取 global interests embedding 和 local interests embedding
-	  将 global and local interests 结合起来生成 session embedding
-	  最后通过 session embedding 进行预测
-	
-- 实现
-
-	- 对每个session构造一个图，两个连续的项目之间有边
-
-	- SR-GNN定义了两个邻接矩阵，一个是表示入度，另一个表示出度
-
-		- 当前物品的信息可以用前一个物品和下一个物品表示。对应入边和出边
-
-		- 在SR-GNN中假定邻居一样重要
-
-	- SR-GNN使用GRU机制去更新当前物品的embedding，该机制决定了哪些邻居信息可以传播
-
-	- 为了更好的预测，关键点是怎么学习一个session的embedding，因为它反映了用户的偏好
-
-		- SR-GNN考虑了session的当前兴趣和全局兴趣
-
-		- 它将GNN中第L层的最后一个点击物品的embedding作为session s的local embedding
-
-		- 全局embedding则由自注意力机制聚合而来
-
-- 数据集
-
-	- [Yoochoose（其中包含6个月内用户对电子商务网站的点击流。）](https://aistudio.baidu.com/datasetdetail/179508)
-
-	- [Diginetica（该数据集包含了从电商搜索引擎日志中抽取的用户会话信息,包含匿名的 user IDs, 经过哈希处理的查询、产品说明和元数据,）](https://competitions.codalab.org/competitions/11161#learn_the_details-data2)
-
-- 总结
-
-	- 区别于之间使用 RNN 的工作，SR-GNN 考虑了 session 中的长期依赖，使用 GNN 去捕捉复杂的物品转移模式，使用注意力机制生成长期依赖，最终达到了 SOTA 的效果
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Graph Contextualized Self-Attention Network for Session-based Recommendation（IJCAI 19)
-基于图上下文自注意网络的会话推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/johnny12150/GC-SAN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/johnny12150/GC-SAN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;动机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对于当前的 session based recsys，没有很好的捕捉上下文信息，达不到最优的效果&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;模型&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;改进：用self-attention 生成 global interests embedding，能捕获到更多的交互&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实现&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;实验结果显示基于GNN的推荐模型会倾向于推荐热门物品，为了消除这个问题，NISER对于物品和session使用了l2正则化&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;消融实验显示正则化操作能够有效的缓解误差&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;为了增强物品交互的序列信息，positional embedding被加入到item embedding中&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Diginetica&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Retailrocke（其中包含了6个月的用户浏览活动）&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1912.11730&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Memory Augmented Graph Neural Networks for Sequential Recommendation（AAAI 2020）&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3394486.3403091&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Disentangled Self-Supervision in Sequential Recommenders (KDD 2020)&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3394486.3403170&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Handling Information Loss of Graph Neural Networks for Session-based Recommendation (KDD 2020) &lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/twchen/lessr&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/twchen/lessr&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3397271.3401319&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;TAGNN: Target Attentive Graph Neural Networks for Session-Based Recommendation (SIGIR 2020)&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3397271.3401109&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;GAG: Global Attributed Graph Neural Network for Streaming Session-based Recommendation (SIGIR 2020)&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3397271.3401142&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Global Context Enhanced Graph Neural Networks for Session-based Recommendation (SIGIR 2020) &lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3366423.3380077&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Beyond clicks: Modeling multi-relational item graph for session-based target behavior prediction (WWW 2020) &lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://ojs.aaai.org/index.php/AAAI/article/view/16578/16385&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Self-Supervised Hypergraph Convolutional Networks for Session-based Recommendation(AAAI&#39;21)&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/xiaxin1998/DHCN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/xiaxin1998/DHCN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3404835.3463112&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Temporal Augmented Graph Neural Networks for Session-Based Recommendations (SIGIR&#39;21) &lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/CRIPAC-DIG/TAGNN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/CRIPAC-DIG/TAGNN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dl.acm.org/doi/abs/10.1145/3404835.3462866&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Dual Attention Transfer in Session-Based Recommendation with Multi- Dimensional Integration (SIGIR&#39;21)&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Sequential Recommendation with Graph Neural Networks(SIGIR 2021)
-基于图神经网络的顺序推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/tsinghua-fib-lab/SIGIR21-SURGE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/tsinghua-fib-lab/SIGIR21-SURGE&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;动机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先，用户在其丰富的历史序列中的行为往往是隐含的、噪声的偏好信号，不能充分反映用户的实际偏好。此外，用户的动态偏好通常会随着时间的推移而快速变化，因此很难捕捉其历史序列中的用户模式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实现&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;（1）从新角度解决顺序推荐,考虑隐信号行为和快速变化的偏好（2）通过物品-物品兴趣图,使用GNN网络将隐式信号转化为显式信号,设计动态池化来过滤和保留主要偏好以供推荐&lt;/p&gt;
-&lt;p&gt;兴趣图构建模块：  首先模型需要将序列构造成图，但是SR中的序列是长序列且大多不重复，因此无法直接使用GNN。作者这里使用相似度学习将相似物品进行靠近完成图构造&lt;br&gt;
-兴趣融合图卷积层： 通过兴趣图来计算每个节点的向量表征 ，同样利用多头机制。 聚簇注意力代表当前节点与邻居节点的相似度， 查询感知注意力代表邻居节点和目标物品的相似度，融合两个注意力构成兴趣
-兴趣提取图池化层： 通过聚簇完成兴趣提取，同时为了保证聚簇具有相同的时序关系，使用了三种正则化。一是使两个有很强连接的点被分到同一个簇，二是单个从属关系正则化，使每个点尽可能分到其中一个簇，三是相对位置正则化，使得较前的点分到位置较前的簇中。
-预测层：通过2-layer MLP 完成预测。使用log loss作为损失函数&lt;/p&gt;
-&lt;p&gt;第一部分，主要是构建后面需要用到的图，本文主要通过用户的历史行为，来构建item-item的图结构，然后根据加权余弦相似度计算item之间的相似度，并通过阈值控制整个图的稀疏性。&lt;/p&gt;
-&lt;p&gt;第二部分，通过聚类感知和查询感知计算得到两个权重，结合两个权重得到注意力分数，然后对目标item的周围邻居节点的embedding进行加权融合，使得得到的embedding是融合了周围相似item的embedding。这可以强化重要行为，弱化噪声。&lt;/p&gt;
-&lt;p&gt;第三部分，这部分进行兴趣提取，通过池化，对用户的兴趣进行分层提取，并且通过正则项加强模型的训练，同时考虑时序信息。&lt;/p&gt;
-&lt;p&gt;第四部分，这部分考虑兴趣演化，即用户兴趣随时间动态变化，采用了DIEN中的AUGRU。再结合全连接层进行预测。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tianchi.aliyun.com/dataset/649&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Taobao&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Kuaishou（真实行业数据集）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Multi-Behavior Hypergraph-Enhanced Transformer for Sequential Recommendation（KDD 2022）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/yuh-yang/MBHT-KDD22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/yuh-yang/MBHT-KDD22&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;现有的方法已经远远集中于具有单一类型的交互的项序列表示，并且因此限于捕获用户和项之间的动态异构关系结构（例如，页面视图、添加到收藏夹、购买）。为了解决这个问题，设计了一个MultiBehavior Hypergraph增强的Transformer框架（MBHT）来捕获短期和长期的跨类型行为依赖关系。具体而言，多尺度Transformer配备有低秩自注意力，以从细粒度和粗粒度级别联合编码行为感知的序列模式。此外，我们将全局多行为依赖性纳入超图神经架构，以自定义的方式捕获分层的长距离项目相关性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Taobao&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Retailrocket&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;IJCAI.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;RQ&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;与具有不同设置的各种最先进的推荐方法相比，我们的MBHT表现如何？&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;关键模块（例如，多尺度注意编码器，多行为超图学习）在MBHT？&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;MBHT在与基线竞争时如何缓解项目序列的数据稀缺问题？&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;不同的超参数如何影响模型性能？&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Knowledge-enhanced Multi-View Graph Neural Networks for Session-based Recommendation（SIGIR 2023）
-基于会话推荐的知识增强多视图神经网络&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对于全局项-项关系，大多数SBR构造的全局图是伪全局图，这可能会造成序列关系的冗余挖掘。对于局部项目-项目关系，传统的SBR只挖掘序列模式，而忽略了特征模式，这可能会在学习用户兴趣时引入噪声。为了解决这些问题，我们提出了一种新的知识增强的多视图图神经网络（KMVG），通过构建三个视图，即知识视图，会话视图，成对视图。具体而言，受益于知识图（KG）中丰富的语义信息，我们建立了一个真正的全局图，是序列独立的基础上KG挖掘知识视图中的全局项目-项目关系。然后，会话视图被用来捕捉项目之间的上下文转换作为本地项目-项目关系的序列模式，和成对视图被用来探索一个会话内的特征共性作为本地项目-项目关系的特征模式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;ASoftware&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.yelp.com/dataset/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Yelp&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.kaggle.com/datasets/mkechinov/ecommerce-events-history-in-cosmetics-shop&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Cosmetics&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;基于大语言模型&#34;&gt;基于大语言模型
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A Survey on Large Language Models for Recommendation
-面向推荐的大型语言模型综述&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;论文链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/WLiK/LLM4Rec-Awesome-Papers&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/WLiK/LLM4Rec-Awesome-Papers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;LLM用于推荐系统的关键是用LLM基于文本的高质量表示特征和外部知识建立用户和推荐item之间的相关性。综述将基于LLM的推荐方法分为两大类：判别式LLM推荐和生成式LLM推荐，并总结了每种方法的技术和性能&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;建模范式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;1、LLM Embeddings + RS。将LLM作为特征抽取器，输入用户或item特征，LLM输出特征的embedding，推荐系统使用该embedding进行推荐。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2、LLM Tokens + RS。给LLM输入用户和item的特征，LLM生成具有潜在偏好信息的token，推荐系统使用该token进行推荐。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3、LLM as RS。将LLM作为推荐系统，输入用户偏好、用户行为和任务的instruction，由LLM生成推荐结果。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将现有的工作从生成和判别的角度进行划分，可以分为判别式LLM推荐系统和生成式LLM推荐系统，判别式属于上述的范式1，生成式属于上述范式的2和3。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;分类&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;判别式LLM推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;fine-tuning&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;fine-tuning过程包括用已经学好的参数初始化预训练语言模型、用推荐数据集继续训练模型两步。推荐数据集通常包括用户和item的交互、item的描述、用户画像和其他任务相关的上下文特征。fine-tuning阶段的学习目标可能和预训练阶段不同，模型参数也会在特定任务数据集的训练下进行更新，以使模型适用于特定的推荐任务。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;prompt tuning&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;prompt tuning试图通过硬、软提示和label word verbalizer将推荐目标和预训练loss进行对齐。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;生成式LLM推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;不微调范式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;prompting&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这类工作旨在设计更合适的指令和提示，以帮助LLM更好的理解和完成推荐任务。除了直接生成推荐结果，LLM还可以用于特征生成。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;In-context 学习&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;In-context学习是可以将GPT-3和其他LLM模型快速应用到新任务的技术，给模型少量的输入和label对，模型可以在不改变参数的前提下针对没见过的输入给出预测label。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;微调范式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;fine-tuning&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;prompt tuning&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在这个范式中，LLM输入用户和item的信息，输出用户对item的偏好或用户可能感兴趣的item。在fine-tuning的基础上也可以继续promp tuning，以获得更好的性能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Instruction tuning&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这个范式是指用不同的指令对LLM进行微调，以让模型适用于多个任务。这样微调后的模型zero-shot能力更强。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;公共数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;有涉及到序列推荐的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;模型偏差&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;位置偏差&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;生成式LLM推荐范式中，用户行为序列、推荐候选item等信息以文本序列的方式输入到模型中的，这会带来语言模型内在的位置偏差问题，比如候选item的输入顺序影响LLM推荐模型的排序结果&amp;ndash;LLM给输入序列中前面的item更高的优先级。” To-wards universal sequence representation learning for rec-ommender systems “采用随机采样的方式缓解位置偏差的影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;流行度偏差&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;LLM的排序结果受被排序item的流行度影响，原因是流行的item在LLM的训练语料里出现的概率更高，导致LLM在排序时给其更高的位次。因为流行度偏差问题与LLM的训练语料相关，该问题的解决依然面临挑战。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;公平性偏差&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;该偏差指的是预训练模型显示出与某些敏感属性相关的不确定性问题，比如推荐结果受用户的性别或种族主导。公平性偏差受训练数据影响，导致模型在进行推荐时，会假设用户属于某个特定的群组，这在商业部署时可能导致争议性问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;用户、item表示。单纯地用item名称表示item、用用户交互序列的item名称表示用户信息对于建模用户和item来说是不足的，将用户的异构行为序列（如电商场景的点击、添加、购买）转化为自然语言输入到模型中很有必要。ID类特征在传统的推荐模型中被证明很有用，但如何将其放入提示中以提高个性化推荐的效果是一个挑战。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;有限的文本长度。输入文本长度限制了用户行为序列和候选item的长度，解决该问题的方法包括”Zero-shot next-item recommendation using large pretrained lan-guage models“中提出的从用户行为序列中选择有代表性的item作为输入和”Is chatgptgood at search? investigating large language models as re-ranking agent“提出的滑动窗户输入候选item的方法。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;生成结果控制。LLM的生成结果可能和我们预期不一致，比如模型生成结果的格式和预期不符，甚至拒绝提供结果。此外，生成模型在list-wise的推荐任务上效果欠佳。
-评估指标。因为基于LLM的推荐模型可能生成不在历史数据里的item（不曾给用户推荐过的item），如何评估该item的好坏是一个开放问题。
-数据集。缺少适合LLM效果评测的测试集。
-其他问题还包括模型继续训练时的知识遗忘问题、模型在线部署时计算成本高的问题等&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Where to Go Next for Recommender Systems? ID- vs. Modality-based Recommender Models Revisited（SIGIR 2023）
-推荐系统下一步该往哪里走？ID与基于模态的推荐模型的比较&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/westlake-repl/IDvs.MoRec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/westlake-repl/IDvs.MoRec.&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;背景&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 ID embedding 来建模物品的协同过滤算法已经成为推荐系统最主流的范式，整个推荐系统现有的SOTA 体系也几乎都是采用基于 ID 特征的建模手段。
-然而，近年来 NLP、CV 和多模态预训练大模型技术蓬勃发展，预训练大模型对多模态（文本和图像）建模能力越来越强。
-基于 ID 的经典范式是与当近大模型技术严重背离的。因为 ID 在不同的推荐业务无法共享，这一特性导致推荐系统模型难以在不同的业务进行有效迁移，更无法实现 NLP 和 CV 领域的 one model for all（one4all）范式。
-虽然近几年有不少文献尝试将 NLP、CV 预训练模型引入推荐系统的领域，但这些文献往往关注于冷启动和新物品场景，而这种场景下 IDRec 的效果自然是不理想的。但是对于常规场景，也就是非冷启动，甚至是热 item 场景，IDRec 仍是非常强的基线。论文特别指出，现有的很多 MoRec 文献虽然声称取得了 SOTA 结果，但是并没有显式地比较 IDRec 与 MoRec。这里作者认为要做到公平比较是指：IDRec 与 MoRec 至少应该采用相同的骨架推荐模型和实验设置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;问题&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;1.更强大的（多）模态编码器能否能够直接带来推荐系统效果的直接提升？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;文本信息主导的新闻推荐数据集 MIND，商品图片信息主导的 HM 和视频推荐数据集 Bili&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;验证&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在常规推荐、冷启动推荐、热门物品推荐三个场景下，对 MoRec 和 IDRec 的效果做了周全的对比&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;结论 1：对于时序推荐架构 SASRec，在常规场景，MoRec 在文本上明显优于 IDRec，而在图片上则和 IDRec 效果相当。在冷启动场景，MoRec 大幅优于 IDRec，在热门商品推荐场景，MoRec 和 IDRec 效果相当。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;2.NLP、CV 领域的技术进展能否同步推动 MoRec 的发展？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;分别从更大参数量和更优的编码器两方面调查了 NLP、CV 中预训练模型的进展&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;3.对于推荐场景，NLP、CV 的预训练模型产生的表征有足够的通用能力吗？我们应该怎样使用预训练模型生成的表征？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;探究两种训练方式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ol&gt;
-&lt;li&gt;Two-stage：通过ME预提取模态特征，然后将其添加到推荐模型。由于实际业务中推荐系统通常有数百万乃至千万的商品，Two-stage 在工业界特别受欢迎。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;采用 End2end 的方式：同时优化用户和物品编码器&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;结论&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;工业界流行的 Two-stage 离线特征提取推荐方式会导致 MoRec 性能显著下降（特别是对于视觉推荐），这在实践中不应该被忽视。同时，尽管多模态领域的预训练模型在近年来取得了革命性的成功，但其表征还没有做到通用性和泛化性，&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;结论&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;并未能证明基于模态的模型能取代基于id，但是发现了使用SOTA和E2 E训练的MoRec已经可以与具有典型推荐架构的IDRec相比甚至更优&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;LLM-Enhanced User-Item Interactions: Leveraging Edge Information for Optimized Recommendations
-LLM增强用户项目交互：利用边缘信息优化推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/anord-wang/LLM4REC&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/anord-wang/LLM4REC&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;动机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;目前还没有有效的将图神经网络集成到大语言模型的研究。在图关系挖掘任务中的一大挑战是LLM无法利用图中的边缘信息，难以理解复杂节点关系。利用现有的LLM挖掘和理解图数据中的关系，并将这些技术应用于推荐任务&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;思路&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;根据用户的点击、购买等历史行为数据，构建用户和商品之间的交互图。
-利用图神经网络提取用户-商品交互图中的结构信息，包括用户和商品之间的直接连接关系和间接连接关系。将用户和商品的信息，以及用户-商品交互图中的结构信息，转化为自然语言提示，引导大型语言模型生成商品推荐。利用大型语言模型根据自然语言提示生成商品推荐列表，并利用反馈信号优化模型，以提供更精准的推荐服务&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实现&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;	  图知识引导的注意力LLM模型骨架：该模型利用LLMs以及用户-项目交互图来创建一个包含用户描述、项目描述和评价的多源知识库。该模型不仅编码了文本信息，还编码了图结构数据，其中包括用户-项目对之间的直接和间接连接。
-	  以群体语境提示进行预训练：根据群体上下文构建prompts，群体上下文包括用户和项目的描述、评论和交互事件（比如评分，购买行为）。利用prompts进行预训练。
-	  以个性化预测提示进行微调：预训练之后，利用用户交互历史行为构建个性化预测prompts。设计推荐损失函数，让LLM从生成文本变成生成个性化项目。
-	  部署项目推荐：使用微调后的模型向用户推荐项目。
-	  
-	   
-	
-- RQ
-
-	- 1）我们的方法可以产生更准确的建议？2)不同技术组成部分的贡献是什么？3)二阶关系和项目背景信息的贡献是什么？4)不同的注意力机制有什么影响？5)参数敏感性和鲁棒性。
-
-- 评估指标
-
-	- Recall、NDCG
-
-- 数据集
-
-	- [七个公共推荐数据集：亚马逊(AM)-美容数据集、AM-玩具数据集、AMSports、AM-Luxury、AM-Science、AM-Instruments数据集](https://nijianmo.github.io/amazon/index.html)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;从数据角度出发&#34;&gt;从数据角度出发
-&lt;/h2&gt;&lt;h3 id=&#34;考虑时间间隔&#34;&gt;考虑时间间隔
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Uniform Sequence Better: Time Interval Aware Data Augmentation for Sequential Recommendation（AAAI 2023）
-更好的均匀序列：用于顺序推荐的时间间隔感知数据增强&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;代码链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/KingGugu/TiCoSeRec&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/KingGugu/TiCoSeRec&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;动机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;现序列中两个项目交互的时间间隔并没有得到广泛的关注，特别是考虑到兴趣偏移时。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;思路&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;提出假设：均匀序列比非均与序列可以显著提高序列推荐的性能&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实证研究&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用四个公开数据集，包括亚马逊产品评级中的美容、体育、家庭类别数据和Yelp评论数据集&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;用序列时间间隔的标准差来判定序列是否均匀，如果标准差越小越均匀。
-横轴表示门槛值：门槛值是数据集中所有序列标准差的均值的比率。序列的标准差小于门槛值即为均匀序列，大于门槛值即为非均匀序列
-纵轴表示此时均匀序列的百分比。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实验验证：对每个数据集的所有序列按时间间隔的标准差由小到大进行排名，从而划分均匀序列和非均匀序列。计算推荐效果，证实假设。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;提出了五个时间间隔感知的数据增强算子（Ti-Crop, Ti-Reorder, Ti-Mask, TiSubstitute, Ti-Insert）来将非均匀序列转换为均匀序列&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对不同长度的序列应用不同的数据增强算子&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实验&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;将数据增强方法其应用于最先进的序列模型CoSeRe&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;评估指标：HR@k和NDCG@k&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;考虑噪声&#34;&gt;考虑噪声
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Sequential Recommendation with Diffusion Models（CIKM 2023)
-基于扩散模型的序列推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;动机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;由于传统的顺序推荐方法（如基于RNN的方法或者使用VAE和GAN的生成模型）存在一些局限性。这些模型在处理复杂的用户行为和长期依赖关系时，常常遭遇后验崩溃或模型崩溃的问题。此外，现有的推荐系统模型难以有效捕捉和模拟用户行为的不确定性，这限制了模型的表现和推荐的质量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;实现&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;为了进一步使扩散模型适用于推荐领域，与对所有数据进行噪声处理的一般扩散模型不同，DiffRec框架采用了不同的噪声处理策略。仅对目标item的隐藏表示进行噪声和去噪处理，而不是对整个序列进行噪声和去噪处理。为了验证这个策略的有效性，作者设计了四种变体进行实验：1）对整个序列进行噪声处理；2）对最后四个商品进行噪声处理；3）对最后三个商品进行噪声处理；4）对最后两个商品进行噪声处理。默认设置是仅仅对target item（最后一个商品）进行噪声处理。对比这五个实验，默认噪声策略性能最优。而且，随着更多的item被经过噪声处理，性能也出现了平稳下降，对整个序列进行噪声处理的性能是最差的。这可能是因为序列推荐是下一个item预测任务（next item prediction task），对target item以外的item使用噪声处理，会破坏有关用户偏好的基本信息，从而损害性能&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;数据集&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://nijianmo.github.io/amazon/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;亚马逊数据集（包括用户对不同类别产品的评论）选择了Beauty和Toys&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://grouplens.org/datasets/movielens/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;ML-1M&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;思想&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;扩散模型在顺序推荐系统中的主要作用确实是处理用户的交互序列，通过模拟和优化生成过程来提高推荐的准确性。扩散模型能够逐步从噪声数据中恢复出用户的真实交互意图，通过这种方式，模型能够更好地理解和预测用户的行为模式，从而生成更加精准的推荐结果&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Diff4Rec: Sequential Recommendation with
-Curriculum-scheduled Diffusion Augmentation(ACM MM 2023)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Diffusion Recommender Model（SIGIR 2023)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Filter-enhanced MLP is All You Need for Sequential Recommendation（WWW 2022)
-基于纯MLP架构的序列推荐模型&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;动机&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用户的历史行为数据会不可避免地包含噪音，将其输入复杂的神经网络模型（如Transformer）后，很容易导致过拟合问题。为了解决这个问题，我们借助在数字信号处理领域被广泛应用的滤波器（Filter）来进行处理。由于用户行为序列中有用信号和噪音的频率成分存在差异，傅里叶变换后，在频率域中就变得易于区分，再通过设计特定频率响应的滤波器阻断噪音所在频带，能显著地降低噪音影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;从话题角度分类&#34;&gt;从话题角度分类
-&lt;/h2&gt;&lt;h3 id=&#34;偏见问题&#34;&gt;偏见问题
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;因果学习&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;对比学习&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Bias and Debias in Recommender System（Arxiv 2021）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;隐私问题&#34;&gt;隐私问题
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;联邦学习&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;可解释性问题&#34;&gt;可解释性问题
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;知识图谱&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;跨域问题&#34;&gt;跨域问题
-&lt;/h3&gt;&lt;h3 id=&#34;公平性问题&#34;&gt;公平性问题
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;No prejudice! Fair Federated Graph Neural Networks for Personalized Recommendation（）
-没有偏见！基于公平联邦图神经网络的个性化推荐&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;摘要&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;由于个性化医疗、金融和电子商务等应用中的推荐系统（RS）集成越来越多，因此确保推荐系统（RS）在人口统计学群体中的公平性至关重要。基于图的RS在捕捉实体之间复杂的高阶交互方面发挥着至关重要的作用。然而，将这些图模型集成到具有公平性约束的联合学习（FL）范式中带来了巨大的挑战，因为这需要访问整个交互图和敏感的用户信息（如性别，年龄等）。在中央服务器上。本文解决了普遍存在的问题，内在的偏见RS为不同的人口群体，而不损害隐私的敏感用户属性在FL环境中的基于图的模型。为了解决群体偏见，我们提出了F2PGNN（公平联合个性化图神经网络），这是一种新的框架，它利用了个性化图神经网络（GNN）的功能以及公平性考虑。此外，我们使用差异隐私技术来加强隐私保护。对三个公开数据集的实验评估显示，与最先进的技术相比，F2PGNN在减轻群体不公平性方面的有效性为47%至99%，同时保护隐私并保持实用性。结果验证了我们的框架在FL景观中使用GNN实现公平和个性化建议的重要性&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;冷启动问题&#34;&gt;冷启动问题
-&lt;/h3&gt;&lt;p&gt;会话推荐可以看作是顺序推荐的一个特例，或者说是一个更加专注于短期行为模式的应用。顺序推荐提供了一种更全面的视角，考虑到用户行为的整体历史和发展趋势，而会话推荐则更加集中在分析单个会话中的行为模式。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>Graph Transformer for Recommendation</title>
-        <link>http://localhost:1313/p/graph-transformer-for-recommendation/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/p/graph-transformer-for-recommendation/</guid>
-        <description>&lt;p&gt;论文：https://arxiv.org/abs/2306.02330&lt;/p&gt;
-&lt;p&gt;代码：https://github.com/HKUDS/GFormer&lt;/p&gt;
-&lt;p&gt;SIGIR2023&lt;/p&gt;
-&lt;h2 id=&#34;研究动机&#34;&gt;研究动机
-&lt;/h2&gt;&lt;p&gt;什么样的监督信号才应该被保留和增强以最大化模型的效果？以及，基于人工设计的增强方案往往难以适应各个场景的推荐任务，有没有一种方案能够自适应的根据下游任务来提取最合适的自监督信号以适应性增强模型的表达能力呢？&lt;/p&gt;
-&lt;p&gt;为了解决上述问题，我们提出了Graph Transformer for Recommendation (GFormer) 模型，能够自适应的根据不同的场景信息以提取出最重要的监督信号来进行协同过滤信号的增强。具体来说，我们受到Rationale-aware方法和Transformer的启发，通过RA子图发掘方法和self-attention的结合来捕获最重要的RA子图结构，并据此进行下游任务自适应监督信号的效果增强&lt;/p&gt;
-&lt;h2 id=&#34;模型介绍&#34;&gt;模型介绍
-&lt;/h2&gt;&lt;p&gt;本文所介绍的GFormer模型，其主要模块包含全局拓扑信息注入层、协同信号RA发掘层以及自监督信号增强模块。GFormer模型的框架图如下所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240816162022803.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816162022803&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;21-全局拓扑信息注入层&#34;&gt;2.1 全局拓扑信息注入层
-&lt;/h3&gt;&lt;p&gt;全局关系信息与GNN的结合的在很多场景下都能发挥不错的效果，受到位置感知GNN方法的启发，我们通过注入高阶信息的依赖来提升模型协同信号的发掘能力。
-&lt;img src=&#34;http://localhost:1313/img/image-20240816162204377.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;具体来说，我们首先选出一部分锚点，然后为了捕获全局拓扑信息，我们分别计算图节点相对于&lt;strong&gt;锚集的相对位置信息，&lt;strong&gt;结合节点和锚点的表征信息来生成全局上下文信息。如此，我们的RA子图发掘模块就可以&lt;/strong&gt;捕获全局关系并识别出重要的用户商品交互信息&lt;/strong&gt;以进行SSL数据增强。&lt;/p&gt;
-&lt;h3 id=&#34;22-适应性ra子图发掘模块&#34;&gt;2.2 适应性RA子图发掘模块
-&lt;/h3&gt;&lt;p&gt;为了筛选出具有场景适应性的重要交互信息，我们提出了一种自适应的RA子图发掘方法，并以此为基础进行后续选择性的SSL的监督信号增强。
-&lt;img src=&#34;http://localhost:1313/img/640.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;具体来说，将包含了全局上下文和局部拓扑信息的用户商品表征信息注入到GT模块并通过自适应任务模块的引导来产生场景适应性的用户商品交互评分，并以此来筛选出包含重要交互信息特征的RA拓扑结构子图。同时，为了减少噪声带来的负面影响，我们增加了&lt;strong&gt;补图独立性模块&lt;/strong&gt;的设计，以更好的增加模型的鲁棒性。&lt;/p&gt;
-&lt;h3 id=&#34;23-自监督信号增强模块&#34;&gt;2.3 自监督信号增强模块
-&lt;/h3&gt;&lt;p&gt;传统的SSL范式的自监督模型监督信号的增强方案是通过人工设计对比视图，并通过互信息最大化的方法来引入额外的自监督信号，辅助主推荐任务的学习。然而，人工设计的视图缺乏场景适应性，且会引入多余的人工噪声。为了解决这个问题，我们设计了基于MAE框架的监督信号增强方法，跳出了传统SSL增强范式的桎梏。通过适应性重构重要交互信息的方式，较少了无关噪声影响的同时，取得了更好的模型效果。
-&lt;img src=&#34;http://localhost:1313/img/img/640-1723797187561-4.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>SelfGNN: Self-Supervised Graph Neural Networks for Sequential Recommendation</title>
-        <link>http://localhost:1313/p/selfgnn-self-supervised-graph-neural-networks-for-sequential-recommendation/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/p/selfgnn-self-supervised-graph-neural-networks-for-sequential-recommendation/</guid>
-        <description>&lt;h2 id=&#34;selfgnn-self-supervised-graph-neural-networks-for-sequential-recommendation&#34;&gt;SelfGNN: Self-Supervised Graph Neural Networks for Sequential Recommendation
-&lt;/h2&gt;&lt;h4 id=&#34;动机&#34;&gt;动机
-&lt;/h4&gt;&lt;p&gt;（1）现有的序列推荐模型主要集中于长期建模个别交互序列，忽视了不同用户行为之间宝贵的短期合作关系。&lt;/p&gt;
-&lt;p&gt;（2）现实世界的数据通常包含噪声，特别是在用户的短期行为中，这可能源于临时意图或误点击，这种噪声对图模型和序列模型的准确性产生负面影响，进一步复杂化了建模过程&lt;/p&gt;
-&lt;p&gt;SelfGNN能够捕捉多粒度的用户行为模式：基于图神经网络（GNN）对&lt;strong&gt;时间片段&lt;/strong&gt;内的交互行为建模，考虑了短期的高阶协同关系；基于序列模型对用户跨时间片段的行为进行关联学习，捕捉长期的时序变化模式。此外，研究人员提出了一种个性化自增强学习方法，通过对比长短期用户行为模式来降低数据噪音的影响，从而增强模型的稳健性。&lt;/p&gt;
-&lt;p&gt;阶段性的协同关系
-&lt;img src=&#34;http://localhost:1313/img/image-20240816171247169.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;引入了一种创新的自监督图推荐框架，通过集成基于&lt;strong&gt;区间级别的周期性协作关系学习&lt;/strong&gt;和&lt;strong&gt;关注实例级别&lt;/strong&gt;的顺序建模，有效地捕捉动态用户兴趣。&lt;/p&gt;
-&lt;p&gt;结合了个性化的自我增强学习组件，能够有效去噪稀疏短期图中的嘈杂交互。它还生成个性化权重以适应不同用户，增强模型适应个人偏好和稳定性的能力。&lt;/p&gt;
-&lt;h3 id=&#34;模型&#34;&gt;模型
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240816171843415.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816171843415&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;短期交互模型编码&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如图1所示，u1和u2在第一个周期具有明显的协同信号，而在第二个周期具有u3与u2相似的行为。&lt;/p&gt;
-&lt;p&gt;因此，SelfGNN根据时间间隔T（可调节的超参数）将全局数据划分为多个短期图At，i，j（表示在第t个时间段里用户i和物品j的隐式交互关系），然后利用l层图卷积神经网络（GCN）协同传播高阶信息。&lt;/p&gt;
-&lt;p&gt;将每个用户和每个项目在每个时间t下投影得到嵌入向量Et（u）和Et（v）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240816172908773.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816172908773.png&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h4 id=&#34;双粒度长期行为建模&#34;&gt;双粒度长期行为建模
-&lt;/h4&gt;&lt;p&gt;SelfGNN通过间隔级别（interval-level）融合和实例级别（instance-level）行为建模在双粒度级别捕获长期用户和项商品表示。从两个不同的层次进行长期特征学习，能够使得两个层次互相补偿，增加可学习的信息。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;区间级序列模式建模&lt;/strong&gt;，它将短期特征整合到基于时间注意力的长期嵌入中，捕捉不同时期之间的动态变化；&lt;/p&gt;
-&lt;p&gt;先用GRU构建每个阶段的表示，然后把每个阶段的表示构成序列。再用多头自注意力得到长期嵌入。
-&lt;img src=&#34;http://localhost:1313/img/image-20240816182049739.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816182049739.png&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;**实例级序列模式建模，**它直接学习特定项实例之间的成对关系。
-&lt;img src=&#34;http://localhost:1313/img/image-20240816190302520.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816190302520.png&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h4 id=&#34;多视角融合和预测&#34;&gt;&lt;strong&gt;多视角融合和预测&lt;/strong&gt;
-&lt;/h4&gt;&lt;p&gt;在进行预测之前，我们聚合来自实例级和间隔级方法得出的多视图用户特征，并按如下方式进行最终预测
-&lt;img src=&#34;http://localhost:1313/img/image-20240816190622590.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816190622590.pn&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;在ˆA_T+1,i,j ∈ R中，表示通过计算用户和物品之间的相似度，预测未来（T + 1）时间段中用户ui与物品vj的交互。接下来，正样本包括用户已有交互的物品，而负样本包括用户未曾交互的物品。为了避免预测值过大，我们采用限制条件来优化以下损失函数：
-&lt;img src=&#34;http://localhost:1313/img/image-20240816190631985.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816190631985.png&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;个性化自监督去噪&#34;&gt;&lt;strong&gt;个性化自监督去噪&lt;/strong&gt;
-&lt;/h3&gt;&lt;p&gt;为了缓解用户序列行为数据中普遍存在的数据稀疏性和数据噪声问题，SelfGNN通过一个个性化去噪自监督学习任务进行了进一步增强。&lt;/p&gt;
-&lt;p&gt;这里的“噪声”指的是暂时性的意图或误点击。他们不能被视为长期用户兴趣或新近兴趣点的预测。&lt;/p&gt;
-&lt;p&gt;具体而言，&lt;strong&gt;SelfGNN的自监督任务专注于使用长期行为模式过滤短期非固有用户偏好。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这个设计基于以下观察：用户的行为可能受到短期随机兴趣的驱动，例如，一个不喜欢徒步旅行的用户也可能因为一次性活动购买徒步鞋和能量饮料。这种噪声行为数据可能会干扰用户长期真实兴趣的建模。&lt;/p&gt;
-&lt;p&gt;此外，为了准确识别这些噪声的短期行为，根据不同用户的兴趣多样性对去噪SSL任务进行了个性化，如图3所示。
-&lt;img src=&#34;http://localhost:1313/img/image-20240816194801165.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240816194801165.png&#34;
-	
-	
-&gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>各种掩码介绍</title>
-        <link>http://localhost:1313/p/%E5%90%84%E7%A7%8D%E6%8E%A9%E7%A0%81%E4%BB%8B%E7%BB%8D/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/p/%E5%90%84%E7%A7%8D%E6%8E%A9%E7%A0%81%E4%BB%8B%E7%BB%8D/</guid>
-        <description>&lt;h2 id=&#34;前瞻掩码-look-ahead-mask&#34;&gt;前瞻掩码 Look-ahead Mask
-&lt;/h2&gt;&lt;p&gt;前瞻掩码通过在自注意力机制中屏蔽（即设置为一个非常小的负值，如负无穷大）未来时间步的信息来工作。这确保了在计算每个元素的输出时，模型只能使用到当前和之前的信息，而不能使用后面的信息。这种机制对于保持自回归属性（即一次生成一个输出，且依赖于前面的输出）是必要的。&lt;/p&gt;
-&lt;p&gt;在实现时，前瞻掩码通常表示为一个上三角矩阵，其中对角线及对角线以下的元素为0（表示这些位置的信息是可见的），对角线以上的元素为1（表示这些位置的信息是不可见的）。在计算注意力时，这些为1的位置会被设置为一个非常小的负数（通常是负无穷），这样经过softmax函数后，这些位置的权重接近于0，从而不会对输出产生影响。&lt;/p&gt;
-&lt;h2 id=&#34;序列掩码&#34;&gt;序列掩码
-&lt;/h2&gt;&lt;p&gt;在使用如Transformer模型时，序列掩码用于避免在计算注意力分数时考虑到填充位置的影响。这确保了模型的注意力是集中在实际有意义的数据上，而不是无关的填充数据。&lt;/p&gt;
-&lt;p&gt;RNNs本身可以处理不同长度的序列，但在批处理和某些架构中，仍然需要固定长度的输入。序列掩码在这里可以帮助RNN忽略掉序列中的填充部分，特别是在计算最终序列输出或状态时。&lt;/p&gt;
-&lt;p&gt;在训练模型时，序列掩码也可以用来确保在计算损失函数时，不会将填充部分的预测误差纳入总损失中，从而提高模型训练的准确性和效率。&lt;/p&gt;
-&lt;p&gt;序列掩码通常表示为一个与序列数据维度相同的二进制矩阵或向量，其中1表示实际数据，0表示填充数据&lt;/p&gt;
-&lt;h2 id=&#34;填充掩码&#34;&gt;填充掩码
-&lt;/h2&gt;&lt;p&gt;填充掩码就是用来指示哪些数据是真实的，哪些是填充的。在模型处理这些数据时，掩码会用来避免在计算损失或者梯度时考虑填充的部分，确保模型的学习只关注于有效的数据。在使用诸如Transformer这样的模型时，填充掩码特别重要，因为它们可以帮助模型在进行自注意力计算时忽略掉填充的位置。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>序列加宽</title>
-        <link>http://localhost:1313/p/%E5%BA%8F%E5%88%97%E5%8A%A0%E5%AE%BD/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/p/%E5%BA%8F%E5%88%97%E5%8A%A0%E5%AE%BD/</guid>
-        <description>&lt;h2 id=&#34;序列加宽&#34;&gt;序列加宽
-&lt;/h2&gt;&lt;p&gt;序列再长也只是这一个用户的序列，这篇论文直接从别的用户的行为中寻找item。用所有用户的行为序列构建一个item图，图上的每个节点都是一个item，item有边代表有用户依次点击过这两个item。&lt;/p&gt;
-&lt;p&gt;本文首先定义了一个图上的triangle，triangle的定义不是重点，可以把&lt;strong&gt;triangle简单的理解为图上的邻居&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;下图中的红框部分就是一个类似于DIN的计算attention的网络，左边是处理triangle的，有边是计算多阶triangle（理解为图上的多阶邻居）attention的网络。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240705114803682.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20240705114803682&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;某阶的TriangleNet：每一阶会有多个triangle，每个triangle会有3个item，所以就先内部聚合（intra），简单的avg pooling；再外部聚合（inter），multi-head self-attention。&lt;/p&gt;
-&lt;p&gt;玩法一：加item的属性。这个属性的选择非常有讲究，&lt;strong&gt;得是变化的、且用户非常敏感的&lt;/strong&gt;，比如价钱、比如补贴；不能是那种无关痛痒的属性。属性的文章讲了3篇，分别是&lt;strong&gt;多属性attention&lt;/strong&gt;、考虑&lt;strong&gt;属性间关系的attenion&lt;/strong&gt;、考虑&lt;strong&gt;属性某种具体的相互关系（结构信息）的attention&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;玩法二：加更多的item，不过不是加长，而是通过&lt;strong&gt;图（本质是通过其他用户），引入一些用户以前没见过（或没交互过）但可能感兴趣的item&lt;/strong&gt;；这种加item的方式可以离线完成，可以用一些“高大上”的方法吹牛逼。个人感觉，这种方法有效的本质是&lt;strong&gt;学习了更多的共现关系。&lt;strong&gt;之前在给user选择poi时，只学习了user自己历史内的poi的共现关系；通过某种合理的方式（如其他用户的历史行为）引入更多&lt;/strong&gt;共现关系&lt;/strong&gt;可以拓宽模型的视野。&lt;/p&gt;
-</description>
-        </item>
-        <item>
         <title>推荐系统偏差问题 &amp; 去偏最新研究进展</title>
         <link>http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98-%E5%8E%BB%E5%81%8F%E6%9C%80%E6%96%B0%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98-%E5%8E%BB%E5%81%8F%E6%9C%80%E6%96%B0%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/</guid>
         <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image-20240410160035050.png&#34;
@@ -3343,7 +1976,7 @@ c. 降低了推荐结果的公平性：流行的不一定是高质量的，那�
         <item>
         <title>推荐系统往年论文列表</title>
         <link>http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%BE%80%E5%B9%B4%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%BE%80%E5%B9%B4%E8%AE%BA%E6%96%87%E5%88%97%E8%A1%A8/</guid>
         <description>&lt;p&gt;Included Conferences: SIGIR 2020, SIGKDD 2020, RecSys 2020, CIKM 2020,
@@ -5665,7 +4298,7 @@ A Hyperbolic Approach with Unified Message Passing. WSDM 2022 【具有统一消
         <item>
         <title>留一法和留出法</title>
         <link>http://localhost:1313/p/%E7%95%99%E4%B8%80%E6%B3%95%E5%92%8C%E7%95%99%E5%87%BA%E6%B3%95/</link>
-        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/%E7%95%99%E4%B8%80%E6%B3%95%E5%92%8C%E7%95%99%E5%87%BA%E6%B3%95/</guid>
         <description>&lt;p&gt;留一法（Leave-One-Out）和留出法（Holdout）是常用的数据集划分方法，它们在训练集和验证集的构建方式上有所不同：&lt;/p&gt;
@@ -5695,6 +4328,88 @@ A Hyperbolic Approach with Unified Message Passing. WSDM 2022 【具有统一消
 &lt;li&gt;与留出法相比，留一法更适合于序列推荐任务，可以提供更准确的模型评估结果。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;因此，对于序列推荐任务，推荐使用留一法作为数据集划分的方式。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>2024会议论文总结</title>
+        <link>http://localhost:1313/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/</link>
+        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87%E6%80%BB%E7%BB%93/</guid>
+        <description>&lt;h2 id=&#34;sigir-2024&#34;&gt;SIGIR 2024
+&lt;/h2&gt;&lt;p&gt;13/107&lt;/p&gt;
+&lt;p&gt;Self-Augmented Graph Neural Networks for Sequential Recommendation
+IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT
+Disentangled Contrastive Hypergraph Learning for Next POI Recommendation
+A Generic Behavior-Aware Data Augmentation Framework for Sequential Recommendation
+Exploring Fine-grained Sequential Recommendation 探索细粒度的顺序推荐
+Sequential Recommendation with Latent Relations based on Large Language Model
+Sequential Recommendation with Collaborative Explanation via Mutual Information Maximization
+Enhancing Sequential Recommenders with Augmented Knowledge from Aligned Large Language Models
+Modeling User Fatigue for Sequential Recommendation
+Scaling Sequential Recommendation Models with Transformers
+Sequential Recommendation for Optimizing Both Immediate Feedback and Long-term Retention
+Explainable Uncertainty Attribution for Sequential Recommendation
+Multi-intent-aware Session-based Recommendation
+13/107&lt;/p&gt;
+&lt;h2 id=&#34;www-2024&#34;&gt;WWW 2024
+&lt;/h2&gt;&lt;p&gt;8/65
+Intelligent Model Update Strategy for Sequential Recommendation
+Rethinking Cross-Domain Sequential Recommendation under Open-World Assumptions
+Harnessing Large Language Models for Text-Rich Sequential Recommendation
+Efficient Noise-Decoupling for Multi-Behavior Sequential Recommendation
+UnifiedSSR: A Unified Framework of Sequential Search and Recommendation
+ReLLa: Retrieval-enhanced Large Language Models for Lifelong Sequential Behavior Comprehension in Recommendation
+（Modeling Balanced Explicit and¬†Implicit Relations with Contrastive Learning for Knowledge Concept Recommendation in MOOCs）&lt;/p&gt;
+&lt;p&gt;Is Contrastive Learning Necessary? A Study of Data Augmentation vs Contrastive Learning in Sequential Recommendation&lt;/p&gt;
+&lt;h2 id=&#34;aaai-2024&#34;&gt;AAAI 2024
+&lt;/h2&gt;&lt;p&gt;5/37
+Sparse Enhanced Network: An Adversarial Generation Method for Robust Augmentation in Sequential Recommendation
+Temporal Graph Contrastive Learning for Sequential Recommendation
+Dual-view Whitening on Pre-trained Text Embeddings for Sequential Recommendation
+Ada-Retrieval: An Adaptive Multi-Round Retrieval Paradigm for Sequential Recommendations
+An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention&lt;/p&gt;
+&lt;h2 id=&#34;kdd&#34;&gt;KDD
+&lt;/h2&gt;&lt;h2 id=&#34;recsys-2024&#34;&gt;RecSys 2024
+&lt;/h2&gt;&lt;p&gt;序列推荐[3,18,42,45,46,48]
+对比学习[6,11,12,27,33]
+Adaptive Fusion of Multi-View for Graph Contrastive Recommendation
+CALRec: Contrastive Alignment of Generative LLMs For Sequential Recommendation&lt;/p&gt;
+&lt;p&gt;Information-Controllable Graph Contrastive Learning for Recommendation
+MMGCL: Meta Knowledge-Enhanced Multi-view Graph Contrastive Learning for Recommendations&lt;/p&gt;
+&lt;p&gt;（ ConFit: Improving Resume-Job Matching using Data Augmentation and Contrastive Learning）&lt;/p&gt;
+&lt;h3 id=&#34;wsdm-2024&#34;&gt;WSDM 2024
+&lt;/h3&gt;&lt;p&gt;13/112
+Debiasing Sequential Recommenders through Distributionally Robust Optimization over System Exposure
+Global Heterogeneous Graph and Target Interest Denoising for Multi-behavior Sequential Recommendation
+To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Neural Sequential Recommenders
+Linear Recurrent Units for Sequential Recommendation
+User Behavior Enriched Temporal Knowledge Graph for Sequential Recommendation
+Intent Contrastive Learning with Cross Subsequences for Sequential Recommendation
+Collaboration and Transition: Distilling Item Transitions into Multi-Query Self-Attention for Sequential Recommendation
+Contextual MAB Oriented Embedding Denoising for Sequential Recommendation
+Mixed Attention Network for Cross-domain Sequential Recommendation
+Multi-Sequence Attentive User Representation Learning for Side-information Integrated Sequential Recommendation
+RecJPQ: Training Large-Catalogue Sequential Recommenders
+Attribute Simulation for Item Embedding Enhancement in Multi-interest Recommendation
+Global Heterogeneous Graph and Target Interest Denoising for Multi-behavior Sequential Recommendation&lt;/p&gt;
+&lt;h2 id=&#34;icde-2024&#34;&gt;ICDE 2024
+&lt;/h2&gt;&lt;p&gt;Sequential Recommendation with User Causal Behavior Discovery
+Incremental Learning for Multi-Interest Sequential Recommendation
+Contrastive Enhanced Slide Filter Mixer for Sequential Recommendation&lt;/p&gt;
+&lt;p&gt;Large Language Models for Intent-Driven Session Recommendations
+&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2312.07552&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/pdf/2312.07552&lt;/a&gt;
+LLaRA: Large Language-Recommendation Assistant
+&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2312.02445&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/pdf/2312.02445&lt;/a&gt;
+Sequential Recommendation with Latent Relations based on Large Language Model
+&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/pdf/2403.18348&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/pdf/2403.18348&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;MA-GCL: Model Augmentation Tricks for Graph Contrastive Learning （AAAI’23）
+Disentangled Contrastive Collaborative Filtering (SIGIR’23)解耦对比协同过滤「简述：」作者认为现有的图对比学习算法忽略了用户-物品交互行为通常由多样的潜在意图因素驱动的事实，并且它们引入的非自适应增强技术容易受到噪声信息的影响。为了解决这些问题，作者提出了一个解耦对比协同过滤框架，通过学习具有全局上下文的解耦表示来实现意图解耦，并利用参数化交互掩码生成器引入跨视图对比学习任务以实现自适应增强&lt;/p&gt;
+&lt;p&gt;Meta-optimized Contrastive Learning for Sequential Recommendation (SIGIR’23)序列推荐中的元优化对比学习「简述：」论文提出了一种元优化对比学习框架MCLRec，用于序列推荐。该模型通过应用数据增强和可学习的模型增强操作来创新标准的CL框架，以自适应地捕捉隐藏在随机数据增强中的有信息的特征。此外，MCLRec利用元学习方式指导模型增强器的更新，以提高对比对的质量，而无需增加输入数据的数量。最后，作者引入了一个对比正则化项，以鼓励增强模型生成更具信息量的增强视图，并避免在元更新中出现过于相似的对比对。在常用的数据集上的实验结果表明，MCLRec是有效的。&lt;/p&gt;
+&lt;p&gt;Dual Contrastive Transformer for Hierarchical Preference Modeling in Sequential Recommendation (SIGIR’23)用于序列推荐中层次化偏好建模的双对比Transformer「简述：」本文提出了一种新的层次化偏好建模框架，用于准确地进行序列推荐。该框架设计了一个新颖的双重转换器模块和双重对比学习方案，以区分性地学习用户的低层次和高层次偏好，并有效地增强低层次和高层次偏好的学习。此外，还设计了一种新的语义增强上下文嵌入模块，以生成更丰富的上下文嵌入，进一步提高推荐性能。在六个真实数据集上的大量实验表明，该方法优于现有方法，并且设计合理。&lt;/p&gt;
 </description>
         </item>
         

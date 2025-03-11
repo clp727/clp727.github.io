@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" WSDM 2024\nhttps://github.com/iesl/softmax_CPR_recommend\n引言\r现有方法并不能很好地决定是否复制或排除用户历史行为中出现过的商品。本文从这个动机出发，确定了这个问题的根源在softmax层，并在缓解 softmax 的问题后得到了显着的性能改进。\n">
+<title>To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Sequential Recommendation</title>
+
+<link rel='canonical' href='http://localhost:1313/p/to-copy-or-not-to-copy-that-is-a-critical-issue-of-the-output-softmax-layer-in-sequential-recommendation/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Sequential Recommendation">
+<meta property='og:description' content=" WSDM 2024\nhttps://github.com/iesl/softmax_CPR_recommend\n引言\r现有方法并不能很好地决定是否复制或排除用户历史行为中出现过的商品。本文从这个动机出发，确定了这个问题的根源在softmax层，并在缓解 softmax 的问题后得到了显着的性能改进。\n">
+<meta property='og:url' content='http://localhost:1313/p/to-copy-or-not-to-copy-that-is-a-critical-issue-of-the-output-softmax-layer-in-sequential-recommendation/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-02-27T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-02-27T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Sequential Recommendation">
+<meta name="twitter:description" content=" WSDM 2024\nhttps://github.com/iesl/softmax_CPR_recommend\n引言\r现有方法并不能很好地决定是否复制或排除用户历史行为中出现过的商品。本文从这个动机出发，确定了这个问题的根源在softmax层，并在缓解 softmax 的问题后得到了显着的性能改进。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">学会总结，学会复盘</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/clpzn_?spm=1000.2115.3001.5343'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741695404625" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8388" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M533.941 419.264c14.71-1.621 37.291-3.264 68.352-3.264 51.872 0 93.803 9.152 119.776 28.416 23.339 17.952 38.859 47.008 34.56 89.13-3.978 39.19-24.042 66.635-53.312 83.595C676.544 633.152 642.837 640 592.107 640c-29.888 0-58.422-1.643-80.107-4.896l21.941-215.84z m42.87 172.939c4.981 0.992 11.562 1.973 24.533 1.973 51.883 0 88.47-25.877 92.16-62.24 5.333-52.555-27.125-70.944-81.803-70.624-7.072 0-16.917 0-22.133 0.97L576.8 592.214h0.01z m223.498-164.704c210.955-39.872 229.163 31.776 222.646 95.189L1010.656 640h-66.944l11.21-106.987c2.422-23.562 17.505-69.653-55.338-67.914-25.184 0.608-37.707 4.064-37.707 4.064s-2.186 28.469-4.832 49.514L844.32 640h-65.653l13.024-119.573" fill="#231916" p-id="8389"></path><path d="M226.635 632.683c-12.374 4.341-38.038 7.317-73.91 7.317C49.6 640-6.048 590.933 0.523 526.09c7.893-77.28 90.336-120.757 180.618-120.757 34.976 0 55.552 2.859 74.859 7.638l-6.208 52.064c-12.821-4.384-42.89-8.406-67.232-8.406-53.141 0-98.25 16.043-103.424 66.763-4.608 45.355 27.061 67.04 86.816 67.04 20.8 0 51.477-3.019 65.653-7.37l-4.992 49.6 0.022 0.02z" fill="#C92027" p-id="8390"></path><path d="M272.715 580.021c19.285 6.763 59.488 13.504 92 13.504 35.029 0 54.528-9.333 56.096-23.797 1.418-13.205-12.928-14.987-52.491-24.01-54.667-12.897-89.547-32.843-86.133-64.705C286.176 443.99 337.685 416 416.725 416c38.56 0 75.915 2.613 95.275 8.715l-6.656 46.666c-12.565-4.202-60.672-10.037-93.205-10.037-32.992 0-50.07 9.973-51.254 20.917-1.493 13.846 15.659 14.486 58.528 25.451 58.027 14.155 83.403 34.09 80.086 64.992C495.605 609.109 449.259 640 356.715 640c-38.528 0-71.744-6.763-90.048-13.525l6.048-46.454z" fill="#231916" p-id="8391"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#引言">引言</a></li>
+        <li><a href="#方法">方法</a></li>
+        <li><a href="#3-实验">3 实验</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #65B0E8; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/to-copy-or-not-to-copy-that-is-a-critical-issue-of-the-output-softmax-layer-in-sequential-recommendation/">To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Sequential Recommendation</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 27, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>WSDM 2024</p>
+<p><a class="link" href="https://github.com/iesl/softmax_CPR_recommend"  target="_blank" rel="noopener"
+    >https://github.com/iesl/softmax_CPR_recommend</a></p></blockquote>
+<h3 id="引言">引言
+</h3><p>现有方法并不能很好地决定是否复制或排除用户历史行为中出现过的商品。本文从这个动机出发，确定了这个问题的根源在softmax层，并在缓解 softmax 的问题后得到了显着的性能改进。</p>
+<p>在协同过滤中，softmax/矩阵分解层有几个优点：**它会鼓励相似的项目具有相似的emb，并且相似的输入序列会被编码为相似的用户emb。**比如可乐和雪碧在用户的历史行为中共现次数很多，神经网络会给共现次数多的商品有相近的emb映射。如下图所示，softmax函数会拉近分子，拉远分母。</p>
+<p>尽管softmax/矩阵分解层很有效，但其<strong>相似性结构是全局的</strong>，有时会阻止神经推荐器输出所需的分布。如下图所示，如果一个用户重复购买了尿布产品和苹果汁产品，则下一个商品很可能是尿布产品或苹果汁产品。为了输出分布，神经推荐器需要输出介于尿布嵌入和苹果汁嵌入之间的用户嵌入，这可能会意外地接近苹果味婴儿食品的嵌入和/或苹果汁的嵌入孩子们。在这种情况下，softmax 层中的单个隐藏状态嵌入和静态项目嵌入导致难以正确复制历史项目序列中的项目。当嵌入空间非常拥挤时（例如，项目数量很大），这个问题会变得更加严重。</p>
+<p><img src="/assets/image-20240705201724523.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705201724523"
+	
+	
+></p>
+<p>另一方面，相似性结构也可能迫使神经推荐器不正确地复制先前的项目。如下图所示，如果一个用户刚刚购买了《复仇者联盟》电影的 DVD，则该用户可能想观看其他漫威电影，例如《钢铁侠》或《美国队长》（即类似《复仇者联盟》的电影，但不是《复仇者联盟》本身）  。然而，接近所有其他漫威电影的用户嵌入将不可避免地接近复仇者联盟的嵌入，因为复仇者联盟电影与所有其他漫威电影相关。这可能会迫使神经推荐器继续推荐用户以前看过的电影。在这种情况下，softmax层会导致难以正确排除历史项目序列中的项目。</p>
+<p>由于问题的本质在于softmax函数无法在copy和exclude之间有效切换，即所谓的softmax瓶颈问题，因此本文提出将softmax-CPR函数应用在序列推荐上。softmax-CPR最初提出是为了减少语言生成模型的幻觉。</p>
+<h3 id="方法">方法
+</h3><p>softmax 层如下所示，会拉近分子，拉远分母：
+<img src="/assets/image-20240705202106301.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705202106301.png"
+	
+	
+></p>
+<p>Softmax-CPR 包括三个部分：上下文分区、指针网络和Reranker分区。如下图所示：
+<img src="/assets/image-20240705202131040.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705202131040.png"
+	
+	
+>
+<img src="/assets/image-20240705202402000.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705202402000.png"
+	
+	
+></p>
+<h3 id="3-实验">3 实验
+</h3>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Neural Networks in Recommender Systems: A Survey</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-transformer-for-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Transformer for Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/modeling-user-fatigue-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Modeling User Fatigue for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

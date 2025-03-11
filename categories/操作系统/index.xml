@@ -177,7 +177,7 @@
 &lt;/h2&gt;&lt;p&gt;在内存的申请和释放过程中产生的，通常分为下面两种&lt;/p&gt;
 &lt;p&gt;**内部内存碎片(Internal Memory Fragmentation，简称为内存碎片)：已经分配给进程使用但是未被使用的内存。**产生原因是分配的时候采用固定比例，分配的内存大于需要的空间。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;外部内存碎片(External Memory Fragmentation，简称为外部碎片)&lt;/strong&gt;：内存中较小的内存块，无法满足一个进程的需求&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/image%201.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/image%201.png&#34;
 	
 	
 	

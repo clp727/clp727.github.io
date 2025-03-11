@@ -8,28 +8,12 @@
         <language>en</language>
         <copyright>clp</copyright>
         <lastBuildDate>Sat, 08 Mar 2025 00:48:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>First</title>
-        <link>http://localhost:1313/categories/first/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/categories/first/</guid>
-        <description></description>
-        </item>
-        <item>
         <title>前端</title>
         <link>http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/</link>
         <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 前端" /&gt;</description>
-        </item>
-        <item>
-        <title>推荐系统</title>
-        <link>http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
-        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
-        
-        <guid>http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 推荐系统" /&gt;</description>
+        <description>&lt;img src="http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/6a6c1f240dcf93f355856b454c342c25.jpeg" alt="Featured image of post 前端" /&gt;</description>
         </item>
         <item>
         <title>操作系统</title>
@@ -37,7 +21,15 @@
         <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 操作系统" /&gt;</description>
+        <description>&lt;img src="http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/6714c7e1d4aa9ef6a0421bb653cb2c7b.jpeg" alt="Featured image of post 操作系统" /&gt;</description>
+        </item>
+        <item>
+        <title>推荐系统</title>
+        <link>http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
+        <pubDate>Thu, 27 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/f2bb455e92926e7d43f1fb608440f52a.jpeg" alt="Featured image of post 推荐系统" /&gt;</description>
         </item>
         <item>
         <title>各种问题</title>
@@ -45,7 +37,7 @@
         <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 各种问题" /&gt;</description>
+        <description>&lt;img src="http://localhost:1313/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/b4a3577ec2f4e45e058f5198803c4e7f.jpeg" alt="Featured image of post 各种问题" /&gt;</description>
         </item>
         
     </channel>

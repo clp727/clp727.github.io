@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" SIGIR 2023\n代码链接：https://github.com/sudaada/FEARec\n序列推荐里经常用到Self-Attention技术，但研究表明，SA是一个低通滤波器，不足以捕获高频信息。此外，由于用户行为中的各种item相互交织，现有模型无法区分时域中隐藏的固有周期性。因此，本文将视角转移到频域，提出了一种用于顺序推荐的频率增强混合注意网络，即 FEARec。本文首先用斜坡结构改进频域中的原始时域自注意力，使模型可以明确地学习低频和高频信息。然后设计了一个频域自相关的注意机制，以捕获周期性特征并在联合模型中融合时间和频率级别的注意。最后，利用对比学习和频率正则化来确保多个视图在时域和频域中对齐。\n">
+<title>Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation</title>
+
+<link rel='canonical' href='http://localhost:1313/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation">
+<meta property='og:description' content=" SIGIR 2023\n代码链接：https://github.com/sudaada/FEARec\n序列推荐里经常用到Self-Attention技术，但研究表明，SA是一个低通滤波器，不足以捕获高频信息。此外，由于用户行为中的各种item相互交织，现有模型无法区分时域中隐藏的固有周期性。因此，本文将视角转移到频域，提出了一种用于顺序推荐的频率增强混合注意网络，即 FEARec。本文首先用斜坡结构改进频域中的原始时域自注意力，使模型可以明确地学习低频和高频信息。然后设计了一个频域自相关的注意机制，以捕获周期性特征并在联合模型中融合时间和频率级别的注意。最后，利用对比学习和频率正则化来确保多个视图在时域和频域中对齐。\n">
+<meta property='og:url' content='http://localhost:1313/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-02-27T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-02-27T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation">
+<meta name="twitter:description" content=" SIGIR 2023\n代码链接：https://github.com/sudaada/FEARec\n序列推荐里经常用到Self-Attention技术，但研究表明，SA是一个低通滤波器，不足以捕获高频信息。此外，由于用户行为中的各种item相互交织，现有模型无法区分时域中隐藏的固有周期性。因此，本文将视角转移到频域，提出了一种用于顺序推荐的频率增强混合注意网络，即 FEARec。本文首先用斜坡结构改进频域中的原始时域自注意力，使模型可以明确地学习低频和高频信息。然后设计了一个频域自相关的注意机制，以捕获周期性特征并在联合模型中融合时间和频率级别的注意。最后，利用对比学习和频率正则化来确保多个视图在时域和频域中对齐。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">学会总结，学会复盘</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/clpzn_?spm=1000.2115.3001.5343'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741695404625" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8388" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M533.941 419.264c14.71-1.621 37.291-3.264 68.352-3.264 51.872 0 93.803 9.152 119.776 28.416 23.339 17.952 38.859 47.008 34.56 89.13-3.978 39.19-24.042 66.635-53.312 83.595C676.544 633.152 642.837 640 592.107 640c-29.888 0-58.422-1.643-80.107-4.896l21.941-215.84z m42.87 172.939c4.981 0.992 11.562 1.973 24.533 1.973 51.883 0 88.47-25.877 92.16-62.24 5.333-52.555-27.125-70.944-81.803-70.624-7.072 0-16.917 0-22.133 0.97L576.8 592.214h0.01z m223.498-164.704c210.955-39.872 229.163 31.776 222.646 95.189L1010.656 640h-66.944l11.21-106.987c2.422-23.562 17.505-69.653-55.338-67.914-25.184 0.608-37.707 4.064-37.707 4.064s-2.186 28.469-4.832 49.514L844.32 640h-65.653l13.024-119.573" fill="#231916" p-id="8389"></path><path d="M226.635 632.683c-12.374 4.341-38.038 7.317-73.91 7.317C49.6 640-6.048 590.933 0.523 526.09c7.893-77.28 90.336-120.757 180.618-120.757 34.976 0 55.552 2.859 74.859 7.638l-6.208 52.064c-12.821-4.384-42.89-8.406-67.232-8.406-53.141 0-98.25 16.043-103.424 66.763-4.608 45.355 27.061 67.04 86.816 67.04 20.8 0 51.477-3.019 65.653-7.37l-4.992 49.6 0.022 0.02z" fill="#C92027" p-id="8390"></path><path d="M272.715 580.021c19.285 6.763 59.488 13.504 92 13.504 35.029 0 54.528-9.333 56.096-23.797 1.418-13.205-12.928-14.987-52.491-24.01-54.667-12.897-89.547-32.843-86.133-64.705C286.176 443.99 337.685 416 416.725 416c38.56 0 75.915 2.613 95.275 8.715l-6.656 46.666c-12.565-4.202-60.672-10.037-93.205-10.037-32.992 0-50.07 9.973-51.254 20.917-1.493 13.846 15.659 14.486 58.528 25.451 58.027 14.155 83.403 34.09 80.086 64.992C495.605 609.109 449.259 640 356.715 640c-38.528 0-71.744-6.763-90.048-13.525l6.048-46.454z" fill="#231916" p-id="8391"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#方法">方法</a>
+      <ol>
+        <li><a href="#embedding-layer">embedding layer</a></li>
+        <li><a href="#frequency-enhanced-hybrid-attention-encoder">Frequency Enhanced Hybrid Attention Encoder</a></li>
+        <li><a href="#预估层">预估层</a></li>
+        <li><a href="#多任务学习">多任务学习</a></li>
+      </ol>
+    </li>
+    <li><a href="#实验">实验</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #65B0E8; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/">Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 27, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>SIGIR 2023</p>
+<p>代码链接：https://github.com/sudaada/FEARec</p></blockquote>
+<p>序列推荐里经常用到Self-Attention技术，但研究表明，<strong>SA是一个低通滤波器，不足以捕获高频信息。<strong>此外，由于用户行为中的各种item相互交织，现有模型无法区分时域中隐藏的固有周期性。因此，本文将视角转移到频域，提出了一种用于顺序推荐的频率增强混合注意网络，即 FEARec。本文首先用</strong>斜坡结构</strong>改进频域中的原始时域自注意力，使模型可以明确地学习低频和高频信息。然后设计了一个<strong>频域自相关的注意机制</strong>，以捕获周期性特征并在联合模型中融合时间和频率级别的注意。最后，利用<strong>对比学习和频率正则化</strong>来确保多个视图在时域和频域中对齐。</p>
+<p>Self-Attention的优势在于显式地建模了item之间的相关性，但SA本质上是一个低通滤波器，它会不断擦除序列中的高频信息。（p.s.这是一把双刃剑，如果高频信息是噪声，那过滤掉就完全没有问题；如果用户在短时间内有频繁的交互，那过滤高频信息就会造成信息损失。）</p>
+<p>为了缓解这些问题，现有方法以不同方式导入局部约束以补充基于 Transformer 的模型。例如 LSAN采用了一种新颖的双注意范式，分别通过自注意分支和卷积分支模块捕获全局和局部偏好信号。  LOCKER将五个本地编码器与现有的全局注意力头相结合，以增强短期用户动态建模。然而，上述模型几乎都是从时域的角度来处理历史交互，而很少考虑在频域中应对这一挑战，因为在频域中可以很容易地获得减少的高频信息。以图1(a)为例，从时域来看，所有的item都是按时间顺序排列的，并且沿着t轴相互交织。通过离散傅立叶变换 (DFT)，可以将每个用户的历史项目序列特征分解为沿 w轴具有不同频率的多个行为模式，然后将输入时间特征转换到频域。最终，<strong>直接在频域中操作会更有效地提高self-attention捕获高频信息的能力</strong>。</p>
+<p><img src="/img/image-20240705174754010.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705174754010"
+	
+	
+></p>
+<p>此外，用户在互联网上的行为往往呈现出一定的周期性趋势。以图1(b)为例，Bob的低频交互项中隐藏着一个周期性的行为模式：买了手机就带了手表和笔记本。当他最近再次购买具有类似特性的产品时，笔记本电脑可能是给他的一个很好的推荐。然而，通过直接计算项目在时域的整体注意力得分，很难找到隐藏在序列中的周期性行为模式。</p>
+<h2 id="方法">方法
+</h2><p>频率增强混合注意网络（FEARec）主要包括三个部分。最后，我们应用对比学习和频域损失来改善时域和频域的表示
+<img src="/img/image-20240705181049984.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="embedding-layer">embedding layer
+</h3><p>加了位置编码和layer norm：
+<img src="/img/image-20240705181148206.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="frequency-enhanced-hybrid-attention-encoder">Frequency Enhanced Hybrid Attention Encoder
+</h3><p>混合注意力模块主要由三个模块构成：频率斜坡结构，混合注意力层和逐点前馈网络。</p>
+<p><strong>3.2.1 频率斜坡结构</strong></p>
+<p>这个概念应该是参考了<a class="link" href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2205.12956.pdf"  target="_blank" rel="noopener"
+    >Inception Transformer</a> 这篇论文。频率斜坡结构就是：在低层给高频mixer分配更多特征，在高层给低频mixer分配更多特征。每一层提取一个频率子集，以保证不同的注意力块关注不同的频谱
+<img src="/img/image-20240705181204999.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/img/image-20240705181244040.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p><strong>3.2.2 时域自注意层</strong></p>
+<p>因为前面已经做了傅立叶变换，所以做个傅立叶反变换将频域转换到时域。</p>
+<p>因为前面对频域进行了采样，所以增加个padding操作保证shape一致。</p>
+<p><strong>3.2.3 频域自注意层</strong></p>
+<p>通过在频域计算自相关，捕获周期性行为模式。这一步是在建模图(1)(b)。</p>
+<p>首先定义延时函数Roll，其实就是一个循环数组：
+<img src="/img/image-20240705181310832.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>操作和时域差不多，多了一个点乘操作（element-wise product）。为什么频域的点乘会是自相关操作呢？这是根据维纳-辛钦定理得到的，通俗点说就是：时域卷积=频域相乘。
+<img src="/img/image-20240705181322450.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/img/image-20240705181339680.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="预估层">预估层
+</h3><p>预估层是一个典型的序列推荐的输出，对候选矩阵E求内积再softmax：
+<img src="/img/image-20240705181356205.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="多任务学习">多任务学习
+</h3><p>从损失函数上加强频率分段注意力与周期性提取。</p>
+<p><strong>对比学习</strong></p>
+<p>简单的数据增强（裁剪、屏蔽和重新排序）<strong>不能保证高水平的语义相似性</strong>，本文采用dropout作为增强方式。就是对嵌入层和混合注意模块进行dropout，作为正样本。</p>
+<p><strong>频域正则</strong></p>
+<p>由于时域和频域特征表示相同的语义，只是在不同的域中，因此假设<strong>相似的时域特征的频谱也应该相似</strong>。
+<img src="/img/image-20240705181413394.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="img/image-20240705181413394.png" alt="image-20240705181413394" style="zoom:50%;" /></p>
+<h2 id="实验">实验
+</h2><p><img src="/img/image-20240705181504587.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Neural Networks in Recommender Systems: A Survey</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-transformer-for-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Transformer for Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/modeling-user-fatigue-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Modeling User Fatigue for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/repetition-and-exploration-in-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Repetition and Exploration in Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

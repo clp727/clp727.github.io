@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" SIGIR2024\n之前有过一些讨论用户行为周期性的文章，目的是给用户重复推荐。这篇文章从相反的角度出发，提出了一个序列推荐模型 FRec 用于用户疲劳建模，思考如何不给用户重复推荐。\n">
+<title>Modeling User Fatigue for Sequential Recommendation</title>
+
+<link rel='canonical' href='http://localhost:1313/p/modeling-user-fatigue-for-sequential-recommendation/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Modeling User Fatigue for Sequential Recommendation">
+<meta property='og:description' content=" SIGIR2024\n之前有过一些讨论用户行为周期性的文章，目的是给用户重复推荐。这篇文章从相反的角度出发，提出了一个序列推荐模型 FRec 用于用户疲劳建模，思考如何不给用户重复推荐。\n">
+<meta property='og:url' content='http://localhost:1313/p/modeling-user-fatigue-for-sequential-recommendation/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-02-27T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-02-27T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="Modeling User Fatigue for Sequential Recommendation">
+<meta name="twitter:description" content=" SIGIR2024\n之前有过一些讨论用户行为周期性的文章，目的是给用户重复推荐。这篇文章从相反的角度出发，提出了一个序列推荐模型 FRec 用于用户疲劳建模，思考如何不给用户重复推荐。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">学会总结，学会复盘</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://blog.csdn.net/clpzn_?spm=1000.2115.3001.5343'
+                        target="_blank"
+                        title="CSDN"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1741695404625" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8388" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M533.941 419.264c14.71-1.621 37.291-3.264 68.352-3.264 51.872 0 93.803 9.152 119.776 28.416 23.339 17.952 38.859 47.008 34.56 89.13-3.978 39.19-24.042 66.635-53.312 83.595C676.544 633.152 642.837 640 592.107 640c-29.888 0-58.422-1.643-80.107-4.896l21.941-215.84z m42.87 172.939c4.981 0.992 11.562 1.973 24.533 1.973 51.883 0 88.47-25.877 92.16-62.24 5.333-52.555-27.125-70.944-81.803-70.624-7.072 0-16.917 0-22.133 0.97L576.8 592.214h0.01z m223.498-164.704c210.955-39.872 229.163 31.776 222.646 95.189L1010.656 640h-66.944l11.21-106.987c2.422-23.562 17.505-69.653-55.338-67.914-25.184 0.608-37.707 4.064-37.707 4.064s-2.186 28.469-4.832 49.514L844.32 640h-65.653l13.024-119.573" fill="#231916" p-id="8389"></path><path d="M226.635 632.683c-12.374 4.341-38.038 7.317-73.91 7.317C49.6 640-6.048 590.933 0.523 526.09c7.893-77.28 90.336-120.757 180.618-120.757 34.976 0 55.552 2.859 74.859 7.638l-6.208 52.064c-12.821-4.384-42.89-8.406-67.232-8.406-53.141 0-98.25 16.043-103.424 66.763-4.608 45.355 27.061 67.04 86.816 67.04 20.8 0 51.477-3.019 65.653-7.37l-4.992 49.6 0.022 0.02z" fill="#C92027" p-id="8390"></path><path d="M272.715 580.021c19.285 6.763 59.488 13.504 92 13.504 35.029 0 54.528-9.333 56.096-23.797 1.418-13.205-12.928-14.987-52.491-24.01-54.667-12.897-89.547-32.843-86.133-64.705C286.176 443.99 337.685 416 416.725 416c38.56 0 75.915 2.613 95.275 8.715l-6.656 46.666c-12.565-4.202-60.672-10.037-93.205-10.037-32.992 0-50.07 9.973-51.254 20.917-1.493 13.846 15.659 14.486 58.528 25.451 58.027 14.155 83.403 34.09 80.086 64.992C495.605 609.109 449.259 640 356.715 640c-38.528 0-71.744-6.763-90.048-13.525l6.048-46.454z" fill="#231916" p-id="8391"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#方法">方法</a>
+      <ol>
+        <li><a href="#细粒度的兴趣感知相似度矩阵">细粒度的兴趣感知相似度矩阵</a></li>
+        <li><a href="#疲劳增强多兴趣融合">疲劳增强多兴趣融合</a></li>
+        <li><a href="#疲劳门控循环单元">疲劳门控循环单元</a></li>
+        <li><a href="#疲劳监督对比学习">疲劳监督对比学习</a></li>
+      </ol>
+    </li>
+    <li><a href="#预估">预估</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #65B0E8; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/modeling-user-fatigue-for-sequential-recommendation/">Modeling User Fatigue for Sequential Recommendation</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 27, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>SIGIR2024</p>
+<p>之前有过一些讨论用户行为周期性的文章，目的是给用户重复推荐。这篇文章从相反的角度出发，提出了一个序列推荐模型 <strong>FRec</strong> 用于用户疲劳建模，思考如何不给用户重复推荐。</p>
+<p>代码链接：https://github.com/tsinghua-fib-lab/SIGIR24-FRec</p></blockquote>
+<p><strong>用户疲劳的定义：用户可能会对与自己在短时间内接触过的内容过于相似的推荐感到厌倦。</strong></p>
+<p>下图展示了同类视频与非同类视频的有效观看率（EVTR，effective view-through  rate，应该就是观看超过多少秒视为有效观看）的变化曲线。与其他类别的视频相比，当用户对同一类别的有效观看次数过多时，目标类别视频的 EVTR  显著下降，并且持续较低。这是用户对重复观看类似视频感到疲劳的明显证据。</p>
+<p>现有的推荐系统很少探讨用户疲劳问题，它有三个主要挑战：</p>
+<ul>
+<li>哪些特征支持它；</li>
+<li>它如何影响用户兴趣；</li>
+<li>它的显式信号如何获得。</li>
+</ul>
+<h2 id="方法">方法
+</h2><p>因为是序列推荐，输入就是用户历史行为序列</p>
+<p>FRec的模型结构如下，主要包括三部分：兴趣感知相似度矩阵（ISM）、疲劳增强多兴趣融合（利用DCN增强表示）、疲劳门控循环单元（CNN+GRU）。
+<img src="/img/image-20240705184137382.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="细粒度的兴趣感知相似度矩阵">细粒度的兴趣感知相似度矩阵
+</h3><p>两个item之间的相似性可以源于多个方面并且对应于用户的多个子兴趣。例如，视频的相似度可以通过拍摄风格、视频基调、主题等方面来表征，这些都可以用来模拟用户观看时的疲劳程度。</p>
+<p>这一节的目的就是提取K个target和历史行为的相似度。首先用self-attention从历史行为中提取K个兴趣：
+<img src="/img/image-20240705184152336.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="/img/image-20240705184224352.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="疲劳增强多兴趣融合">疲劳增强多兴趣融合
+</h3><p>用户疲劳对兴趣的影响是复杂的，因此作者用DCN的方法处理相似度矩阵F的T维度：
+<img src="/img/image-20240705195057128.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+再用相同的方式得到进行了疲劳增强融合的用户长期兴趣嵌入
+<img src="/img/image-20240705195117098.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+这个 h 会作为后续gru的初始状态：
+<img src="/img/image-20240705195125029.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="疲劳门控循环单元">疲劳门控循环单元
+</h3><p>历史序列中最近消耗的项目对于导致用户疲劳很重要。同样还是用DCN的方法处理相似度矩阵F的K维度：
+<img src="/img/image-20240705195354194.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>此外，最近项目序列中包含的时间模式对于疲劳建模也是必要的。例如，连续消耗五个与目标项目相似的项目会比无序地消耗更强烈的疲劳感。因此用CNN建模：
+<img src="/img/image-20240705195416215.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>最后再GRU
+<img src="/img/image-20240705195531065.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="疲劳监督对比学习">疲劳监督对比学习
+</h3><p>对比思想：用户重复消费次数越多，他们会感到更加疲劳。</p>
+<p>按下图构建增强数据：
+<img src="/img/image-20240705195553743.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>然后重新得到gru中的Q，并计算对比损失：</p>
+<h2 id="预估">预估
+</h2><p>在交互预测中既考虑了用户的长期和短期兴趣，也要减去用户在对目标项目做出决策时的疲劳程度。用户和目标项目的预测分数计算如下
+<img src="/img/image-20240705195635434.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/frequency-enhanced-hybrid-attention-network-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Frequency Enhanced Hybrid  Attention Network for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Neural Networks in Recommender Systems: A Survey</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-transformer-for-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Transformer for Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/repetition-and-exploration-in-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Repetition and Exploration in Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
