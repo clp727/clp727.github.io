@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 首先搜索相关的顶级会议和期刊，包括WWW，WSDM，SIGIR，KDD，RecSys，CIKM，TOIS，TKDE等，从2010年到2021年，将关键词“推荐”、“协同过滤”、“排名”或“搜索”与“偏见”、“公平”或“曝光”相结合。得到的统计情况如图所示。由此可见bias和debias引起了很大的关注和探讨。\n">
+<title>推荐系统偏差问题 &amp; 去偏最新研究进展</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98-%E5%8E%BB%E5%81%8F%E6%9C%80%E6%96%B0%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="推荐系统偏差问题 & 去偏最新研究进展">
+<meta property='og:description' content=" 首先搜索相关的顶级会议和期刊，包括WWW，WSDM，SIGIR，KDD，RecSys，CIKM，TOIS，TKDE等，从2010年到2021年，将关键词“推荐”、“协同过滤”、“排名”或“搜索”与“偏见”、“公平”或“曝光”相结合。得到的统计情况如图所示。由此可见bias和debias引起了很大的关注和探讨。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98-%E5%8E%BB%E5%81%8F%E6%9C%80%E6%96%B0%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-02-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-02-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="推荐系统偏差问题 & 去偏最新研究进展">
+<meta name="twitter:description" content=" 首先搜索相关的顶级会议和期刊，包括WWW，WSDM，SIGIR，KDD，RecSys，CIKM，TOIS，TKDE等，从2010年到2021年，将关键词“推荐”、“协同过滤”、“排名”或“搜索”与“偏见”、“公平”或“曝光”相结合。得到的统计情况如图所示。由此可见bias和debias引起了很大的关注和探讨。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">分享各种总结</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#一-推荐系统的反馈回路">一. 推荐系统的反馈回路</a></li>
+        <li><a href="#二-推荐系统的bias">二. 推荐系统的Bias</a>
+          <ol>
+            <li><a href="#1-数据偏差">1. 数据偏差</a></li>
+            <li><a href="#2-模型偏差">2. 模型偏差</a></li>
+            <li><a href="#3--推荐结果中隐含的偏差">3.  推荐结果中隐含的偏差</a></li>
+            <li><a href="#4-反馈回路放大bias">4. 反馈回路放大bias</a></li>
+          </ol>
+        </li>
+        <li><a href="#三偏差解决方案">三.偏差解决方案</a>
+          <ol>
+            <li><a href="#31-methods-for-selection-bias">3.1 Methods for Selection Bias</a></li>
+            <li><a href="#32-debiasing-in-model-training">3.2 Debiasing in model training</a></li>
+            <li><a href="#33-methods-for-conformity-bias">3.3 Methods for Conformity Bias</a></li>
+            <li><a href="#34-methods-for-exposure-bias">3.4 Methods for Exposure Bias</a></li>
+            <li><a href="#35-methods-for-position-bias">3.5 Methods for Position Bias</a></li>
+            <li><a href="#35-针对data-biases的通用解决方案">3.5 针对Data Biases的通用解决方案</a></li>
+            <li><a href="#36-methods-for-popularity-bias">==3.6 Methods for Popularity Bias==</a></li>
+            <li><a href="#37-methods-for-unfairness">3.7 Methods for Unfairness</a></li>
+            <li><a href="#38-methods-for-mitigating-loop-effect">3.8 Methods for Mitigating Loop Effect</a></li>
+          </ol>
+        </li>
+        <li><a href="#四未来工作">四.未来工作</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #2a9d8f; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%81%8F%E5%B7%AE%E9%97%AE%E9%A2%98-%E5%8E%BB%E5%81%8F%E6%9C%80%E6%96%B0%E7%A0%94%E7%A9%B6%E8%BF%9B%E5%B1%95/">推荐系统偏差问题 &amp; 去偏最新研究进展</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    10 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p><img src="/img/image-20240410160035050.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410160035050"
+	
+	
+>
+首先搜索相关的顶级会议和期刊，包括WWW，WSDM，SIGIR，KDD，RecSys，CIKM，TOIS，TKDE等，从2010年到2021年，将关键词“推荐”、“协同过滤”、“排名”或“搜索”与“偏见”、“公平”或“曝光”相结合。得到的统计情况如图所示。由此可见bias和debias引起了很大的关注和探讨。</p>
+<h3 id="一-推荐系统的反馈回路">一. 推荐系统的反馈回路
+</h3><p>从user、data、model这三个推荐循环生态的角度出发，整体归纳起来大致有以下几个Bias（其实这些Bias很多场景下是可以互相转化的）。</p>
+<p><img src="/img/image-20240410145851239.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410145851239"
+	
+	
+></p>
+<p>①User -&gt; Data</p>
+<p>从用户处收集数据，包括用户和商品的交互以及其他的side信息，
+②Data -&gt; Model</p>
+<p>基于收集到的数据进行推荐模型的学习，从历史的交互中学习用户的喜好，并且预测用户可能购买某个商品的概率等。
+③ Model -&gt; User</p>
+<p>通过训练得到的模型部署上线，在用户访问时给用户推荐合适的内容，以满足用户的信息需求。这一阶段将影响用户未来的行为和决策。</p>
+<h3 id="二-推荐系统的bias">二. 推荐系统的Bias
+</h3><p><img src="/img/image-20240410150251806.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410150251806"
+	
+	
+></p>
+<h4 id="1-数据偏差">1. 数据偏差
+</h4><p>因为用户交互的数据是观察性的，而不是实验性的，即通过用户行为的训练数据不可避免的受到很多因素的影响，如：推荐系统的推荐机制、热点内容、舆论等。使得训练数据偏离真实场景中理想的数据分布：</p>
+<p><img src="/img/image-20240410150415918.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410150415918"
+	
+	
+></p>
+<p>Data bias 会进一步使推荐模型捕捉到这些偏差，从而导致次优推荐效果。红色曲线表示测试的真实风险函数，而蓝色曲线表示训练的预期经验风险函数。</p>
+<ul>
+<li>
+<p>选择偏差</p>
+<p>主要来自显示反馈(Explicit feedback)，因为用户可以自由选择对哪些项目进行评分，所以观察到的评分并不是所有评分的代表性样本</p>
+</li>
+<li>
+<p>曝光偏差</p>
+<p>主要来自隐式反馈(Implicit feedback)，用户只能看到一部分系统曝光的物品，并作出点击等反应。但是不包含的交互并不一定代表用户不喜欢（可能是用户不知道该物品）。</p>
+</li>
+<li>
+<p>一致性偏差</p>
+<p>因为用户倾向于在群体中做出与他人相似的行为，即使与他们自己的感受不符</p>
+</li>
+<li>
+<p>位置偏差</p>
+<p>位置偏差尤其发生在广告系统或搜索引擎场景中。用户倾向与列表头部的内容交互，而不太管这些内容是否真的是自己喜欢的</p>
+</li>
+</ul>
+<h4 id="2-模型偏差">2. 模型偏差
+</h4><p>在模型设计中故意添加了一些归纳偏差，以实现一些理想的特性。</p>
+<ul>
+<li>
+<p>归纳偏差</p>
+<p>为了让模型更好地训练或者能泛化到训练集之外，需要做出一些假设。我们训练模型是为了能够在未见过的样本上有准确的预测，如果不对数据和模型做假设，那么泛化无从谈起</p>
+</li>
+</ul>
+<h4 id="3--推荐结果中隐含的偏差">3.  推荐结果中隐含的偏差
+</h4><ul>
+<li>
+<p>流行度偏差(Popularity Bias)</p>
+<p>热门 items 受到超过本身应该有的 popularity 的关注，导致常见的中长尾现象，小部分热门 items 占据了大部分交互。在这种数据上训练模型，模型会倾向于给热门 items 打过高的分数，而默认对不热门 items 更加消极。所以流行度偏差会降低推荐系统的个性化水平，并导致推荐结果的不公平。</p>
+<p>如果忽略Popularuty bias，会产生以下几个问题：</p>
+<p>a. 加剧马太效应(Matthew effect)，流行偏差会进一步增加流行items的曝光机会——收集到更不平衡的数据。
+b. 降低了个性化程度，使得结果不再具有偶然性。总是推荐热门内容会损害用户体验，尤其是小众偏好的用户。
+c. 降低了推荐结果的公平性：流行的不一定是高质量的，那些与用户偏好更匹配的items反倒得不到曝光，这是不公平的。</p>
+</li>
+<li>
+<p>不公平性(Unfairness)</p>
+<p>对部分人有歧视，偏袒另一部分人。基于种族、性别、年龄、教育水平或财富等属性，不同的用户群体在数据中的被展现的机会通常是不平等的。这种不平衡又会被模型学到，进而可能导致系统性的歧视，降低弱势群体的被关注度。(但是可能以性别等人口特征作为用户特征能够更好推荐？)</p>
+</li>
+</ul>
+<h4 id="4-反馈回路放大bias">4. 反馈回路放大bias
+</h4><p><img src="/img/image-20240410155850441.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410155850441"
+	
+	
+></p>
+<p>偏差的存在，使得现实世界中的推荐系统的整个反馈回路走向偏差放大的方向，偏差不断进行自我强化（数据偏差 → 数据不平衡 → 数据偏差）。</p>
+<h3 id="三偏差解决方案">三.偏差解决方案
+</h3><p>已经提出了大量的方法来减轻偏见或不公平的影响。表列出了所审查的方法及其优缺点。</p>
+<p><img src="/img/image-20240410161246285.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410161246285"
+	
+	
+></p>
+<h4 id="31-methods-for-selection-bias">3.1 Methods for Selection Bias
+</h4><p>由于打分只有部分可见，传统的评估通常是在可见的项目上做平均：但不是对真实性能的无偏估计。</p>
+<p>这种 gap 是由 selection bias 造成的。针对此问题目前有两个策略：</p>
+<ol>
+<li>Peopensity Score（倾向分数）</li>
+<li>ATOP（不是很常用，因为要求假设很苛刻。）</li>
+</ol>
+<h4 id="32-debiasing-in-model-training">3.2 Debiasing in model training
+</h4><ol>
+<li>
+<p><strong>Joint Generative Model</strong></p>
+<p>让模型同时考虑 rating prediction task 和 missing data prediction task。这些工作假设用户选择 items 进行评分和评分值有关，具体来说，sui可能被建模成依赖于rui的多项式、Logit model、MF model、binomial mixture model、social-enhanced model。这样，用户的偏好不仅基于打分值，还基于 missing mechanism。</p>
+<p>缺点是导致模型过于复杂， 难以训练。此外， 这种模型大多是启发式设计，关于分布的假设在某些实际场景中可能不成立。</p>
+</li>
+<li>
+<p><strong>Data Imputation (Relabeling)</strong></p>
+<p>selection bias 出现是因为数据的丢失不是随机的（如果是随机的，并不影响分布），这种思路是给未标注的数据添加伪标签，以此来使得训练集数据分布趋向于理想分布。</p>
+</li>
+<li>
+<p><strong>Propensity Score (Reweighting)</strong></p>
+<p>利用Propensity score来减轻选择偏差，直接以基于IPS的无偏估计量为目标并优化特定的loss：</p>
+</li>
+<li>
+<p><strong>Doubly Robust Model (Relabeling+Reweighting)</strong></p>
+<p>上述两种方法中，data imputation-based models可能因伪标签不准确而存在大的 bias，IPS-based model通常有高方差的问题，Wang et al. 提出结合二者，虽然效果比单独的模型好，但是依然没有根本解决问题</p>
+</li>
+</ol>
+<h4 id="33-methods-for-conformity-bias">3.3 Methods for Conformity Bias
+</h4><p>目前有主要有两种思路解决Conformity Bias问题：第一种认为用户的rating是符合公众意见。例如在推荐基础模型中引入三个关键features： 表示用户打分前该item的打分数量，aui是平均打分，dui是打分的分布，最终预测评分由XGBoost输出：这样，我们可以解耦 conformity 和用户真正的喜好，从而做出合适的推荐。</p>
+<p>另外一种方法是将用户的评分只作为用户喜好和社会影响的综合结果。很多工作在基础的推荐系统中利用 social factors 来生成最终的预测结果，并引入特定的参数来控制一致性偏差的影响。</p>
+<h4 id="34-methods-for-exposure-bias">3.4 Methods for Exposure Bias
+</h4><ol>
+<li><strong>Heuristic weighting</strong></li>
+</ol>
+<p>针对 exposure bias 和 implicit feedback 中 negative signal 不可得的问题，一个直观的策略是将所有 unobserved interactions 视作负例，然后赋予他们置信度。目标函数可以表示为：
+<img src="/img/image-20240410162840035.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240410162840035"
+	
+	
+></p>
+<p>的置信权重是非常有挑战的，并且需要大量人类专家介入或者计算资源，才能搜索到合适的权重。</p>
+<p>但是这种方法通常需要大量人类专家介入或者计算资源，才能搜索到最合适的权重。对于百万级别的数据，人工赋予权重更是不现实的。而比较粗糙设计的置信权重又会在估计用户偏好时引入经验误差</p>
+<ol start="2">
+<li><strong>Sampling</strong></li>
+</ol>
+<p>采样决定了使用哪些数据更新以及使用的频次，给每个数据增加采样概率。采样起到了类似置信度权重的作用。例如 Logistical matrix factorization、BPR等采用均匀负样本采样，还有对热门负样本的过采样、利用社交网络来辅助采样、建立基于item的知识图谱进行采样等，但是这些策略都较难捕捉到真实的负样本。</p>
+<h4 id="35-methods-for-position-bias">3.5 Methods for Position Bias
+</h4><ol>
+<li>
+<p><strong>Click model</strong></p>
+<p>对用户的浏览行为作为假设，并且通过优化可观察的 clicks 的似然来估计真实的相关性反馈。</p>
+</li>
+<li>
+<p><strong>Propensity Score</strong></p>
+<p>使用inverse propensity score，每个instance有一个和位置相关的权值</p>
+</li>
+<li>
+<p><strong>Trust-aware Models</strong></p>
+<p>位置不仅影响 items 的曝光，还影响用户的决策。前述的 propensity score 无法解决这个问题。所以显式地建模用户位置的影响</p>
+</li>
+</ol>
+<h4 id="35-针对data-biases的通用解决方案">3.5 针对Data Biases的通用解决方案
+</h4><p>大多数现有方法都是为解决特定场景中的一个或两个偏差而设计的。因此，当面对通常包含多种类型偏差的真实数据时，这些方法将无法满足要求。最近有一些关于多重数据偏差及其组合的通用解决方案的研究。这些方法借助于一个小的无偏数据集来 debias。例如，一些工作通过 domain adaption 或 knowledge distillation将知识从无偏数据转移到目标模型。尽管这些方法能有效地处理各种数据偏差，但它们需要的无偏数据很难获得，成本高昂。因此，如何在不使用无偏数据的情况下开发通用解决方案仍然是一个开放的问题</p>
+<h4 id="36-methods-for-popularity-bias">==3.6 Methods for Popularity Bias==
+</h4><ol>
+<li>
+<p><strong>Regularization</strong></p>
+<p>正则化：是解决各种Bias的常见思路，除了设计简单的正则项以外，这里以2020年阿里的一篇论文为例，提出了ESAM（Entire Space  Adaptation Model），利用Domain Adaptation的思想将热门物品（曝光集合）学到的知识迁移到长尾物品（未曝光集合）上</p>
+</li>
+<li>
+<p><strong>对抗训练(Adversarial Learning)</strong></p>
+<p>同样是是解决各种Bias的常见思路，有很多相关的论文</p>
+</li>
+<li>
+<p><strong>Causal Graphs</strong></p>
+<p>因果图是反事实推理的有力工具，这类方法首先建立因果图（causal graph）来解释 popularity bias，然后在图上应用反事实的干预来消除 bias。Zheng等人利用因果推理解决流行偏差。他们假设用户对商品的点击行为取决于兴趣和流行程度，并构建了一个特定的因果图。为了解决用户兴趣和流行偏差的问题，作者考虑了两种嵌入方法：兴趣嵌入以捕获用户对商品的真实兴趣，以及流行度嵌入来捕获由流行度引起的伪兴趣。在多任务学习的框架下，可以利用特定原因的数据对这些嵌入进行训练。最后，兴趣嵌入将被用于最终推荐，在这里，受欢迎度偏差已经被消除。</p>
+</li>
+<li>
+<p><strong>其他方法</strong></p>
+<p>一种方式是引入 side information。例如 , Bressan et al. 引入社交信息。Abdollahpouri et al. 提出一个基于 re-ranking 的策略。它首先使用普通的推荐模型生成一个更大的推荐列表，然后依据 popularity 做 re-rank。此外，还有一个工作使用 propensity score 来降低 popularity items 在模型训练中的影响</p>
+</li>
+</ol>
+<h4 id="37-methods-for-unfairness">3.7 Methods for Unfairness
+</h4><h4 id="38-methods-for-mitigating-loop-effect">3.8 Methods for Mitigating Loop Effect
+</h4><ol>
+<li>
+<p><strong>Uniform data</strong></p>
+<p>使用统一数据是解决问题的最直接的方法。为了收集统一的数据，这种方法通过使用 random logging policy 而不是普通的normal recommendation policy 来干预系统。也就是说，对于每个用户来说，他们不使用推荐模型来进行 items 推送，而是随机选择一些 items，并以均匀分布的方式对其进行排序。</p>
+</li>
+<li>
+<p><strong>强化学习(Reinforcement learning)</strong></p>
+<p>推荐系统存在 exploration-exploitation dilemma，其中 exploitation 预测最符合用户偏好的 items，而 exploration 是随机推荐 items，以收集更多无偏的用户反馈，更好地捕捉用户偏好。为了解决这一问题，大量研究通过构建一个 reinforcement learning (RL) agent 来探索交互式推荐。与传统的推荐方法不同，RL 将信息搜索任务视为 agent（系统）与 users（环节）之间的序列交互。在交互过程中，agent 可以根据用户的历史信息或反馈（state ）不断更新策略 ，并生成最匹配用户偏好或 explore 用户偏好来获得长远的良好推荐效果（action ）。然后，用户将在推荐列表上给出反馈（即奖励 ，如评分或点击），以更新代理。因此，RL 能够平衡 exploitation 与 exploration 之间的竞争，最大化每个用户对系统的长期满意度。</p>
+</li>
+</ol>
+<h3 id="四未来工作">四.未来工作
+</h3><ol>
+<li>
+<p><strong>Propensity Scores的评估</strong></p>
+<p>Propensity Scores是一种传统的debias策略。然而，只有当倾向性得分被正确地指定时，IPS策略的有效性和公正性才得到保证。</p>
+</li>
+<li>
+<p><strong>通用的Debiasing框架</strong></p>
+<p>我们可以发现，现有的方法通常只针对一个或两个特定的偏差而设计。然而，在现实世界中，各种Bias通常同时发生。推荐系统需要一个通用的借记框架来处理混合的偏差。</p>
+</li>
+<li>
+<p><strong>更好的Evaluation</strong></p>
+<p>如何更好地利用这些辅助信息，因为属性不是孤立的，而是相互连接形成知识图的。知识图捕捉到更丰富的信息，这可能有助于理解数据偏差；知识图谱可能会成为开发featue-enhanced通用的debiasing框架的强有力工具。</p>
+</li>
+<li>
+<p><strong>使用归因图来解释和推理</strong></p>
+<p>降低Bias的关键是对推荐模型或数据的发生、原因和影响进行推理。大多数Bias可以通过原因假设和因果图中的其他混淆因素来理解；Bias的理解还可以通过图中的因果路径来推理。所以设计一个更好的合适的因果图，它可以推理、debiasing和解释。</p>
+</li>
+<li>
+<p><strong>动态Bias</strong></p>
+<p>实践中,bias通常是动态的而不是静态的，因素或bias往往会随着时间的推移而演变。</p>
+</li>
+<li>
+<p><strong>Fairness-Accuracy的平衡</strong></p>
+<p>在协同过滤中，包含诸如年龄和性别等敏感属性的用户配置文件会导致他们的行为模式不同；然而，这些配置文件是不被观察到的，但却隐含地影响了推荐性能。一个研究方向是了解在causality，设计公平性感知的协同过滤算法目前还没有。</p>
+</li>
+<li>
+<p><strong>更好的Evaluation</strong></p>
+<p>如何不偏不倚地评估推荐系统？现有的方法要么需要准确的倾向得分，要么依赖大量无偏见的数据。然而，前者的准确性不能得到保证，而后者会损害用户体验，并且通常只限制在很小比例的在线流量上。统一的数据提供了黄金标准的无偏信息，但其规模小，使其不足以彻底评估推荐模型由于高方差。</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2024会议论文</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Neural Networks in Recommender Systems: A Survey</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/sequential-recommender-systems-challenges-progress-and-prospects/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sequential Recommender Systems: Challenges, Progress and Prospects</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/time-interval-aware-self-attention-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Time Interval Aware Self-Attention for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

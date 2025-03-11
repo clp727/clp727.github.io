@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="从技术角度分类\r基于注意力模型\rDecoupled Side Information Fusion for Sequential Recommendation(SIGIR 2022)\n代码链接\nhttps://github.com/AIM-SE/DIF-SR 摘要\n当前大多数方法都采用自注意力网络，并专注于探索各种解决方案，以集成商品embedding和辅助信息embedding。然而，作者分析表明，由于秩瓶颈 (rank bottleneck)，各种embedding的早期集成限制了注意力矩阵的表达能力，并限制了梯度的灵活性。此外，它涉及不同异构信息资源之间的混合相关性，给注意力计算带来了额外的干扰。受此启发，提出了序列推荐的解耦辅助信息融合方法 (DIF-SR)，它将辅助信息从输入层移动到注意力层，简化了边信息和项目表示的注意力计算。从理论上和经验上表明，所提出的解决方案允许更高秩的注意力矩阵 (higher-rank attention matrices)和灵活的梯度来增强辅助信息融合的建模能力。此外，本文还提出了辅助属性预测器 以进一步激活辅助信息和商品表示学习之间的有益交互。 模型\n">
+<title>推荐系统相关论文</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="推荐系统相关论文">
+<meta property='og:description' content="从技术角度分类\r基于注意力模型\rDecoupled Side Information Fusion for Sequential Recommendation(SIGIR 2022)\n代码链接\nhttps://github.com/AIM-SE/DIF-SR 摘要\n当前大多数方法都采用自注意力网络，并专注于探索各种解决方案，以集成商品embedding和辅助信息embedding。然而，作者分析表明，由于秩瓶颈 (rank bottleneck)，各种embedding的早期集成限制了注意力矩阵的表达能力，并限制了梯度的灵活性。此外，它涉及不同异构信息资源之间的混合相关性，给注意力计算带来了额外的干扰。受此启发，提出了序列推荐的解耦辅助信息融合方法 (DIF-SR)，它将辅助信息从输入层移动到注意力层，简化了边信息和项目表示的注意力计算。从理论上和经验上表明，所提出的解决方案允许更高秩的注意力矩阵 (higher-rank attention matrices)和灵活的梯度来增强辅助信息融合的建模能力。此外，本文还提出了辅助属性预测器 以进一步激活辅助信息和商品表示学习之间的有益交互。 模型\n">
+<meta property='og:url' content='http://localhost:1313/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-03-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="推荐系统相关论文">
+<meta name="twitter:description" content="从技术角度分类\r基于注意力模型\rDecoupled Side Information Fusion for Sequential Recommendation(SIGIR 2022)\n代码链接\nhttps://github.com/AIM-SE/DIF-SR 摘要\n当前大多数方法都采用自注意力网络，并专注于探索各种解决方案，以集成商品embedding和辅助信息embedding。然而，作者分析表明，由于秩瓶颈 (rank bottleneck)，各种embedding的早期集成限制了注意力矩阵的表达能力，并限制了梯度的灵活性。此外，它涉及不同异构信息资源之间的混合相关性，给注意力计算带来了额外的干扰。受此启发，提出了序列推荐的解耦辅助信息融合方法 (DIF-SR)，它将辅助信息从输入层移动到注意力层，简化了边信息和项目表示的注意力计算。从理论上和经验上表明，所提出的解决方案允许更高秩的注意力矩阵 (higher-rank attention matrices)和灵活的梯度来增强辅助信息融合的建模能力。此外，本文还提出了辅助属性预测器 以进一步激活辅助信息和商品表示学习之间的有益交互。 模型\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">分享各种总结</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#从技术角度分类">从技术角度分类</a>
+      <ol>
+        <li><a href="#基于注意力模型">基于注意力模型</a></li>
+        <li><a href="#基于图神经网络">基于图神经网络</a></li>
+        <li><a href="#基于大语言模型">基于大语言模型</a></li>
+      </ol>
+    </li>
+    <li><a href="#从数据角度出发">从数据角度出发</a>
+      <ol>
+        <li><a href="#考虑时间间隔">考虑时间间隔</a></li>
+        <li><a href="#考虑噪声">考虑噪声</a></li>
+      </ol>
+    </li>
+    <li><a href="#从话题角度分类">从话题角度分类</a>
+      <ol>
+        <li><a href="#偏见问题">偏见问题</a></li>
+        <li><a href="#隐私问题">隐私问题</a></li>
+        <li><a href="#可解释性问题">可解释性问题</a></li>
+        <li><a href="#跨域问题">跨域问题</a></li>
+        <li><a href="#公平性问题">公平性问题</a></li>
+        <li><a href="#冷启动问题">冷启动问题</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #2a9d8f; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/">推荐系统相关论文</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    28 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="从技术角度分类">从技术角度分类
+</h2><h3 id="基于注意力模型">基于注意力模型
+</h3><ul>
+<li>
+<p>Decoupled Side Information Fusion for Sequential Recommendation(SIGIR 2022)</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/AIM-SE/DIF-SR"  target="_blank" rel="noopener"
+    >https://github.com/AIM-SE/DIF-SR</a></li>
+</ul>
+</li>
+<li>
+<p>摘要</p>
+<ul>
+<li>当前大多数方法都采用自注意力网络，并专注于探索各种解决方案，以集成商品embedding和辅助信息embedding。然而，作者分析表明，由于秩瓶颈 (rank bottleneck)，各种embedding的早期集成限制了注意力矩阵的表达能力，并限制了梯度的灵活性。此外，它涉及不同异构信息资源之间的混合相关性，给注意力计算带来了额外的干扰。受此启发，提出了序列推荐的解耦辅助信息融合方法 (DIF-SR)，它将辅助信息从输入层移动到注意力层，简化了边信息和项目表示的注意力计算。从理论上和经验上表明，所提出的解决方案允许更高秩的注意力矩阵 (higher-rank attention matrices)和灵活的梯度来增强辅助信息融合的建模能力。此外，本文还提出了辅助属性预测器 以进一步激活辅助信息和商品表示学习之间的有益交互。</li>
+</ul>
+</li>
+<li>
+<p>模型</p>
+</li>
+<li>
+<p>数据集</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Adaptive Disentangled Transformer for Sequential Recommendation（KDD 2023）
+用于序列推荐的自适应解纠缠Transformer</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/defineZYP/ADT"  target="_blank" rel="noopener"
+    >https://github.com/defineZYP/ADT</a></li>
+</ul>
+</li>
+<li>
+<p>摘要</p>
+<ul>
+<li>然而，现有的Transformer架构缺乏显式的正则化逐层解纠缠，这无法利用解纠缠表示的推荐，并导致次优性能。在本文中，我们研究了逐层解纠缠Transformer架构的问题，并提出了自适应解纠缠Transformer（ADT）框架，它能够自适应地确定不同层内的注意头的最佳解纠缠度。具体地说，我们建议通过要求独立性约束，通过互信息估计的注意头和采用辅助目标，以防止信息崩溃成无用的噪音，以鼓励解开。我们进一步提出了一个渐进的调度程序，通过进化过程自适应地调整控制解纠缠度的权重。</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+<ul>
+<li>
+<p>Amazon</p>
+</li>
+<li>
+<p><a class="link" href="https://cseweb.ucsd.edu/~jmcauley/datasets.html#steam_data"  target="_blank" rel="noopener"
+    >Steam（该数据集包含从Steam游戏平台抓取的大量用户评论。）</a></p>
+</li>
+<li>
+<p>MovieLens</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Mixed Attention Network for Cross-domain Sequential Recommendation（WSDM 2024）
+基于混合注意力网络的跨域顺序推荐</p>
+</li>
+<li>
+<p>Sequential Recommendation via Stochastic Self-Attention（WWW 2022）
+基于随机自注意的顺序推荐</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/zfan20/STOSA"  target="_blank" rel="noopener"
+    >https://github.com/zfan20/STOSA</a></li>
+</ul>
+</li>
+<li>
+<p>摘要</p>
+<ul>
+<li>用户的真实世界的顺序行为是不确定的。基于点积的方法不能完全捕获协作传递性。且BPR损失对正样本和采样的负样本没有约束，这会误导优化过程。我们提出了一种新颖的STOchastic Self-Attention (STOSA)来解决这些问题。STOSA特别将每个项目嵌入为一个随机高斯分布，其中的协方差编码了不确定性。我们设计了一个新颖的Wasserstein Self-Attention模块来表征序列中项目-项目的位置关系，有效地将不确定性纳入模型训练。Wasserstein注意力还启示了协同转移学习，因为它满足三角不等式。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention（AAAI 2024）</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/yehjin-shin/bsarec"  target="_blank" rel="noopener"
+    >https://github.com/yehjin-shin/bsarec</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于图神经网络">基于图神经网络
+</h3><ul>
+<li>
+<p>Graph Neural Networks in Recommender Systems: A Survey（ACM  Computing Surveys 2022）
+图神经网络在推荐系统中的应用</p>
+<ul>
+<li>
+<p>论文链接</p>
+<ul>
+<li><a class="link" href="https://github.com/wusw14/GNN-in-RS"  target="_blank" rel="noopener"
+    >https://github.com/wusw14/GNN-in-RS</a></li>
+</ul>
+</li>
+<li>
+<p>2 背景和分类</p>
+<ul>
+<li>
+<p>推荐系统</p>
+</li>
+<li>
+<p>GNN</p>
+<ul>
+<li>
+<p>graph convolutional network (GCN)</p>
+</li>
+<li>
+<p>graph attention network (GAT)</p>
+</li>
+<li>
+<p>gated graph neural network (GGNN)</p>
+</li>
+<li>
+<p>GraphSage</p>
+</li>
+</ul>
+</li>
+<li>
+<p>为什么将图神经网络应用于推荐系统</p>
+<ul>
+<li>GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。</li>
+</ul>
+</li>
+<li>
+<p>基于图神经网络推荐的分类</p>
+<ul>
+<li>分类的依据如下：图的结构在很大程度上取决于信息的类型。例如：社交网络可以自然地看作是一个同构图，用户-物品交互关系可以被认为是一个二分图或者是两个同构图（即  用户-用户和物品-物品图）。而且，推荐系统的任务和被使用信息的类型是高度相关的。例如，社交网络通过利用社交网络信息来构建推荐，知识图谱通过利用物品与物品之间的语义关系来增强物品的表示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>3 用户-物品 协同过滤</p>
+<ul>
+<li>
+<p>四个问题</p>
+<ul>
+<li>
+<p>图结构</p>
+</li>
+<li>
+<p>邻居聚合</p>
+</li>
+<li>
+<p>信息更新</p>
+</li>
+<li>
+<p>最终节点表示</p>
+</li>
+</ul>
+</li>
+<li>
+<p>代表性方法</p>
+<ul>
+<li>
+<p>GC-MC</p>
+<ul>
+<li>
+<p>矩阵补完</p>
+</li>
+<li>
+<p>只考虑一跳邻居，并且丢弃原始节点信息</p>
+</li>
+<li>
+<p>采用 mean-pooling 去聚合邻居节点</p>
+</li>
+<li>
+<p>一视同仁的对待用户和物品</p>
+</li>
+<li>
+<p>只用结点的最后一层进行预测</p>
+</li>
+</ul>
+</li>
+<li>
+<p>STAR-GCN</p>
+<ul>
+<li>
+<p>堆叠 GCN</p>
+</li>
+<li>
+<p>引入重构机制</p>
+</li>
+<li>
+<p>在训练过程中注重标签泄漏问题</p>
+<ul>
+<li>在训练阶段对部分结点进行掩码，并在掩码的节点上增加重构损失</li>
+</ul>
+</li>
+<li>
+<p>利用重构策略缓解过拟合</p>
+</li>
+<li>
+<p>平等的对待用户和物品</p>
+</li>
+<li>
+<p>只用结点的最后一层进行预测</p>
+</li>
+</ul>
+</li>
+<li>
+<p>NGCF</p>
+<ul>
+<li>
+<p>利用不同层的表示来获得结点的 embedding</p>
+<ul>
+<li>
+<p>利用残差网络的优势</p>
+</li>
+<li>
+<p>通过对邻居采用激活函数做summing up得到</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PinSage</p>
+<ul>
+<li>
+<p>结合随机游走方法和图卷积</p>
+</li>
+<li>
+<p>采样固定数量的邻居</p>
+</li>
+<li>
+<p>从特定结点开始模仿随机游走策略的过程，然后计算出L1归一化后的结点访问次数</p>
+</li>
+<li>
+<p>结点u的邻居是前T个具有最高归一化访问次数的结点</p>
+<ul>
+<li>那些不直接与u相邻的结点也可能是它的邻居</li>
+</ul>
+</li>
+<li>
+<p>在聚合时，利用归一化访问次数来作为衡量邻居重要性的指标</p>
+<ul>
+<li>
+<p>importance-pooling 比 mean-pooling 采样方法更好</p>
+<ul>
+<li>这意味着并不是所有邻居结点在表示中心结点时都发挥相同的作用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>由于随机游走策略，失去了原始图结构</p>
+<ul>
+<li>因为并不是以邻居来作为表示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IG-MC</p>
+<ul>
+<li>
+<p>也是矩阵补全，方法同 GC-MC</p>
+</li>
+<li>
+<p>先构造子图，然后在子图上操作</p>
+<ul>
+<li>
+<p>减少对原始图结构的依赖性</p>
+</li>
+<li>
+<p>缓解了在稀疏数据集上性能下降的问题</p>
+</li>
+</ul>
+</li>
+<li>
+<p>用户集合</p>
+<ul>
+<li>由目标用户和与目标物品交互过的用户组成</li>
+</ul>
+</li>
+<li>
+<p>物品集合</p>
+<ul>
+<li>由目标物品和与目标用户交互过的物品组成</li>
+</ul>
+</li>
+<li>
+<p>针对数据稀疏性和冷启动问题</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>
+<p>图的构造（Graph Construction）</p>
+<ul>
+<li>
+<p>原始图</p>
+</li>
+<li>
+<p>构造子图</p>
+</li>
+</ul>
+</li>
+<li>
+<p>邻居聚合（Neighbor Aggregation）</p>
+<ul>
+<li>
+<p>聚合函数</p>
+<ul>
+<li>
+<p>mean pooling 无区别对待邻居结点</p>
+</li>
+<li>
+<p>degree normalization 通过图结构赋值结点的权重</p>
+</li>
+<li>
+<p>attentive pooling 利用注意力机制来区分邻居的重要性</p>
+</li>
+<li>
+<p>Central node augmentation 考虑结点之间的关联性，并利用中心结点来过滤邻居的消息</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>信息更新（Information Update）</p>
+<ul>
+<li>
+<p>mean-pooling</p>
+</li>
+<li>
+<p>sum-pooling</p>
+</li>
+<li>
+<p>concatenation with transformation</p>
+</li>
+</ul>
+</li>
+<li>
+<p>最终结点表示（Final Node Representation）</p>
+<ul>
+<li>
+<p>用最后一层作为表示</p>
+</li>
+<li>
+<p>用 weighted-pooling 或 concatenation operation 集成所有层的表示</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>4 序列推荐</p>
+<ul>
+<li>
+<p>总体框架</p>
+<ul>
+<li>就是在序列推荐模型前，用GCN提取用户行为中的特征</li>
+</ul>
+</li>
+<li>
+<p>把GNN应用在序列推荐上的三个问题</p>
+<ul>
+<li>
+<p>图的构造</p>
+<ul>
+<li>
+<p>怎么把序列数据转换成有序图</p>
+</li>
+<li>
+<p>顺序行为的构造策略
+由于在很多情况下用户行为序列较短，直接在连读单击的两个项目之间添加节点的办法包含的信息太少。最近的研究提出了几种丰富原有序列图结构的策略，可分为两大主流。
+一种主流方法是利用额外的序列（比如整个数据集中的序列）来丰富项目之间的转换。另一种是调整当前序列的图结构</p>
+</li>
+</ul>
+</li>
+<li>
+<p>信息传播</p>
+<ul>
+<li>
+<p>怎么设计高效的传播机制</p>
+</li>
+<li>
+<p>GGNN框架被广泛采用来在有向图上传播信息。具体来说，它采用均值池分别聚合前一项和下一项的信息;组合两个聚合表示;并利用GRU组件整合邻居和中心节点的信息。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>序列偏好</p>
+<ul>
+<li>
+<p>怎么捕获用户的时间相关偏好</p>
+</li>
+<li>
+<p>考虑到序列中的项目具有不同的优先级，因此采用注意机制进行集成。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>
+<p>图的构造</p>
+<ul>
+<li>
+<p>SR-GNN链接两个相邻的点击物品</p>
+</li>
+<li>
+<p>MG-GNN提取三个后续项，并在它们之间添加边，这样可以同等对待最后三个项</p>
+</li>
+<li>
+<p>序列建模依赖于构造的图</p>
+</li>
+<li>
+<p>迄今为止，这里没有证据显示哪种策略更好，另外，现有的作品忽略了连续项目之间的时间间隔，这可能会进一步提高性能</p>
+</li>
+</ul>
+</li>
+<li>
+<p>信息传播</p>
+<ul>
+<li>
+<p>使用 mean-pooling 去一视同仁的聚合</p>
+</li>
+<li>
+<p>使用注意力机制去区分邻居的影响</p>
+</li>
+<li>
+<p>使用GRU</p>
+</li>
+</ul>
+</li>
+<li>
+<p>序列偏好</p>
+<ul>
+<li>
+<p>GNN组件的输出是结点表示形式</p>
+</li>
+<li>
+<p>一个结点序列的表示需要被整合成顺序表示</p>
+</li>
+<li>
+<p>MA-GNN使用 mean-pooling 去聚合</p>
+</li>
+<li>
+<p>使用注意力机制</p>
+<ul>
+<li>
+<p>SR-GNN</p>
+</li>
+<li>
+<p>GC-SAN</p>
+</li>
+<li>
+<p>A-PGNN</p>
+</li>
+</ul>
+</li>
+<li>
+<p>FGNN 使用GRU和ATT</p>
+<ul>
+<li>增强物品之间的顺序关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>5 社交化推荐系统</p>
+<ul>
+<li>
+<p>两个问题</p>
+<ul>
+<li>
+<p>朋友的影响是否相同？如果不同，应该怎么区分</p>
+</li>
+<li>
+<p>怎么从社会影响角度和交互行为整合用户表示</p>
+</li>
+</ul>
+</li>
+<li>
+<p>社交网络增强</p>
+<ul>
+<li>
+<p>两个策略</p>
+<ul>
+<li>
+<p>将社交网络作为图数据</p>
+</li>
+<li>
+<p>从图结构角度考虑社交信息和用户-物品交互</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DGRec</p>
+<ul>
+<li>
+<p>将社交网络作为图数据</p>
+</li>
+<li>
+<p>每个用户动态兴趣从它们最近的session行为中使用LSTM抽取</p>
+</li>
+<li>
+<p>在社交网络中用户的表征是动态的</p>
+</li>
+<li>
+<p>考虑到社交影响可能会随着上下文有所不同，DGRec使用GAT去区分朋友的影响</p>
+<ul>
+<li>
+<p>消融研究表明，与有社会网络的一般推荐和无侧信息模型的顺序推荐相比，DGRec具有显著的性能</p>
+</li>
+<li>
+<p>结果表明了在顺序推荐中考虑动态社会影响的合理性。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>代表性方法</p>
+<ul>
+<li>
+<p>DiffNet</p>
+<ul>
+<li>
+<p><a class="link" href="https://github.com/PeiJieSun/diffnet"  target="_blank" rel="noopener"
+    >https://github.com/PeiJieSun/diffnet</a></p>
+</li>
+<li>
+<p>用 graphSage 模拟社会扩散过程对用户的影响</p>
+<ul>
+<li>
+<p>使用 mean-pooling去聚合用户的表示</p>
+</li>
+<li>
+<p>对历史物品使用mean-pooling得到物品空间中用户的偏好</p>
+</li>
+<li>
+<p>在扩散完毕后，使用得到的用户表示来代替原始的用户 embedding</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Note that taking the average representation of interacted item embeddings as the user preference in item space is equivalent to aggregate one-hop neighbors for the user vector</p>
+<ul>
+<li>没看明白</li>
+</ul>
+</li>
+<li>
+<p>与TrustSVD相比，DiffNet通过利用GNN机制捕获了更深层次的社会扩散过程。</p>
+</li>
+<li>
+<p>特点与不足之处：假定邻居的影响力相同</p>
+</li>
+</ul>
+</li>
+<li>
+<p>GraphRec</p>
+<ul>
+<li>
+<p>考虑社交关系图和用户物品二部图这两张图，各自应用注意力机制</p>
+<ul>
+<li>
+<p>用att来学习用户和物品的embedding</p>
+</li>
+<li>
+<p>用att来区分邻居的影响</p>
+<ul>
+<li>邻居对用户的影响取决于他们潜在向量之间的相似性</li>
+</ul>
+</li>
+<li>
+<p>用户表示由物品空间表示和社交空间表示组合而成</p>
+</li>
+</ul>
+</li>
+<li>
+<p>注意力机制由于区分了邻居的影响和物品的重要性得到了性能提升</p>
+</li>
+<li>
+<p>社会影响可能并没有被充分利用，因为GraphRec只使用了一层GAT来模拟社会图中的社会影响</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DANSER</p>
+<ul>
+<li>
+<p>以往工作假定社会影响是静态的，本文用GAN去学习动态的影响</p>
+</li>
+<li>
+<p>具体做法</p>
+<ul>
+<li>
+<p>使用GAN去学习双重社会影响</p>
+<ul>
+<li>
+<p>其中一个由特定的注意权重建模</p>
+</li>
+<li>
+<p>另一个由动态的上下文感知注意权重建模</p>
+</li>
+</ul>
+</li>
+<li>
+<p>捕捉静态</p>
+<ul>
+<li>传播固有的用户偏好向量</li>
+</ul>
+</li>
+<li>
+<p>捕捉动态</p>
+<ul>
+<li>
+<p>传播上下文感知的用户向量</p>
+<ul>
+<li>
+<p>依赖于目标目标物品</p>
+</li>
+<li>
+<p>使用 max-pooling 计算</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>贡献</p>
+<ul>
+<li>整合了静态和动态的用户偏好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DiffNet、GraphRec、DANSER的小结</p>
+<ul>
+<li>
+<p>上面的方法要么使用社会图建模，要么学习社会空间和物品空间中的用户向量然后再整合</p>
+</li>
+<li>
+<p>都没有充分利用节点在不同层次的嵌入</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DiffNet++</p>
+<ul>
+<li>
+<p>首先在二部图和社交网络中用GAT聚合邻居结点的信息</p>
+</li>
+<li>
+<p>注意力机制被用来融合邻居的两个状态</p>
+</li>
+<li>
+<p>用户节点的表示被附加的融合向量更新</p>
+</li>
+<li>
+<p>对于物品结点，使用GAT传播交互用户的信息</p>
+</li>
+<li>
+<p>使用不同隐藏层去表示全体结点</p>
+</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>
+<p>影响力建模</p>
+<ul>
+<li>
+<p>使用注意力机制来捕捉不同朋友的影响力</p>
+</li>
+<li>
+<p>考虑到朋友的影响力可能会因为物品而边花</p>
+<ul>
+<li>DANSER对特定的物品考虑啊动态的用户表示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>偏好整合</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>6 基于知识图谱推荐系统</p>
+<ul>
+<li>
+<p>引入知识图谱的三个好处</p>
+<ul>
+<li>
+<p>KG具有丰富的语义，能够探索物品间潜在的联系</p>
+</li>
+<li>
+<p>提高推荐的多样性</p>
+</li>
+<li>
+<p>引入可解释性</p>
+</li>
+</ul>
+</li>
+<li>
+<p>基于KG的RS的三个挑战</p>
+<ul>
+<li>
+<p>图的简化</p>
+<ul>
+<li>KG具有非常复杂的结构，如何简化图达到更好的传播效果</li>
+</ul>
+</li>
+<li>
+<p>多关系传播</p>
+<ul>
+<li>KG的结点具有非常多的连接，如何传播信息</li>
+</ul>
+</li>
+<li>
+<p>用户整合</p>
+<ul>
+<li>怎么融合KG和用户特征</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>代表方法</p>
+<ul>
+<li>
+<p>KGCN</p>
+<ul>
+<li>使用 user-specific relation-aware graph neural network 去聚合邻居实体信息</li>
+</ul>
+</li>
+<li>
+<p>KGNN-LS</p>
+</li>
+<li>
+<p>KGAT</p>
+</li>
+<li>
+<p>IntentGC</p>
+</li>
+<li>
+<p>AKGE</p>
+</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>
+<p>图构建</p>
+</li>
+<li>
+<p>可感知聚合</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>7 其他工作</p>
+<ul>
+<li>
+<p>兴趣点推荐</p>
+</li>
+<li>
+<p>群推荐</p>
+</li>
+<li>
+<p>捆绑推荐</p>
+</li>
+<li>
+<p>点击预测</p>
+</li>
+<li>
+<p>多媒体推荐</p>
+</li>
+</ul>
+</li>
+<li>
+<p>8 数据集、评估指标和应用</p>
+<ul>
+<li>
+<p>数据集</p>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>		- [MovieLens](https://grouplens.org/datasets/movielens/.)
+
+		- [Amazon](http://jmcauley.ucsd.edu/data/amazon/links.html)
+
+		- [Yelp](https://www.yelp.com/dataset)
+
+		- [Gowalla](http://snap.stanford.edu/data/loc-gowalla.html)
+
+		- Yoochoose
+
+		- [Diginetica](http://cikm2016.cs.iupui.edu/cikm-cup)
+
+		- [RetailRocket](https://www.kaggle.com/retailrocket/ecommerce-dataset)
+
+	- 评估指标
+
+		- HR
+
+		- Precision，recall
+
+		- NDCG
+
+		- MAP
+
+		- AUC
+
+- 9 未来的研究方向
+
+	- 多样化和不确定性的表示
+
+		- 单重向量很难捕捉用户兴趣中的特征，已有一些研究用多个向量来表示用户。或者是用密度表示用户，比如用高斯嵌入捕获用户的不确定偏好。
+
+	- 推荐系统中GNN的拓展性
+
+		- 直接使用 GNN，在工业界的大规模数据上效率很低。一种思路是使用采样策略降低图的大小，另一种思路是设计可扩展的高效的 GNN
+
+	- 推荐系统中的动态图
+
+		- 实际场景中 users、items 以及他们之间的关系都是动态变化的，为了能做到 up-to-date recommendation，模型需要能够迭代更新。但是目前很少研究关注动态图。
+
+	- 推荐系统中的GNN的感受野
+
+		- 对于推荐中的图数据，节点的度呈现长尾分布;即，活跃用户与项目的交互较多，而冷用户与项目的交互较少，与热门项目和冷项目的交互相似.因此，在所有节点上应用相同的传播步骤可能是次优的
+
+	- 自监督学习
+
+		- 自监督学习（SSL）是一种提高数据利用率的新兴范式，它可以帮助缓解稀疏性问题
+
+	- 基于GNN推荐系统的鲁棒性
+
+	- 隐私保护
+
+		- 使用联邦学习来训练推荐系统，而无需将用户数据上传到中央服务器。然而，本地用户数据仅包含一阶用户-项目交互，这使得在没有隐私链接的情况下很难捕获高阶连接。另一种方法是在推荐系统的过程中采用差分隐私来保证用户隐私，但通常会降低性能
+
+	- 基于GNN推荐系统的公平性
+
+		- 对于不同人口统计群体的用户的推荐性能应该接近，并且每个项目应该具有相等的总体曝光概率
+
+	- 可解释性
+
+		- 这些方法可以分为两类：实例级方法通过识别预测的重要输入特征来提供特定于示例的解释;模型级方法提供高级解释和对深度图模型如何工作的一般理解。也有一些关于基于GNN的建议的可解释性的尝试。它们大多利用知识图中的语义信息进行事后解释。到目前为止，可解释的基于GNN的推荐系统还没有得到充分的探索，
+</code></pre>
+<ul>
+<li>
+<p>Session-based Recommendation with Graph Neural Networks(AAAI 2019)
+基于图神经网络的会话推荐</p>
+<p>基于会话的推荐旨在仅根据用户当前的连续会话数据来预测用户下一步将点击哪一项，而无需访问长期偏好配置文件</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/CRIPAC-DIG/SR-GNN"  target="_blank" rel="noopener"
+    >https://github.com/CRIPAC-DIG/SR-GNN</a></li>
+</ul>
+</li>
+<li>
+<p>存在问题</p>
+<ul>
+<li>传统工作直接把 session 处理成序列然后对用户建模，忽略了复杂的物品转移模式
+传统序列推荐的几个 limitations：session 如果不够长，那么很难有效的生成用户表示；忽略了物品复杂的转移模式，远距离的依赖往往被忽略。</li>
+</ul>
+</li>
+<li>
+<p>模型</p>
+<ul>
+<li>
+<p>第一次将图神经网络（GNN）应用于序列推荐，提出了 SR-GNN 模型，模型把将每个会话序列当做一个有向图（而不是建模成序列），针对重复的边和节点，其中采取了边权重均一化，然后利用 GNN 得到节点潜在向量，通过门控制，得到最好的节点向量表示，最后通过对局部和全局向量的拼接，得到了结合了长期短期偏好相结合的序列向量表示。</p>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>	  首先，所有会话序列都被建模为有向会话图，其中每个会话序列都可以看作一个子图。然后依次对每个会话图进行处理，通过门图神经网络得到每个会话图中所有节点的潜在向量。每个会话嵌入由全局兴趣和局部兴趣构成，全局兴趣嵌入使用attention机制获得和局部兴趣则选择使用会话中最后一个item。最后，对于每个会话，我们预测每个项目成为下一次点击的概率。
+	  对于每个 session，构造 session graph 和邻接矩阵
+	  对于 session graph 上的每个 node，生成它们的 embedding
+	  对于 node embedding，分别获取 global interests embedding 和 local interests embedding
+	  将 global and local interests 结合起来生成 session embedding
+	  最后通过 session embedding 进行预测
+	
+- 实现
+
+	- 对每个session构造一个图，两个连续的项目之间有边
+
+	- SR-GNN定义了两个邻接矩阵，一个是表示入度，另一个表示出度
+
+		- 当前物品的信息可以用前一个物品和下一个物品表示。对应入边和出边
+
+		- 在SR-GNN中假定邻居一样重要
+
+	- SR-GNN使用GRU机制去更新当前物品的embedding，该机制决定了哪些邻居信息可以传播
+
+	- 为了更好的预测，关键点是怎么学习一个session的embedding，因为它反映了用户的偏好
+
+		- SR-GNN考虑了session的当前兴趣和全局兴趣
+
+		- 它将GNN中第L层的最后一个点击物品的embedding作为session s的local embedding
+
+		- 全局embedding则由自注意力机制聚合而来
+
+- 数据集
+
+	- [Yoochoose（其中包含6个月内用户对电子商务网站的点击流。）](https://aistudio.baidu.com/datasetdetail/179508)
+
+	- [Diginetica（该数据集包含了从电商搜索引擎日志中抽取的用户会话信息,包含匿名的 user IDs, 经过哈希处理的查询、产品说明和元数据,）](https://competitions.codalab.org/competitions/11161#learn_the_details-data2)
+
+- 总结
+
+	- 区别于之间使用 RNN 的工作，SR-GNN 考虑了 session 中的长期依赖，使用 GNN 去捕捉复杂的物品转移模式，使用注意力机制生成长期依赖，最终达到了 SOTA 的效果
+</code></pre>
+<ul>
+<li>
+<p>Graph Contextualized Self-Attention Network for Session-based Recommendation（IJCAI 19)
+基于图上下文自注意网络的会话推荐</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/johnny12150/GC-SAN"  target="_blank" rel="noopener"
+    >https://github.com/johnny12150/GC-SAN</a></li>
+</ul>
+</li>
+<li>
+<p>动机</p>
+<ul>
+<li>对于当前的 session based recsys，没有很好的捕捉上下文信息，达不到最优的效果</li>
+</ul>
+</li>
+<li>
+<p>模型</p>
+<ul>
+<li>改进：用self-attention 生成 global interests embedding，能捕获到更多的交互</li>
+</ul>
+</li>
+<li>
+<p>实现</p>
+<ul>
+<li>
+<p>实验结果显示基于GNN的推荐模型会倾向于推荐热门物品，为了消除这个问题，NISER对于物品和session使用了l2正则化</p>
+<ul>
+<li>消融实验显示正则化操作能够有效的缓解误差</li>
+</ul>
+</li>
+<li>
+<p>为了增强物品交互的序列信息，positional embedding被加入到item embedding中</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+<ul>
+<li>
+<p>Diginetica</p>
+</li>
+<li>
+<p><a class="link" href="https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset"  target="_blank" rel="noopener"
+    >Retailrocke（其中包含了6个月的用户浏览活动）</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="link" href="https://arxiv.org/abs/1912.11730"  target="_blank" rel="noopener"
+    >Memory Augmented Graph Neural Networks for Sequential Recommendation（AAAI 2020）</a></p>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3394486.3403091"  target="_blank" rel="noopener"
+    >Disentangled Self-Supervision in Sequential Recommenders (KDD 2020)</a></p>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3394486.3403170"  target="_blank" rel="noopener"
+    >Handling Information Loss of Graph Neural Networks for Session-based Recommendation (KDD 2020) </a></p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/twchen/lessr"  target="_blank" rel="noopener"
+    >https://github.com/twchen/lessr</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3397271.3401319"  target="_blank" rel="noopener"
+    >TAGNN: Target Attentive Graph Neural Networks for Session-Based Recommendation (SIGIR 2020)</a></p>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3397271.3401109"  target="_blank" rel="noopener"
+    >GAG: Global Attributed Graph Neural Network for Streaming Session-based Recommendation (SIGIR 2020)</a></p>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3397271.3401142"  target="_blank" rel="noopener"
+    >Global Context Enhanced Graph Neural Networks for Session-based Recommendation (SIGIR 2020) </a></p>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3366423.3380077"  target="_blank" rel="noopener"
+    >Beyond clicks: Modeling multi-relational item graph for session-based target behavior prediction (WWW 2020) </a></p>
+</li>
+<li>
+<p><a class="link" href="https://ojs.aaai.org/index.php/AAAI/article/view/16578/16385"  target="_blank" rel="noopener"
+    >Self-Supervised Hypergraph Convolutional Networks for Session-based Recommendation(AAAI'21)</a></p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/xiaxin1998/DHCN"  target="_blank" rel="noopener"
+    >https://github.com/xiaxin1998/DHCN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3404835.3463112"  target="_blank" rel="noopener"
+    >Temporal Augmented Graph Neural Networks for Session-Based Recommendations (SIGIR'21) </a></p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/CRIPAC-DIG/TAGNN"  target="_blank" rel="noopener"
+    >https://github.com/CRIPAC-DIG/TAGNN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a class="link" href="https://dl.acm.org/doi/abs/10.1145/3404835.3462866"  target="_blank" rel="noopener"
+    >Dual Attention Transfer in Session-Based Recommendation with Multi- Dimensional Integration (SIGIR'21)</a></p>
+</li>
+<li>
+<p>Sequential Recommendation with Graph Neural Networks(SIGIR 2021)
+基于图神经网络的顺序推荐</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/tsinghua-fib-lab/SIGIR21-SURGE"  target="_blank" rel="noopener"
+    >https://github.com/tsinghua-fib-lab/SIGIR21-SURGE</a></li>
+</ul>
+</li>
+<li>
+<p>动机</p>
+<ul>
+<li>首先，用户在其丰富的历史序列中的行为往往是隐含的、噪声的偏好信号，不能充分反映用户的实际偏好。此外，用户的动态偏好通常会随着时间的推移而快速变化，因此很难捕捉其历史序列中的用户模式</li>
+</ul>
+</li>
+<li>
+<p>实现</p>
+<ul>
+<li>
+<p>（1）从新角度解决顺序推荐,考虑隐信号行为和快速变化的偏好（2）通过物品-物品兴趣图,使用GNN网络将隐式信号转化为显式信号,设计动态池化来过滤和保留主要偏好以供推荐</p>
+<p>兴趣图构建模块：  首先模型需要将序列构造成图，但是SR中的序列是长序列且大多不重复，因此无法直接使用GNN。作者这里使用相似度学习将相似物品进行靠近完成图构造<br>
+兴趣融合图卷积层： 通过兴趣图来计算每个节点的向量表征 ，同样利用多头机制。 聚簇注意力代表当前节点与邻居节点的相似度， 查询感知注意力代表邻居节点和目标物品的相似度，融合两个注意力构成兴趣
+兴趣提取图池化层： 通过聚簇完成兴趣提取，同时为了保证聚簇具有相同的时序关系，使用了三种正则化。一是使两个有很强连接的点被分到同一个簇，二是单个从属关系正则化，使每个点尽可能分到其中一个簇，三是相对位置正则化，使得较前的点分到位置较前的簇中。
+预测层：通过2-layer MLP 完成预测。使用log loss作为损失函数</p>
+<p>第一部分，主要是构建后面需要用到的图，本文主要通过用户的历史行为，来构建item-item的图结构，然后根据加权余弦相似度计算item之间的相似度，并通过阈值控制整个图的稀疏性。</p>
+<p>第二部分，通过聚类感知和查询感知计算得到两个权重，结合两个权重得到注意力分数，然后对目标item的周围邻居节点的embedding进行加权融合，使得得到的embedding是融合了周围相似item的embedding。这可以强化重要行为，弱化噪声。</p>
+<p>第三部分，这部分进行兴趣提取，通过池化，对用户的兴趣进行分层提取，并且通过正则项加强模型的训练，同时考虑时序信息。</p>
+<p>第四部分，这部分考虑兴趣演化，即用户兴趣随时间动态变化，采用了DIEN中的AUGRU。再结合全连接层进行预测。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+<ul>
+<li>
+<p><a class="link" href="https://tianchi.aliyun.com/dataset/649"  target="_blank" rel="noopener"
+    >Taobao</a></p>
+</li>
+<li>
+<p>Kuaishou（真实行业数据集）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Multi-Behavior Hypergraph-Enhanced Transformer for Sequential Recommendation（KDD 2022）</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/yuh-yang/MBHT-KDD22"  target="_blank" rel="noopener"
+    >https://github.com/yuh-yang/MBHT-KDD22</a></li>
+</ul>
+</li>
+<li>
+<p>摘要</p>
+<ul>
+<li>现有的方法已经远远集中于具有单一类型的交互的项序列表示，并且因此限于捕获用户和项之间的动态异构关系结构（例如，页面视图、添加到收藏夹、购买）。为了解决这个问题，设计了一个MultiBehavior Hypergraph增强的Transformer框架（MBHT）来捕获短期和长期的跨类型行为依赖关系。具体而言，多尺度Transformer配备有低秩自注意力，以从细粒度和粗粒度级别联合编码行为感知的序列模式。此外，我们将全局多行为依赖性纳入超图神经架构，以自定义的方式捕获分层的长距离项目相关性。</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+<ul>
+<li>
+<p>Taobao</p>
+</li>
+<li>
+<p>Retailrocket</p>
+</li>
+<li>
+<p>IJCAI.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>RQ</p>
+<ul>
+<li>
+<p>与具有不同设置的各种最先进的推荐方法相比，我们的MBHT表现如何？</p>
+</li>
+<li>
+<p>关键模块（例如，多尺度注意编码器，多行为超图学习）在MBHT？</p>
+</li>
+<li>
+<p>MBHT在与基线竞争时如何缓解项目序列的数据稀缺问题？</p>
+</li>
+<li>
+<p>不同的超参数如何影响模型性能？</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Knowledge-enhanced Multi-View Graph Neural Networks for Session-based Recommendation（SIGIR 2023）
+基于会话推荐的知识增强多视图神经网络</p>
+<ul>
+<li>
+<p>摘要</p>
+<ul>
+<li>对于全局项-项关系，大多数SBR构造的全局图是伪全局图，这可能会造成序列关系的冗余挖掘。对于局部项目-项目关系，传统的SBR只挖掘序列模式，而忽略了特征模式，这可能会在学习用户兴趣时引入噪声。为了解决这些问题，我们提出了一种新的知识增强的多视图图神经网络（KMVG），通过构建三个视图，即知识视图，会话视图，成对视图。具体而言，受益于知识图（KG）中丰富的语义信息，我们建立了一个真正的全局图，是序列独立的基础上KG挖掘知识视图中的全局项目-项目关系。然后，会话视图被用来捕捉项目之间的上下文转换作为本地项目-项目关系的序列模式，和成对视图被用来探索一个会话内的特征共性作为本地项目-项目关系的特征模式。</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+<ul>
+<li>
+<p><a class="link" href="https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews"  target="_blank" rel="noopener"
+    >ASoftware</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.yelp.com/dataset/"  target="_blank" rel="noopener"
+    >Yelp</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.kaggle.com/datasets/mkechinov/ecommerce-events-history-in-cosmetics-shop"  target="_blank" rel="noopener"
+    >Cosmetics</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于大语言模型">基于大语言模型
+</h3><ul>
+<li>
+<p>A Survey on Large Language Models for Recommendation
+面向推荐的大型语言模型综述</p>
+<ul>
+<li>
+<p>论文链接</p>
+<ul>
+<li><a class="link" href="https://github.com/WLiK/LLM4Rec-Awesome-Papers"  target="_blank" rel="noopener"
+    >https://github.com/WLiK/LLM4Rec-Awesome-Papers</a></li>
+</ul>
+</li>
+<li>
+<p>摘要</p>
+<ul>
+<li>LLM用于推荐系统的关键是用LLM基于文本的高质量表示特征和外部知识建立用户和推荐item之间的相关性。综述将基于LLM的推荐方法分为两大类：判别式LLM推荐和生成式LLM推荐，并总结了每种方法的技术和性能</li>
+</ul>
+</li>
+<li>
+<p>建模范式</p>
+<ul>
+<li>
+<p>1、LLM Embeddings + RS。将LLM作为特征抽取器，输入用户或item特征，LLM输出特征的embedding，推荐系统使用该embedding进行推荐。</p>
+</li>
+<li>
+<p>2、LLM Tokens + RS。给LLM输入用户和item的特征，LLM生成具有潜在偏好信息的token，推荐系统使用该token进行推荐。</p>
+</li>
+<li>
+<p>3、LLM as RS。将LLM作为推荐系统，输入用户偏好、用户行为和任务的instruction，由LLM生成推荐结果。</p>
+</li>
+<li>
+<p>将现有的工作从生成和判别的角度进行划分，可以分为判别式LLM推荐系统和生成式LLM推荐系统，判别式属于上述的范式1，生成式属于上述范式的2和3。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>分类</p>
+<ul>
+<li>
+<p>判别式LLM推荐</p>
+<ul>
+<li>
+<p>fine-tuning</p>
+<ul>
+<li>fine-tuning过程包括用已经学好的参数初始化预训练语言模型、用推荐数据集继续训练模型两步。推荐数据集通常包括用户和item的交互、item的描述、用户画像和其他任务相关的上下文特征。fine-tuning阶段的学习目标可能和预训练阶段不同，模型参数也会在特定任务数据集的训练下进行更新，以使模型适用于特定的推荐任务。</li>
+</ul>
+</li>
+<li>
+<p>prompt tuning</p>
+<ul>
+<li>prompt tuning试图通过硬、软提示和label word verbalizer将推荐目标和预训练loss进行对齐。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>生成式LLM推荐</p>
+<ul>
+<li>
+<p>不微调范式</p>
+<ul>
+<li>
+<p>prompting</p>
+<ul>
+<li>这类工作旨在设计更合适的指令和提示，以帮助LLM更好的理解和完成推荐任务。除了直接生成推荐结果，LLM还可以用于特征生成。</li>
+</ul>
+</li>
+<li>
+<p>In-context 学习</p>
+<ul>
+<li>In-context学习是可以将GPT-3和其他LLM模型快速应用到新任务的技术，给模型少量的输入和label对，模型可以在不改变参数的前提下针对没见过的输入给出预测label。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>微调范式</p>
+<ul>
+<li>
+<p>fine-tuning</p>
+</li>
+<li>
+<p>prompt tuning</p>
+<ul>
+<li>在这个范式中，LLM输入用户和item的信息，输出用户对item的偏好或用户可能感兴趣的item。在fine-tuning的基础上也可以继续promp tuning，以获得更好的性能。</li>
+</ul>
+</li>
+<li>
+<p>Instruction tuning</p>
+<ul>
+<li>这个范式是指用不同的指令对LLM进行微调，以让模型适用于多个任务。这样微调后的模型zero-shot能力更强。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>公共数据集</p>
+<ul>
+<li>有涉及到序列推荐的</li>
+</ul>
+</li>
+<li>
+<p>模型偏差</p>
+<ul>
+<li>
+<p>位置偏差</p>
+<ul>
+<li>生成式LLM推荐范式中，用户行为序列、推荐候选item等信息以文本序列的方式输入到模型中的，这会带来语言模型内在的位置偏差问题，比如候选item的输入顺序影响LLM推荐模型的排序结果&ndash;LLM给输入序列中前面的item更高的优先级。” To-wards universal sequence representation learning for rec-ommender systems “采用随机采样的方式缓解位置偏差的影响。</li>
+</ul>
+</li>
+<li>
+<p>流行度偏差</p>
+<ul>
+<li>LLM的排序结果受被排序item的流行度影响，原因是流行的item在LLM的训练语料里出现的概率更高，导致LLM在排序时给其更高的位次。因为流行度偏差问题与LLM的训练语料相关，该问题的解决依然面临挑战。</li>
+</ul>
+</li>
+<li>
+<p>公平性偏差</p>
+<ul>
+<li>该偏差指的是预训练模型显示出与某些敏感属性相关的不确定性问题，比如推荐结果受用户的性别或种族主导。公平性偏差受训练数据影响，导致模型在进行推荐时，会假设用户属于某个特定的群组，这在商业部署时可能导致争议性问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>问题</p>
+<ul>
+<li>
+<p>用户、item表示。单纯地用item名称表示item、用用户交互序列的item名称表示用户信息对于建模用户和item来说是不足的，将用户的异构行为序列（如电商场景的点击、添加、购买）转化为自然语言输入到模型中很有必要。ID类特征在传统的推荐模型中被证明很有用，但如何将其放入提示中以提高个性化推荐的效果是一个挑战。</p>
+</li>
+<li>
+<p>有限的文本长度。输入文本长度限制了用户行为序列和候选item的长度，解决该问题的方法包括”Zero-shot next-item recommendation using large pretrained lan-guage models“中提出的从用户行为序列中选择有代表性的item作为输入和”Is chatgptgood at search? investigating large language models as re-ranking agent“提出的滑动窗户输入候选item的方法。</p>
+</li>
+<li>
+<p>生成结果控制。LLM的生成结果可能和我们预期不一致，比如模型生成结果的格式和预期不符，甚至拒绝提供结果。此外，生成模型在list-wise的推荐任务上效果欠佳。
+评估指标。因为基于LLM的推荐模型可能生成不在历史数据里的item（不曾给用户推荐过的item），如何评估该item的好坏是一个开放问题。
+数据集。缺少适合LLM效果评测的测试集。
+其他问题还包括模型继续训练时的知识遗忘问题、模型在线部署时计算成本高的问题等</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Where to Go Next for Recommender Systems? ID- vs. Modality-based Recommender Models Revisited（SIGIR 2023）
+推荐系统下一步该往哪里走？ID与基于模态的推荐模型的比较</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/westlake-repl/IDvs.MoRec"  target="_blank" rel="noopener"
+    >https://github.com/westlake-repl/IDvs.MoRec.</a></li>
+</ul>
+</li>
+<li>
+<p>背景</p>
+<ul>
+<li>使用 ID embedding 来建模物品的协同过滤算法已经成为推荐系统最主流的范式，整个推荐系统现有的SOTA 体系也几乎都是采用基于 ID 特征的建模手段。
+然而，近年来 NLP、CV 和多模态预训练大模型技术蓬勃发展，预训练大模型对多模态（文本和图像）建模能力越来越强。
+基于 ID 的经典范式是与当近大模型技术严重背离的。因为 ID 在不同的推荐业务无法共享，这一特性导致推荐系统模型难以在不同的业务进行有效迁移，更无法实现 NLP 和 CV 领域的 one model for all（one4all）范式。
+虽然近几年有不少文献尝试将 NLP、CV 预训练模型引入推荐系统的领域，但这些文献往往关注于冷启动和新物品场景，而这种场景下 IDRec 的效果自然是不理想的。但是对于常规场景，也就是非冷启动，甚至是热 item 场景，IDRec 仍是非常强的基线。论文特别指出，现有的很多 MoRec 文献虽然声称取得了 SOTA 结果，但是并没有显式地比较 IDRec 与 MoRec。这里作者认为要做到公平比较是指：IDRec 与 MoRec 至少应该采用相同的骨架推荐模型和实验设置。</li>
+</ul>
+</li>
+<li>
+<p>问题</p>
+<ul>
+<li>
+<p>1.更强大的（多）模态编码器能否能够直接带来推荐系统效果的直接提升？</p>
+<ul>
+<li>
+<p>数据集</p>
+<ul>
+<li>文本信息主导的新闻推荐数据集 MIND，商品图片信息主导的 HM 和视频推荐数据集 Bili</li>
+</ul>
+</li>
+<li>
+<p>验证</p>
+<ul>
+<li>在常规推荐、冷启动推荐、热门物品推荐三个场景下，对 MoRec 和 IDRec 的效果做了周全的对比</li>
+</ul>
+</li>
+<li>
+<p>结论 1：对于时序推荐架构 SASRec，在常规场景，MoRec 在文本上明显优于 IDRec，而在图片上则和 IDRec 效果相当。在冷启动场景，MoRec 大幅优于 IDRec，在热门商品推荐场景，MoRec 和 IDRec 效果相当。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>2.NLP、CV 领域的技术进展能否同步推动 MoRec 的发展？</p>
+<ul>
+<li>分别从更大参数量和更优的编码器两方面调查了 NLP、CV 中预训练模型的进展</li>
+</ul>
+</li>
+<li>
+<p>3.对于推荐场景，NLP、CV 的预训练模型产生的表征有足够的通用能力吗？我们应该怎样使用预训练模型生成的表征？</p>
+<ul>
+<li>
+<p>探究两种训练方式</p>
+<ul>
+<li>
+<ol>
+<li>Two-stage：通过ME预提取模态特征，然后将其添加到推荐模型。由于实际业务中推荐系统通常有数百万乃至千万的商品，Two-stage 在工业界特别受欢迎。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>采用 End2end 的方式：同时优化用户和物品编码器</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>结论</p>
+<ul>
+<li>工业界流行的 Two-stage 离线特征提取推荐方式会导致 MoRec 性能显著下降（特别是对于视觉推荐），这在实践中不应该被忽视。同时，尽管多模态领域的预训练模型在近年来取得了革命性的成功，但其表征还没有做到通用性和泛化性，</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>结论</p>
+<ul>
+<li>并未能证明基于模态的模型能取代基于id，但是发现了使用SOTA和E2 E训练的MoRec已经可以与具有典型推荐架构的IDRec相比甚至更优</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LLM-Enhanced User-Item Interactions: Leveraging Edge Information for Optimized Recommendations
+LLM增强用户项目交互：利用边缘信息优化推荐</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/anord-wang/LLM4REC"  target="_blank" rel="noopener"
+    >https://github.com/anord-wang/LLM4REC</a></li>
+</ul>
+</li>
+<li>
+<p>动机</p>
+<ul>
+<li>目前还没有有效的将图神经网络集成到大语言模型的研究。在图关系挖掘任务中的一大挑战是LLM无法利用图中的边缘信息，难以理解复杂节点关系。利用现有的LLM挖掘和理解图数据中的关系，并将这些技术应用于推荐任务</li>
+</ul>
+</li>
+<li>
+<p>思路</p>
+<ul>
+<li>根据用户的点击、购买等历史行为数据，构建用户和商品之间的交互图。
+利用图神经网络提取用户-商品交互图中的结构信息，包括用户和商品之间的直接连接关系和间接连接关系。将用户和商品的信息，以及用户-商品交互图中的结构信息，转化为自然语言提示，引导大型语言模型生成商品推荐。利用大型语言模型根据自然语言提示生成商品推荐列表，并利用反馈信号优化模型，以提供更精准的推荐服务</li>
+</ul>
+</li>
+<li>
+<p>实现</p>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>	  图知识引导的注意力LLM模型骨架：该模型利用LLMs以及用户-项目交互图来创建一个包含用户描述、项目描述和评价的多源知识库。该模型不仅编码了文本信息，还编码了图结构数据，其中包括用户-项目对之间的直接和间接连接。
+	  以群体语境提示进行预训练：根据群体上下文构建prompts，群体上下文包括用户和项目的描述、评论和交互事件（比如评分，购买行为）。利用prompts进行预训练。
+	  以个性化预测提示进行微调：预训练之后，利用用户交互历史行为构建个性化预测prompts。设计推荐损失函数，让LLM从生成文本变成生成个性化项目。
+	  部署项目推荐：使用微调后的模型向用户推荐项目。
+	  
+	   
+	
+- RQ
+
+	- 1）我们的方法可以产生更准确的建议？2)不同技术组成部分的贡献是什么？3)二阶关系和项目背景信息的贡献是什么？4)不同的注意力机制有什么影响？5)参数敏感性和鲁棒性。
+
+- 评估指标
+
+	- Recall、NDCG
+
+- 数据集
+
+	- [七个公共推荐数据集：亚马逊(AM)-美容数据集、AM-玩具数据集、AMSports、AM-Luxury、AM-Science、AM-Instruments数据集](https://nijianmo.github.io/amazon/index.html)
+</code></pre>
+<h2 id="从数据角度出发">从数据角度出发
+</h2><h3 id="考虑时间间隔">考虑时间间隔
+</h3><ul>
+<li>
+<p>Uniform Sequence Better: Time Interval Aware Data Augmentation for Sequential Recommendation（AAAI 2023）
+更好的均匀序列：用于顺序推荐的时间间隔感知数据增强</p>
+<ul>
+<li>
+<p>代码链接</p>
+<ul>
+<li><a class="link" href="https://github.com/KingGugu/TiCoSeRec"  target="_blank" rel="noopener"
+    >https://github.com/KingGugu/TiCoSeRec</a></li>
+</ul>
+</li>
+<li>
+<p>动机</p>
+<ul>
+<li>现序列中两个项目交互的时间间隔并没有得到广泛的关注，特别是考虑到兴趣偏移时。</li>
+</ul>
+</li>
+<li>
+<p>思路</p>
+<ul>
+<li>
+<p>提出假设：均匀序列比非均与序列可以显著提高序列推荐的性能</p>
+</li>
+<li>
+<p>实证研究</p>
+<ul>
+<li>
+<p>使用四个公开数据集，包括亚马逊产品评级中的美容、体育、家庭类别数据和Yelp评论数据集</p>
+</li>
+<li>
+<p>用序列时间间隔的标准差来判定序列是否均匀，如果标准差越小越均匀。
+横轴表示门槛值：门槛值是数据集中所有序列标准差的均值的比率。序列的标准差小于门槛值即为均匀序列，大于门槛值即为非均匀序列
+纵轴表示此时均匀序列的百分比。</p>
+</li>
+<li>
+<p>实验验证：对每个数据集的所有序列按时间间隔的标准差由小到大进行排名，从而划分均匀序列和非均匀序列。计算推荐效果，证实假设。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>提出了五个时间间隔感知的数据增强算子（Ti-Crop, Ti-Reorder, Ti-Mask, TiSubstitute, Ti-Insert）来将非均匀序列转换为均匀序列</p>
+<ul>
+<li>对不同长度的序列应用不同的数据增强算子</li>
+</ul>
+</li>
+<li>
+<p>实验</p>
+<ul>
+<li>
+<p>将数据增强方法其应用于最先进的序列模型CoSeRe</p>
+</li>
+<li>
+<p>评估指标：HR@k和NDCG@k</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="考虑噪声">考虑噪声
+</h3><ul>
+<li>
+<p>Sequential Recommendation with Diffusion Models（CIKM 2023)
+基于扩散模型的序列推荐</p>
+<ul>
+<li>
+<p>动机</p>
+<ul>
+<li>由于传统的顺序推荐方法（如基于RNN的方法或者使用VAE和GAN的生成模型）存在一些局限性。这些模型在处理复杂的用户行为和长期依赖关系时，常常遭遇后验崩溃或模型崩溃的问题。此外，现有的推荐系统模型难以有效捕捉和模拟用户行为的不确定性，这限制了模型的表现和推荐的质量</li>
+</ul>
+</li>
+<li>
+<p>实现</p>
+<ul>
+<li>为了进一步使扩散模型适用于推荐领域，与对所有数据进行噪声处理的一般扩散模型不同，DiffRec框架采用了不同的噪声处理策略。仅对目标item的隐藏表示进行噪声和去噪处理，而不是对整个序列进行噪声和去噪处理。为了验证这个策略的有效性，作者设计了四种变体进行实验：1）对整个序列进行噪声处理；2）对最后四个商品进行噪声处理；3）对最后三个商品进行噪声处理；4）对最后两个商品进行噪声处理。默认设置是仅仅对target item（最后一个商品）进行噪声处理。对比这五个实验，默认噪声策略性能最优。而且，随着更多的item被经过噪声处理，性能也出现了平稳下降，对整个序列进行噪声处理的性能是最差的。这可能是因为序列推荐是下一个item预测任务（next item prediction task），对target item以外的item使用噪声处理，会破坏有关用户偏好的基本信息，从而损害性能</li>
+</ul>
+</li>
+<li>
+<p>数据集</p>
+<ul>
+<li>
+<p><a class="link" href="https://nijianmo.github.io/amazon/index.html"  target="_blank" rel="noopener"
+    >亚马逊数据集（包括用户对不同类别产品的评论）选择了Beauty和Toys</a></p>
+</li>
+<li>
+<p><a class="link" href="https://grouplens.org/datasets/movielens/"  target="_blank" rel="noopener"
+    >ML-1M</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>思想</p>
+<ul>
+<li>扩散模型在顺序推荐系统中的主要作用确实是处理用户的交互序列，通过模拟和优化生成过程来提高推荐的准确性。扩散模型能够逐步从噪声数据中恢复出用户的真实交互意图，通过这种方式，模型能够更好地理解和预测用户的行为模式，从而生成更加精准的推荐结果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Diff4Rec: Sequential Recommendation with
+Curriculum-scheduled Diffusion Augmentation(ACM MM 2023)</p>
+</li>
+<li>
+<p>Diffusion Recommender Model（SIGIR 2023)</p>
+</li>
+<li>
+<p>Filter-enhanced MLP is All You Need for Sequential Recommendation（WWW 2022)
+基于纯MLP架构的序列推荐模型</p>
+<ul>
+<li>
+<p>动机</p>
+<ul>
+<li>用户的历史行为数据会不可避免地包含噪音，将其输入复杂的神经网络模型（如Transformer）后，很容易导致过拟合问题。为了解决这个问题，我们借助在数字信号处理领域被广泛应用的滤波器（Filter）来进行处理。由于用户行为序列中有用信号和噪音的频率成分存在差异，傅里叶变换后，在频率域中就变得易于区分，再通过设计特定频率响应的滤波器阻断噪音所在频带，能显著地降低噪音影响。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="从话题角度分类">从话题角度分类
+</h2><h3 id="偏见问题">偏见问题
+</h3><ul>
+<li>
+<p>因果学习</p>
+</li>
+<li>
+<p>对比学习</p>
+</li>
+<li>
+<p>Bias and Debias in Recommender System（Arxiv 2021）</p>
+</li>
+</ul>
+<h3 id="隐私问题">隐私问题
+</h3><ul>
+<li>联邦学习</li>
+</ul>
+<h3 id="可解释性问题">可解释性问题
+</h3><ul>
+<li>知识图谱</li>
+</ul>
+<h3 id="跨域问题">跨域问题
+</h3><h3 id="公平性问题">公平性问题
+</h3><ul>
+<li>
+<p>No prejudice! Fair Federated Graph Neural Networks for Personalized Recommendation（）
+没有偏见！基于公平联邦图神经网络的个性化推荐</p>
+<ul>
+<li>
+<p>摘要</p>
+<ul>
+<li>由于个性化医疗、金融和电子商务等应用中的推荐系统（RS）集成越来越多，因此确保推荐系统（RS）在人口统计学群体中的公平性至关重要。基于图的RS在捕捉实体之间复杂的高阶交互方面发挥着至关重要的作用。然而，将这些图模型集成到具有公平性约束的联合学习（FL）范式中带来了巨大的挑战，因为这需要访问整个交互图和敏感的用户信息（如性别，年龄等）。在中央服务器上。本文解决了普遍存在的问题，内在的偏见RS为不同的人口群体，而不损害隐私的敏感用户属性在FL环境中的基于图的模型。为了解决群体偏见，我们提出了F2PGNN（公平联合个性化图神经网络），这是一种新的框架，它利用了个性化图神经网络（GNN）的功能以及公平性考虑。此外，我们使用差异隐私技术来加强隐私保护。对三个公开数据集的实验评估显示，与最先进的技术相比，F2PGNN在减轻群体不公平性方面的有效性为47%至99%，同时保护隐私并保持实用性。结果验证了我们的框架在FL景观中使用GNN实现公平和个性化建议的重要性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="冷启动问题">冷启动问题
+</h3><p>会话推荐可以看作是顺序推荐的一个特例，或者说是一个更加专注于短期行为模式的应用。顺序推荐提供了一种更全面的视角，考虑到用户行为的整体历史和发展趋势，而会话推荐则更加集中在分析单个会话中的行为模式。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2024会议论文</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Neural Networks in Recommender Systems: A Survey</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/sequential-recommender-systems-challenges-progress-and-prospects/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sequential Recommender Systems: Challenges, Progress and Prospects</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/time-interval-aware-self-attention-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Time Interval Aware Self-Attention for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

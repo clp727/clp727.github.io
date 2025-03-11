@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>操作系统 on Example Site</title>
+        <title>操作系统 on </title>
         <link>http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
-        <description>Recent content in 操作系统 on Example Site</description>
+        <description>Recent content in 操作系统 on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>clp</copyright>
@@ -13,8 +13,7 @@
         <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/p/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
-        <description>&lt;h1 id=&#34;操作系统&#34;&gt;操作系统
-&lt;/h1&gt;&lt;p&gt;操作系统相当于软件和硬件之间的桥梁，屏蔽了硬件层的复杂性。核心部分是内核，本质上也是一个应用程序。&lt;/p&gt;
+        <description>&lt;p&gt;操作系统相当于软件和硬件之间的桥梁，屏蔽了硬件层的复杂性。核心部分是内核，本质上也是一个应用程序。&lt;/p&gt;
 &lt;h1 id=&#34;概述&#34;&gt;概述
 &lt;/h1&gt;&lt;h2 id=&#34;基本功能&#34;&gt;基本功能
 &lt;/h2&gt;&lt;ol&gt;

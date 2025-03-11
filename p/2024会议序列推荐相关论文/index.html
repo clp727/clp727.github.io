@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="SIGIR 2024\r13/107\nSelf-Augmented Graph Neural Networks for Sequential Recommendation IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT Disentangled Contrastive Hypergraph Learning for Next POI Recommendation A Generic Behavior-Aware Data Augmentation Framework for Sequential Recommendation Exploring Fine-grained Sequential Recommendation 探索细粒度的顺序推荐 Sequential Recommendation with Latent Relations based on Large Language Model Sequential Recommendation with Collaborative Explanation via Mutual Information Maximization Enhancing Sequential Recommenders with Augmented Knowledge from Aligned Large Language Models Modeling User Fatigue for Sequential Recommendation Scaling Sequential Recommendation Models with Transformers Sequential Recommendation for Optimizing Both Immediate Feedback and Long-term Retention Explainable Uncertainty Attribution for Sequential Recommendation Multi-intent-aware Session-based Recommendation 13/107\n">
+<title>2024会议序列推荐相关论文</title>
+
+<link rel='canonical' href='http://localhost:1313/p/2024%E4%BC%9A%E8%AE%AE%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="2024会议序列推荐相关论文">
+<meta property='og:description' content="SIGIR 2024\r13/107\nSelf-Augmented Graph Neural Networks for Sequential Recommendation IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT Disentangled Contrastive Hypergraph Learning for Next POI Recommendation A Generic Behavior-Aware Data Augmentation Framework for Sequential Recommendation Exploring Fine-grained Sequential Recommendation 探索细粒度的顺序推荐 Sequential Recommendation with Latent Relations based on Large Language Model Sequential Recommendation with Collaborative Explanation via Mutual Information Maximization Enhancing Sequential Recommenders with Augmented Knowledge from Aligned Large Language Models Modeling User Fatigue for Sequential Recommendation Scaling Sequential Recommendation Models with Transformers Sequential Recommendation for Optimizing Both Immediate Feedback and Long-term Retention Explainable Uncertainty Attribution for Sequential Recommendation Multi-intent-aware Session-based Recommendation 13/107\n">
+<meta property='og:url' content='http://localhost:1313/p/2024%E4%BC%9A%E8%AE%AE%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-03-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="2024会议序列推荐相关论文">
+<meta name="twitter:description" content="SIGIR 2024\r13/107\nSelf-Augmented Graph Neural Networks for Sequential Recommendation IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT Disentangled Contrastive Hypergraph Learning for Next POI Recommendation A Generic Behavior-Aware Data Augmentation Framework for Sequential Recommendation Exploring Fine-grained Sequential Recommendation 探索细粒度的顺序推荐 Sequential Recommendation with Latent Relations based on Large Language Model Sequential Recommendation with Collaborative Explanation via Mutual Information Maximization Enhancing Sequential Recommenders with Augmented Knowledge from Aligned Large Language Models Modeling User Fatigue for Sequential Recommendation Scaling Sequential Recommendation Models with Transformers Sequential Recommendation for Optimizing Both Immediate Feedback and Long-term Retention Explainable Uncertainty Attribution for Sequential Recommendation Multi-intent-aware Session-based Recommendation 13/107\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#sigir-2024">SIGIR 2024</a></li>
+    <li><a href="#www-2024">WWW 2024</a></li>
+    <li><a href="#aaai-2024">AAAI 2024</a></li>
+    <li><a href="#kdd">KDD</a></li>
+    <li><a href="#recsys-2024">RecSys 2024</a>
+      <ol>
+        <li><a href="#wsdm-2024">WSDM 2024</a></li>
+      </ol>
+    </li>
+    <li><a href="#icde-2024">ICDE 2024</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" >
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/2024%E4%BC%9A%E8%AE%AE%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/">2024会议序列推荐相关论文</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="sigir-2024">SIGIR 2024
+</h2><p>13/107</p>
+<p>Self-Augmented Graph Neural Networks for Sequential Recommendation
+IISAN: Efficiently Adapting Multimodal Representation for Sequential Recommendation with Decoupled PEFT
+Disentangled Contrastive Hypergraph Learning for Next POI Recommendation
+A Generic Behavior-Aware Data Augmentation Framework for Sequential Recommendation
+Exploring Fine-grained Sequential Recommendation 探索细粒度的顺序推荐
+Sequential Recommendation with Latent Relations based on Large Language Model
+Sequential Recommendation with Collaborative Explanation via Mutual Information Maximization
+Enhancing Sequential Recommenders with Augmented Knowledge from Aligned Large Language Models
+Modeling User Fatigue for Sequential Recommendation
+Scaling Sequential Recommendation Models with Transformers
+Sequential Recommendation for Optimizing Both Immediate Feedback and Long-term Retention
+Explainable Uncertainty Attribution for Sequential Recommendation
+Multi-intent-aware Session-based Recommendation
+13/107</p>
+<h2 id="www-2024">WWW 2024
+</h2><p>8/65
+Intelligent Model Update Strategy for Sequential Recommendation
+Rethinking Cross-Domain Sequential Recommendation under Open-World Assumptions
+Harnessing Large Language Models for Text-Rich Sequential Recommendation
+Efficient Noise-Decoupling for Multi-Behavior Sequential Recommendation
+UnifiedSSR: A Unified Framework of Sequential Search and Recommendation
+ReLLa: Retrieval-enhanced Large Language Models for Lifelong Sequential Behavior Comprehension in Recommendation
+（Modeling Balanced Explicit and¬†Implicit Relations with Contrastive Learning for Knowledge Concept Recommendation in MOOCs）</p>
+<p>Is Contrastive Learning Necessary? A Study of Data Augmentation vs Contrastive Learning in Sequential Recommendation</p>
+<h2 id="aaai-2024">AAAI 2024
+</h2><p>5/37
+Sparse Enhanced Network: An Adversarial Generation Method for Robust Augmentation in Sequential Recommendation
+Temporal Graph Contrastive Learning for Sequential Recommendation
+Dual-view Whitening on Pre-trained Text Embeddings for Sequential Recommendation
+Ada-Retrieval: An Adaptive Multi-Round Retrieval Paradigm for Sequential Recommendations
+An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</p>
+<h2 id="kdd">KDD
+</h2><h2 id="recsys-2024">RecSys 2024
+</h2><p>序列推荐[3,18,42,45,46,48]
+对比学习[6,11,12,27,33]
+Adaptive Fusion of Multi-View for Graph Contrastive Recommendation
+CALRec: Contrastive Alignment of Generative LLMs For Sequential Recommendation</p>
+<p>Information-Controllable Graph Contrastive Learning for Recommendation
+MMGCL: Meta Knowledge-Enhanced Multi-view Graph Contrastive Learning for Recommendations</p>
+<p>（ ConFit: Improving Resume-Job Matching using Data Augmentation and Contrastive Learning）</p>
+<h3 id="wsdm-2024">WSDM 2024
+</h3><p>13/112
+Debiasing Sequential Recommenders through Distributionally Robust Optimization over System Exposure
+Global Heterogeneous Graph and Target Interest Denoising for Multi-behavior Sequential Recommendation
+To Copy, or not to Copy; That is a Critical Issue of the Output Softmax Layer in Neural Sequential Recommenders
+Linear Recurrent Units for Sequential Recommendation
+User Behavior Enriched Temporal Knowledge Graph for Sequential Recommendation
+Intent Contrastive Learning with Cross Subsequences for Sequential Recommendation
+Collaboration and Transition: Distilling Item Transitions into Multi-Query Self-Attention for Sequential Recommendation
+Contextual MAB Oriented Embedding Denoising for Sequential Recommendation
+Mixed Attention Network for Cross-domain Sequential Recommendation
+Multi-Sequence Attentive User Representation Learning for Side-information Integrated Sequential Recommendation
+RecJPQ: Training Large-Catalogue Sequential Recommenders
+Attribute Simulation for Item Embedding Enhancement in Multi-interest Recommendation
+Global Heterogeneous Graph and Target Interest Denoising for Multi-behavior Sequential Recommendation</p>
+<h2 id="icde-2024">ICDE 2024
+</h2><p>Sequential Recommendation with User Causal Behavior Discovery
+Incremental Learning for Multi-Interest Sequential Recommendation
+Contrastive Enhanced Slide Filter Mixer for Sequential Recommendation</p>
+<p>Large Language Models for Intent-Driven Session Recommendations
+<a class="link" href="https://arxiv.org/pdf/2312.07552"  target="_blank" rel="noopener"
+    >https://arxiv.org/pdf/2312.07552</a>
+LLaRA: Large Language-Recommendation Assistant
+<a class="link" href="https://arxiv.org/pdf/2312.02445"  target="_blank" rel="noopener"
+    >https://arxiv.org/pdf/2312.02445</a>
+Sequential Recommendation with Latent Relations based on Large Language Model
+<a class="link" href="https://arxiv.org/pdf/2403.18348"  target="_blank" rel="noopener"
+    >https://arxiv.org/pdf/2403.18348</a></p>
+<p>MA-GCL: Model Augmentation Tricks for Graph Contrastive Learning （AAAI’23）
+Disentangled Contrastive Collaborative Filtering (SIGIR’23)解耦对比协同过滤「简述：」作者认为现有的图对比学习算法忽略了用户-物品交互行为通常由多样的潜在意图因素驱动的事实，并且它们引入的非自适应增强技术容易受到噪声信息的影响。为了解决这些问题，作者提出了一个解耦对比协同过滤框架，通过学习具有全局上下文的解耦表示来实现意图解耦，并利用参数化交互掩码生成器引入跨视图对比学习任务以实现自适应增强</p>
+<p>Meta-optimized Contrastive Learning for Sequential Recommendation (SIGIR’23)序列推荐中的元优化对比学习「简述：」论文提出了一种元优化对比学习框架MCLRec，用于序列推荐。该模型通过应用数据增强和可学习的模型增强操作来创新标准的CL框架，以自适应地捕捉隐藏在随机数据增强中的有信息的特征。此外，MCLRec利用元学习方式指导模型增强器的更新，以提高对比对的质量，而无需增加输入数据的数量。最后，作者引入了一个对比正则化项，以鼓励增强模型生成更具信息量的增强视图，并避免在元更新中出现过于相似的对比对。在常用的数据集上的实验结果表明，MCLRec是有效的。</p>
+<p>Dual Contrastive Transformer for Hierarchical Preference Modeling in Sequential Recommendation (SIGIR’23)用于序列推荐中层次化偏好建模的双对比Transformer「简述：」本文提出了一种新的层次化偏好建模框架，用于准确地进行序列推荐。该框架设计了一个新颖的双重转换器模块和双重对比学习方案，以区分性地学习用户的低层次和高层次偏好，并有效地增强低层次和高层次偏好的学习。此外，还设计了一种新的语义增强上下文嵌入模块，以生成更丰富的上下文嵌入，进一步提高推荐性能。在六个真实数据集上的大量实验表明，该方法优于现有方法，并且设计合理。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/sequential-recommender-systems-challenges-progress-and-prospects/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sequential Recommender Systems: Challenges, Progress and Prospects</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/time-interval-aware-self-attention-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Time Interval Aware Self-Attention for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">序列推荐中sideinfo的处理方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">推荐系统相关论文</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

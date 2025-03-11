@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Categories on Example Site</title>
+        <title>Categories on </title>
         <link>http://localhost:1313/categories/</link>
-        <description>Recent content in Categories on Example Site</description>
+        <description>Recent content in Categories on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>clp</copyright>
@@ -13,15 +13,39 @@
         <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
         
         <guid>http://localhost:1313/categories/first/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/first/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post First" /&gt;</description>
+        <description></description>
         </item>
         <item>
-        <title>Test</title>
-        <link>http://localhost:1313/categories/test/</link>
+        <title>前端</title>
+        <link>http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/</link>
         <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/test/</guid>
-        <description>&lt;img src="http://localhost:1313/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <guid>http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E5%89%8D%E7%AB%AF/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 前端" /&gt;</description>
+        </item>
+        <item>
+        <title>推荐系统</title>
+        <link>http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
+        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 推荐系统" /&gt;</description>
+        </item>
+        <item>
+        <title>操作系统</title>
+        <link>http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+        <pubDate>Sat, 08 Mar 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 操作系统" /&gt;</description>
+        </item>
+        <item>
+        <title>各种问题</title>
+        <link>http://localhost:1313/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/</link>
+        <pubDate>Sat, 08 Feb 2025 00:48:44 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/</guid>
+        <description>&lt;img src="http://localhost:1313/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post 各种问题" /&gt;</description>
         </item>
         
     </channel>

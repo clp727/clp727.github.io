@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="由北大及阿里巴巴整合211篇论文后于2022年五月发表在ACM Computing Surveys上，该论文阐述了图神经网络(Graph Neural Network,GNN）在推荐系统中的应用综述。GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。\n">
+<title>Graph Neural Networks in Recommender Systems: A Survey</title>
+
+<link rel='canonical' href='http://localhost:1313/p/graph-neural-networks-in-recommender-systems-a-survey/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Graph Neural Networks in Recommender Systems: A Survey">
+<meta property='og:description' content="由北大及阿里巴巴整合211篇论文后于2022年五月发表在ACM Computing Surveys上，该论文阐述了图神经网络(Graph Neural Network,GNN）在推荐系统中的应用综述。GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。\n">
+<meta property='og:url' content='http://localhost:1313/p/graph-neural-networks-in-recommender-systems-a-survey/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-03-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="Graph Neural Networks in Recommender Systems: A Survey">
+<meta name="twitter:description" content="由北大及阿里巴巴整合211篇论文后于2022年五月发表在ACM Computing Surveys上，该论文阐述了图神经网络(Graph Neural Network,GNN）在推荐系统中的应用综述。GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">分享各种总结</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#背景和分类">背景和分类</a>
+      <ol>
+        <li><a href="#推荐系统">推荐系统</a></li>
+        <li><a href="#gnn">GNN</a></li>
+        <li><a href="#为什么将图神经网络应用于推荐系统">为什么将图神经网络应用于推荐系统</a></li>
+        <li><a href="#基于图神经网络推荐的分类">基于图神经网络推荐的分类</a></li>
+      </ol>
+    </li>
+    <li><a href="#用户-物品-协同过滤">用户-物品 协同过滤</a>
+      <ol>
+        <li><a href="#四个问题">四个问题</a></li>
+        <li><a href="#代表性方法">代表性方法</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#序列推荐">序列推荐</a>
+      <ol>
+        <li><a href="#总体框架">总体框架</a></li>
+        <li><a href="#把gnn应用在序列推荐上的三个问题">把GNN应用在序列推荐上的三个问题</a></li>
+        <li><a href="#总结-1">总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#社交化推荐系统">社交化推荐系统</a>
+      <ol>
+        <li><a href="#两个问题">两个问题</a></li>
+        <li><a href="#社交网络增强">社交网络增强</a></li>
+        <li><a href="#代表性方法-1">代表性方法</a></li>
+      </ol>
+    </li>
+    <li><a href="#基于知识图谱推荐系统">基于知识图谱推荐系统</a>
+      <ol>
+        <li><a href="#引入知识图谱的三个好处">引入知识图谱的三个好处</a></li>
+        <li><a href="#基于kg的rs的三个挑战">基于KG的RS的三个挑战</a></li>
+        <li><a href="#代表方法">代表方法</a></li>
+        <li><a href="#总结-2">总结</a></li>
+      </ol>
+    </li>
+    <li><a href="#其他工作">其他工作</a>
+      <ol>
+        <li><a href="#兴趣点推荐">兴趣点推荐</a></li>
+        <li><a href="#群推荐">群推荐</a></li>
+        <li><a href="#捆绑推荐">捆绑推荐</a></li>
+        <li><a href="#点击预测">点击预测</a></li>
+        <li><a href="#多媒体推荐">多媒体推荐</a></li>
+      </ol>
+    </li>
+    <li><a href="#数据集评估指标和应用">数据集、评估指标和应用</a>
+      <ol>
+        <li><a href="#数据集">数据集</a></li>
+        <li><a href="#评估指标">评估指标</a></li>
+      </ol>
+    </li>
+    <li><a href="#未来的研究方向">未来的研究方向</a>
+      <ol>
+        <li><a href="#多样化和不确定性的表示">多样化和不确定性的表示</a></li>
+        <li><a href="#推荐系统中gnn的拓展性">推荐系统中GNN的拓展性</a></li>
+        <li><a href="#推荐系统中的动态图">推荐系统中的动态图</a></li>
+        <li><a href="#推荐系统中的gnn的感受野">推荐系统中的GNN的感受野</a></li>
+        <li><a href="#自监督学习">自监督学习</a></li>
+        <li><a href="#基于gnn推荐系统的鲁棒性">基于GNN推荐系统的鲁棒性</a></li>
+        <li><a href="#隐私保护">隐私保护</a></li>
+        <li><a href="#基于gnn推荐系统的公平性">基于GNN推荐系统的公平性</a></li>
+        <li><a href="#可解释性">可解释性</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #2a9d8f; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">Graph Neural Networks in Recommender Systems: A Survey</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>由北大及阿里巴巴整合211篇论文后于2022年五月发表在ACM Computing Surveys上，该论文阐述了图神经网络(Graph Neural  Network,GNN）在推荐系统中的应用综述。GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。</p>
+<p>论文链接<a class="link" href="https://github.com/wusw14/GNN-in-RS"  target="_blank" rel="noopener"
+    >https://github.com/wusw14/GNN-in-RS</a></p>
+<h2 id="背景和分类">背景和分类
+</h2><h3 id="推荐系统">推荐系统
+</h3><h3 id="gnn">GNN
+</h3><ul>
+<li>
+<p>graph convolutional network (GCN)</p>
+</li>
+<li>
+<p>graph attention network (GAT)</p>
+</li>
+<li>
+<p>gated graph neural network (GGNN)</p>
+</li>
+<li>
+<p>GraphSage</p>
+</li>
+</ul>
+<h3 id="为什么将图神经网络应用于推荐系统">为什么将图神经网络应用于推荐系统
+</h3><ul>
+<li>GNN能广泛应用于推荐系统中的一个原因是它不同于只能隐式捕获协同过滤信号（即 使用用户-项目交互作为监督信号）的传统方法，GNN可以自然地显式编码关键的协同信号(即 拓扑结构)，以改进用户和物品的表示。</li>
+</ul>
+<h3 id="基于图神经网络推荐的分类">基于图神经网络推荐的分类
+</h3><ul>
+<li>分类的依据如下：图的结构在很大程度上取决于信息的类型。例如：社交网络可以自然地看作是一个同构图，用户-物品交互关系可以被认为是一个二分图或者是两个同构图（即  用户-用户和物品-物品图）。而且，推荐系统的任务和被使用信息的类型是高度相关的。例如，社交网络通过利用社交网络信息来构建推荐，知识图谱通过利用物品与物品之间的语义关系来增强物品的表示</li>
+</ul>
+<h2 id="用户-物品-协同过滤">用户-物品 协同过滤
+</h2><h3 id="四个问题">四个问题
+</h3><ul>
+<li>
+<p>图结构</p>
+</li>
+<li>
+<p>邻居聚合</p>
+</li>
+<li>
+<p>信息更新</p>
+</li>
+<li>
+<p>最终节点表示</p>
+</li>
+</ul>
+<h3 id="代表性方法">代表性方法
+</h3><ul>
+<li>
+<p>GC-MC</p>
+<ul>
+<li>
+<p>矩阵补完</p>
+</li>
+<li>
+<p>只考虑一跳邻居，并且丢弃原始节点信息</p>
+</li>
+<li>
+<p>采用 mean-pooling 去聚合邻居节点</p>
+</li>
+<li>
+<p>一视同仁的对待用户和物品</p>
+</li>
+<li>
+<p>只用结点的最后一层进行预测</p>
+</li>
+</ul>
+</li>
+<li>
+<p>STAR-GCN</p>
+<ul>
+<li>
+<p>堆叠 GCN</p>
+</li>
+<li>
+<p>引入重构机制</p>
+</li>
+<li>
+<p>在训练过程中注重标签泄漏问题</p>
+<ul>
+<li>在训练阶段对部分结点进行掩码，并在掩码的节点上增加重构损失</li>
+</ul>
+</li>
+<li>
+<p>利用重构策略缓解过拟合</p>
+</li>
+<li>
+<p>平等的对待用户和物品</p>
+</li>
+<li>
+<p>只用结点的最后一层进行预测</p>
+</li>
+</ul>
+</li>
+<li>
+<p>NGCF</p>
+<ul>
+<li>
+<p>利用不同层的表示来获得结点的 embedding</p>
+<ul>
+<li>
+<p>利用残差网络的优势</p>
+</li>
+<li>
+<p>通过对邻居采用激活函数做summing up得到</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PinSage</p>
+<ul>
+<li>
+<p>结合随机游走方法和图卷积</p>
+</li>
+<li>
+<p>采样固定数量的邻居</p>
+</li>
+<li>
+<p>从特定结点开始模仿随机游走策略的过程，然后计算出L1归一化后的结点访问次数</p>
+</li>
+<li>
+<p>结点u的邻居是前T个具有最高归一化访问次数的结点</p>
+<ul>
+<li>那些不直接与u相邻的结点也可能是它的邻居</li>
+</ul>
+</li>
+<li>
+<p>在聚合时，利用归一化访问次数来作为衡量邻居重要性的指标</p>
+<ul>
+<li>
+<p>importance-pooling 比 mean-pooling 采样方法更好</p>
+<ul>
+<li>这意味着并不是所有邻居结点在表示中心结点时都发挥相同的作用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>由于随机游走策略，失去了原始图结构</p>
+<ul>
+<li>因为并不是以邻居来作为表示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>IG-MC</p>
+<ul>
+<li>
+<p>也是矩阵补全，方法同 GC-MC</p>
+</li>
+<li>
+<p>先构造子图，然后在子图上操作</p>
+<ul>
+<li>
+<p>减少对原始图结构的依赖性</p>
+</li>
+<li>
+<p>缓解了在稀疏数据集上性能下降的问题</p>
+</li>
+</ul>
+</li>
+<li>
+<p>用户集合</p>
+<ul>
+<li>由目标用户和与目标物品交互过的用户组成</li>
+</ul>
+</li>
+<li>
+<p>物品集合</p>
+<ul>
+<li>由目标物品和与目标用户交互过的物品组成</li>
+</ul>
+</li>
+<li>
+<p>针对数据稀疏性和冷启动问题</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结">总结
+</h3><ul>
+<li>
+<p>图的构造（Graph Construction）</p>
+<ul>
+<li>
+<p>原始图</p>
+</li>
+<li>
+<p>构造子图</p>
+</li>
+</ul>
+</li>
+<li>
+<p>邻居聚合（Neighbor Aggregation）</p>
+<ul>
+<li>
+<p>聚合函数</p>
+<ul>
+<li>
+<p>mean pooling 无区别对待邻居结点</p>
+</li>
+<li>
+<p>degree normalization 通过图结构赋值结点的权重</p>
+</li>
+<li>
+<p>attentive pooling 利用注意力机制来区分邻居的重要性</p>
+</li>
+<li>
+<p>Central node augmentation 考虑结点之间的关联性，并利用中心结点来过滤邻居的消息</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>信息更新（Information Update）</p>
+<ul>
+<li>
+<p>mean-pooling</p>
+</li>
+<li>
+<p>sum-pooling</p>
+</li>
+<li>
+<p>concatenation with transformation</p>
+</li>
+</ul>
+</li>
+<li>
+<p>最终结点表示（Final Node Representation）</p>
+<ul>
+<li>
+<p>用最后一层作为表示</p>
+</li>
+<li>
+<p>用 weighted-pooling 或 concatenation operation 集成所有层的表示</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="序列推荐">序列推荐
+</h2><h3 id="总体框架">总体框架
+</h3><ul>
+<li>就是在序列推荐模型前，用GCN提取用户行为中的特征</li>
+</ul>
+<h3 id="把gnn应用在序列推荐上的三个问题">把GNN应用在序列推荐上的三个问题
+</h3><ul>
+<li>
+<p>图的构造</p>
+<ul>
+<li>
+<p>怎么把序列数据转换成有序图</p>
+</li>
+<li>
+<p>顺序行为的构造策略
+由于在很多情况下用户行为序列较短，直接在连读单击的两个项目之间添加节点的办法包含的信息太少。最近的研究提出了几种丰富原有序列图结构的策略，可分为两大主流。
+一种主流方法是利用额外的序列（比如整个数据集中的序列）来丰富项目之间的转换。另一种是调整当前序列的图结构</p>
+</li>
+</ul>
+</li>
+<li>
+<p>信息传播</p>
+<ul>
+<li>
+<p>怎么设计高效的传播机制</p>
+</li>
+<li>
+<p>GGNN框架被广泛采用来在有向图上传播信息。具体来说，它采用均值池分别聚合前一项和下一项的信息;组合两个聚合表示;并利用GRU组件整合邻居和中心节点的信息。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>序列偏好</p>
+<ul>
+<li>
+<p>怎么捕获用户的时间相关偏好</p>
+</li>
+<li>
+<p>考虑到序列中的项目具有不同的优先级，因此采用注意机制进行集成。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结-1">总结
+</h3><ul>
+<li>
+<p>图的构造</p>
+<ul>
+<li>
+<p>SR-GNN链接两个相邻的点击物品</p>
+</li>
+<li>
+<p>MG-GNN提取三个后续项，并在它们之间添加边，这样可以同等对待最后三个项</p>
+</li>
+<li>
+<p>序列建模依赖于构造的图</p>
+</li>
+<li>
+<p>迄今为止，这里没有证据显示哪种策略更好，另外，现有的作品忽略了连续项目之间的时间间隔，这可能会进一步提高性能</p>
+</li>
+</ul>
+</li>
+<li>
+<p>信息传播</p>
+<ul>
+<li>
+<p>使用 mean-pooling 去一视同仁的聚合</p>
+</li>
+<li>
+<p>使用注意力机制去区分邻居的影响</p>
+</li>
+<li>
+<p>使用GRU</p>
+</li>
+</ul>
+</li>
+<li>
+<p>序列偏好</p>
+<ul>
+<li>
+<p>GNN组件的输出是结点表示形式</p>
+</li>
+<li>
+<p>一个结点序列的表示需要被整合成顺序表示</p>
+</li>
+<li>
+<p>MA-GNN使用 mean-pooling 去聚合</p>
+</li>
+<li>
+<p>使用注意力机制</p>
+<ul>
+<li>
+<p>SR-GNN</p>
+</li>
+<li>
+<p>GC-SAN</p>
+</li>
+<li>
+<p>A-PGNN</p>
+</li>
+</ul>
+</li>
+<li>
+<p>FGNN 使用GRU和ATT</p>
+<ul>
+<li>增强物品之间的顺序关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="社交化推荐系统">社交化推荐系统
+</h2><h3 id="两个问题">两个问题
+</h3><ul>
+<li>
+<p>朋友的影响是否相同？如果不同，应该怎么区分</p>
+</li>
+<li>
+<p>怎么从社会影响角度和交互行为整合用户表示</p>
+</li>
+</ul>
+<h3 id="社交网络增强">社交网络增强
+</h3><ul>
+<li>
+<p>两个策略</p>
+<ul>
+<li>
+<p>将社交网络作为图数据</p>
+</li>
+<li>
+<p>从图结构角度考虑社交信息和用户-物品交互</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DGRec</p>
+<ul>
+<li>
+<p>将社交网络作为图数据</p>
+</li>
+<li>
+<p>每个用户动态兴趣从它们最近的session行为中使用LSTM抽取</p>
+</li>
+<li>
+<p>在社交网络中用户的表征是动态的</p>
+</li>
+<li>
+<p>考虑到社交影响可能会随着上下文有所不同，DGRec使用GAT去区分朋友的影响</p>
+<ul>
+<li>
+<p>消融研究表明，与有社会网络的一般推荐和无侧信息模型的顺序推荐相比，DGRec具有显著的性能</p>
+</li>
+<li>
+<p>结果表明了在顺序推荐中考虑动态社会影响的合理性。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="代表性方法-1">代表性方法
+</h3><ul>
+<li>
+<p>DiffNet</p>
+<ul>
+<li>
+<p><a class="link" href="https://github.com/PeiJieSun/diffnet"  target="_blank" rel="noopener"
+    >https://github.com/PeiJieSun/diffnet</a></p>
+</li>
+<li>
+<p>用 graphSage 模拟社会扩散过程对用户的影响</p>
+<ul>
+<li>
+<p>使用 mean-pooling去聚合用户的表示</p>
+</li>
+<li>
+<p>对历史物品使用mean-pooling得到物品空间中用户的偏好</p>
+</li>
+<li>
+<p>在扩散完毕后，使用得到的用户表示来代替原始的用户 embedding</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Note that taking the average representation of interacted item embeddings as the user preference in item space is equivalent to aggregate one-hop neighbors for the user vector</p>
+<ul>
+<li>没看明白</li>
+</ul>
+</li>
+<li>
+<p>与TrustSVD相比，DiffNet通过利用GNN机制捕获了更深层次的社会扩散过程。</p>
+</li>
+<li>
+<p>特点与不足之处：假定邻居的影响力相同</p>
+</li>
+</ul>
+</li>
+<li>
+<p>GraphRec</p>
+<ul>
+<li>
+<p>考虑社交关系图和用户物品二部图这两张图，各自应用注意力机制</p>
+<ul>
+<li>
+<p>用att来学习用户和物品的embedding</p>
+</li>
+<li>
+<p>用att来区分邻居的影响</p>
+<ul>
+<li>邻居对用户的影响取决于他们潜在向量之间的相似性</li>
+</ul>
+</li>
+<li>
+<p>用户表示由物品空间表示和社交空间表示组合而成</p>
+</li>
+</ul>
+</li>
+<li>
+<p>注意力机制由于区分了邻居的影响和物品的重要性得到了性能提升</p>
+</li>
+<li>
+<p>社会影响可能并没有被充分利用，因为GraphRec只使用了一层GAT来模拟社会图中的社会影响</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DANSER</p>
+<ul>
+<li>
+<p>以往工作假定社会影响是静态的，本文用GAN去学习动态的影响</p>
+</li>
+<li>
+<p>具体做法</p>
+<ul>
+<li>
+<p>使用GAN去学习双重社会影响</p>
+<ul>
+<li>
+<p>其中一个由特定的注意权重建模</p>
+</li>
+<li>
+<p>另一个由动态的上下文感知注意权重建模</p>
+</li>
+</ul>
+</li>
+<li>
+<p>捕捉静态</p>
+<ul>
+<li>传播固有的用户偏好向量</li>
+</ul>
+</li>
+<li>
+<p>捕捉动态</p>
+<ul>
+<li>
+<p>传播上下文感知的用户向量</p>
+<ul>
+<li>
+<p>依赖于目标目标物品</p>
+</li>
+<li>
+<p>使用 max-pooling 计算</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>贡献</p>
+<ul>
+<li>整合了静态和动态的用户偏好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>DiffNet、GraphRec、DANSER的小结</p>
+<ul>
+<li>
+<p>上面的方法要么使用社会图建模，要么学习社会空间和物品空间中的用户向量然后再整合</p>
+</li>
+<li>
+<p>都没有充分利用节点在不同层次的嵌入</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DiffNet++</p>
+<ul>
+<li>
+<p>首先在二部图和社交网络中用GAT聚合邻居结点的信息</p>
+</li>
+<li>
+<p>注意力机制被用来融合邻居的两个状态</p>
+</li>
+<li>
+<p>用户节点的表示被附加的融合向量更新</p>
+</li>
+<li>
+<p>对于物品结点，使用GAT传播交互用户的信息</p>
+</li>
+<li>
+<p>使用不同隐藏层去表示全体结点</p>
+</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<ul>
+<li>
+<p>影响力建模</p>
+<ul>
+<li>
+<p>使用注意力机制来捕捉不同朋友的影响力</p>
+</li>
+<li>
+<p>考虑到朋友的影响力可能会因为物品而边花</p>
+<ul>
+<li>DANSER对特定的物品考虑啊动态的用户表示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>偏好整合</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="基于知识图谱推荐系统">基于知识图谱推荐系统
+</h2><h3 id="引入知识图谱的三个好处">引入知识图谱的三个好处
+</h3><ul>
+<li>
+<p>KG具有丰富的语义，能够探索物品间潜在的联系</p>
+</li>
+<li>
+<p>提高推荐的多样性</p>
+</li>
+<li>
+<p>引入可解释性</p>
+</li>
+</ul>
+<h3 id="基于kg的rs的三个挑战">基于KG的RS的三个挑战
+</h3><ul>
+<li>
+<p>图的简化</p>
+<ul>
+<li>KG具有非常复杂的结构，如何简化图达到更好的传播效果</li>
+</ul>
+</li>
+<li>
+<p>多关系传播</p>
+<ul>
+<li>KG的结点具有非常多的连接，如何传播信息</li>
+</ul>
+</li>
+<li>
+<p>用户整合</p>
+<ul>
+<li>怎么融合KG和用户特征</li>
+</ul>
+</li>
+</ul>
+<h3 id="代表方法">代表方法
+</h3><ul>
+<li>
+<p>KGCN</p>
+<ul>
+<li>使用 user-specific relation-aware graph neural network 去聚合邻居实体信息</li>
+</ul>
+</li>
+<li>
+<p>KGNN-LS</p>
+</li>
+<li>
+<p>KGAT</p>
+</li>
+<li>
+<p>IntentGC</p>
+</li>
+<li>
+<p>AKGE</p>
+</li>
+</ul>
+<h3 id="总结-2">总结
+</h3><ul>
+<li>
+<p>图构建</p>
+</li>
+<li>
+<p>可感知聚合</p>
+</li>
+</ul>
+<h2 id="其他工作">其他工作
+</h2><h3 id="兴趣点推荐">兴趣点推荐
+</h3><h3 id="群推荐">群推荐
+</h3><h3 id="捆绑推荐">捆绑推荐
+</h3><h3 id="点击预测">点击预测
+</h3><h3 id="多媒体推荐">多媒体推荐
+</h3><h2 id="数据集评估指标和应用">数据集、评估指标和应用
+</h2><h3 id="数据集">数据集
+</h3><ul>
+<li>
+<p><a class="link" href="https://grouplens.org/datasets/movielens/."  target="_blank" rel="noopener"
+    >MovieLens</a></p>
+</li>
+<li>
+<p><a class="link" href="http://jmcauley.ucsd.edu/data/amazon/links.html"  target="_blank" rel="noopener"
+    >Amazon</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.yelp.com/dataset"  target="_blank" rel="noopener"
+    >Yelp</a></p>
+</li>
+<li>
+<p><a class="link" href="http://snap.stanford.edu/data/loc-gowalla.html"  target="_blank" rel="noopener"
+    >Gowalla</a></p>
+</li>
+<li>
+<p>Yoochoose</p>
+</li>
+<li>
+<p><a class="link" href="http://cikm2016.cs.iupui.edu/cikm-cup"  target="_blank" rel="noopener"
+    >Diginetica</a></p>
+</li>
+<li>
+<p><a class="link" href="https://www.kaggle.com/retailrocket/ecommerce-dataset"  target="_blank" rel="noopener"
+    >RetailRocket</a></p>
+</li>
+</ul>
+<h3 id="评估指标">评估指标
+</h3><ul>
+<li>
+<p>HR</p>
+</li>
+<li>
+<p>Precision，recall</p>
+</li>
+<li>
+<p>NDCG</p>
+</li>
+<li>
+<p>MAP</p>
+</li>
+<li>
+<p>AUC</p>
+</li>
+</ul>
+<h2 id="未来的研究方向">未来的研究方向
+</h2><h3 id="多样化和不确定性的表示">多样化和不确定性的表示
+</h3><ul>
+<li>单重向量很难捕捉用户兴趣中的特征，已有一些研究用多个向量来表示用户。或者是用密度表示用户，比如用高斯嵌入捕获用户的不确定偏好。</li>
+</ul>
+<h3 id="推荐系统中gnn的拓展性">推荐系统中GNN的拓展性
+</h3><ul>
+<li>直接使用 GNN，在工业界的大规模数据上效率很低。一种思路是使用采样策略降低图的大小，另一种思路是设计可扩展的高效的 GNN</li>
+</ul>
+<h3 id="推荐系统中的动态图">推荐系统中的动态图
+</h3><ul>
+<li>实际场景中 users、items 以及他们之间的关系都是动态变化的，为了能做到 up-to-date recommendation，模型需要能够迭代更新。但是目前很少研究关注动态图。</li>
+</ul>
+<h3 id="推荐系统中的gnn的感受野">推荐系统中的GNN的感受野
+</h3><ul>
+<li>对于推荐中的图数据，节点的度呈现长尾分布;即，活跃用户与项目的交互较多，而冷用户与项目的交互较少，与热门项目和冷项目的交互相似.因此，在所有节点上应用相同的传播步骤可能是次优的</li>
+</ul>
+<h3 id="自监督学习">自监督学习
+</h3><ul>
+<li>自监督学习（SSL）是一种提高数据利用率的新兴范式，它可以帮助缓解稀疏性问题</li>
+</ul>
+<h3 id="基于gnn推荐系统的鲁棒性">基于GNN推荐系统的鲁棒性
+</h3><h3 id="隐私保护">隐私保护
+</h3><ul>
+<li>使用联邦学习来训练推荐系统，而无需将用户数据上传到中央服务器。然而，本地用户数据仅包含一阶用户-项目交互，这使得在没有隐私链接的情况下很难捕获高阶连接。另一种方法是在推荐系统的过程中采用差分隐私来保证用户隐私，但通常会降低性能</li>
+</ul>
+<h3 id="基于gnn推荐系统的公平性">基于GNN推荐系统的公平性
+</h3><ul>
+<li>对于不同人口统计群体的用户的推荐性能应该接近，并且每个项目应该具有相等的总体曝光概率</li>
+</ul>
+<h3 id="可解释性">可解释性
+</h3><ul>
+<li>这些方法可以分为两类：实例级方法通过识别预测的重要输入特征来提供特定于示例的解释;模型级方法提供高级解释和对深度图模型如何工作的一般理解。也有一些关于基于GNN的建议的可解释性的尝试。它们大多利用知识图中的语义信息进行事后解释。到目前为止，可解释的基于GNN的推荐系统还没有得到充分的探索，</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2024会议论文</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/sequential-recommender-systems-challenges-progress-and-prospects/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Sequential Recommender Systems: Challenges, Progress and Prospects</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/time-interval-aware-self-attention-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Time Interval Aware Self-Attention for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">序列推荐中sideinfo的处理方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="序列推荐中sideinfo的处理方法\rSide Information（辅助信息）\r除了商品id以后，所有的信息都是side information\n背景知识\r常见信息融合方式 Fusing\r相加（summation） 拼接（concatination） 门控加权（gated sum） Invasive（信息入侵）\r暴力的信息融合方法，虽然可以把item和各种side用一个向量表示（或者说在同一个向量空间中表示），但也会导致side信息不可逆的入侵（invasion）item的信息空间，导致在模型的深层越来越难以利用到原始的item信息，从而导致Bert无法学习到最佳的Attention分布和深层Embedding表示。\n">
+<title>序列推荐中sideinfo的处理方法t</title>
+
+<link rel='canonical' href='http://localhost:1313/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95t/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="序列推荐中sideinfo的处理方法t">
+<meta property='og:description' content="序列推荐中sideinfo的处理方法\rSide Information（辅助信息）\r除了商品id以后，所有的信息都是side information\n背景知识\r常见信息融合方式 Fusing\r相加（summation） 拼接（concatination） 门控加权（gated sum） Invasive（信息入侵）\r暴力的信息融合方法，虽然可以把item和各种side用一个向量表示（或者说在同一个向量空间中表示），但也会导致side信息不可逆的入侵（invasion）item的信息空间，导致在模型的深层越来越难以利用到原始的item信息，从而导致Bert无法学习到最佳的Attention分布和深层Embedding表示。\n">
+<meta property='og:url' content='http://localhost:1313/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95t/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-03-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="序列推荐中sideinfo的处理方法t">
+<meta name="twitter:description" content="序列推荐中sideinfo的处理方法\rSide Information（辅助信息）\r除了商品id以后，所有的信息都是side information\n背景知识\r常见信息融合方式 Fusing\r相加（summation） 拼接（concatination） 门控加权（gated sum） Invasive（信息入侵）\r暴力的信息融合方法，虽然可以把item和各种side用一个向量表示（或者说在同一个向量空间中表示），但也会导致side信息不可逆的入侵（invasion）item的信息空间，导致在模型的深层越来越难以利用到原始的item信息，从而导致Bert无法学习到最佳的Attention分布和深层Embedding表示。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#序列推荐中sideinfo的处理方法">序列推荐中sideinfo的处理方法</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#side-information辅助信息">Side Information（辅助信息）</a></li>
+          </ol>
+        </li>
+        <li><a href="#背景知识">背景知识</a>
+          <ol>
+            <li><a href="#常见信息融合方式-fusing">常见信息融合方式 Fusing</a></li>
+            <li><a href="#invasive信息入侵">Invasive（信息入侵）</a></li>
+          </ol>
+        </li>
+        <li><a href="#sasrec-self-attentive-sequential-recommendation-icdm2018">SASRec: <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1808.09781.pdf">Self-Attentive Sequential Recommendation</a> (ICDM2018)</a></li>
+        <li><a href="#fdsa-feature-level-deeper-self-attention-network-for-sequential-recommendation-ijcai19">FDSA: <a href="https://link.zhihu.com/?target=https%3A//www.ijcai.org/proceedings/2019/0600.pdf">Feature-level Deeper Self-Attention Network for Sequential Recommendation</a> (ijcai19)</a></li>
+        <li><a href="#nova-non-invasive-self-attention-for-side-information-fusion-in-sequential-recommendation-aaai21">NOVA: Non-invasive Self-attention for Side Information Fusion in Sequential Recommendation (aaai21)</a></li>
+        <li><a href="#dif-decoupled-side-information-fusion-for-sequential-recommendation--sigir22">DIF: <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2204.11046.pdf">Decoupled side information fusion for sequential recommendation</a>  (sigir22)</a></li>
+        <li><a href="#trans2d-sequential-modeling-with-multiple-attributes-for-watchlist-recommendation-in-e-commerce-wsdm22">Trans2D: Sequential Modeling with Multiple Attributes for Watchlist Recommendation in E-Commerce (wsdm22)</a></li>
+      </ol>
+    </li>
+    <li><a href="#hlen-hierarchical-intention-embedding-network-for-click-through-rate-prediction">HlEN: Hierarchical intention Embedding Network for Click-Through Rate Prediction</a></li>
+    <li><a href="#aligned-side-information-fusion-method-for-sequential-recommendation">Aligned Side Information Fusion Method for Sequential Recommendation</a></li>
+    <li><a href="#1-背景">1 背景</a></li>
+    <li><a href="#2-方法">2 方法</a>
+      <ol>
+        <li><a href="#表示空间对齐representation-space-alignment-rsa">表示空间对齐（Representation Space Alignment ，RSA）</a></li>
+        <li><a href="#同质信息提取homogeneous-information-extractionhie">同质信息提取（Homogeneous Information Extraction，HIE）</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-实验">3 实验</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/test/" style="background-color: #2a9d8f; color: #fff;">
+                Test
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95t/">序列推荐中sideinfo的处理方法t</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="序列推荐中sideinfo的处理方法">序列推荐中sideinfo的处理方法
+</h2><blockquote>
+<h4 id="side-information辅助信息">Side Information（辅助信息）
+</h4><p>除了商品id以后，所有的信息都是side information</p></blockquote>
+<h3 id="背景知识">背景知识
+</h3><h4 id="常见信息融合方式-fusing">常见信息融合方式 Fusing
+</h4><ul>
+<li>相加（summation）</li>
+<li>拼接（concatination）</li>
+<li>门控加权（gated sum）</li>
+</ul>
+<h4 id="invasive信息入侵">Invasive（信息入侵）
+</h4><p>暴力的信息融合方法，虽然可以把item和各种side用一个向量表示（或者说在同一个向量空间中表示），但也会导致side信息不可逆的入侵（invasion）item的信息空间，导致在模型的深层越来越难以利用到原始的item信息，从而导致Bert无法学习到最佳的Attention分布和深层Embedding表示。</p>
+<ul>
+<li>所有输入模型的信息中，最最最重要的肯定是item信息，直接加入side信息会给item序列带来噪声，会降低模型对item本身的学习能力</li>
+<li>side信息不一定在每一层都有用，有的信息更有助于浅层Attention的学习，有的则更适合在深层发挥作用。</li>
+<li></li>
+</ul>
+<h3 id="sasrec-self-attentive-sequential-recommendation-icdm2018">SASRec: <a class="link" href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1808.09781.pdf"  target="_blank" rel="noopener"
+    >Self-Attentive Sequential Recommendation</a> (ICDM2018)
+</h3><p>sideinfo处理公认的base是SASRec中的处理方法，即所有sideinfo和item id emb融合起来计算attention。</p>
+<p>缺点：融合后改变了原始信息(id)输入的表达，造成“invasion of item  representation”问题，即底层融合后更改了原始item表达，糅杂了其他的Side-Info信息，导致Self-Attention后无法准确提取原始item信息。</p>
+<h3 id="fdsa-feature-level-deeper-self-attention-network-for-sequential-recommendation-ijcai19">FDSA: <a class="link" href="https://link.zhihu.com/?target=https%3A//www.ijcai.org/proceedings/2019/0600.pdf"  target="_blank" rel="noopener"
+    >Feature-level Deeper Self-Attention Network for Sequential Recommendation</a> (ijcai19)
+</h3><p>出发点：现有的方法通常只考虑项目之间的转换模式，但忽略了项目<strong>特征之间的转换模式</strong>。</p>
+<p>方法：分别对item 和  features进行建模。features的建模方式为：每个item有多个features，先将每个item的多个features向量聚合成一个向量，再计算特征序列的向量表示。最终将item序列的向量表示与特征序列的向量表示concat起来。</p>
+<p>缺点：显而易见，FDSA中item和feature缺乏交互。</p>
+<p><img src="/assets/image-20240704142954349.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240704142954349"
+	
+	
+></p>
+<h3 id="nova-non-invasive-self-attention-for-side-information-fusion-in-sequential-recommendation-aaai21">NOVA: Non-invasive Self-attention for Side Information Fusion in Sequential Recommendation (aaai21)
+</h3><blockquote>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/375559349"  target="_blank" rel="noopener"
+    >https://zhuanlan.zhihu.com/p/375559349</a></p></blockquote>
+<p>出发点：将item与sideinfo信息融合起来，会带来信息侵入的问题，因此提出了非侵入（Non-invasive）的方法</p>
+<p>方法：为了避免side信息对原始item信息的入侵，作者将Bert中的信息流一分为二：</p>
+<ul>
+<li><strong>Integrated Embedding</strong>：同原始方法，将item和side的Embedding通过某种方法融合后的信息</li>
+<li><strong>ID Embedding</strong>：只含item的embedding信息</li>
+</ul>
+<p>**Integrated Embedding为Bert的每一层提供Query和Key，ID Embedding为Bert的每一层提供Value。**这样在计算注意力分布的时候充分考虑到了item和side的信息，但通过注意力权重加权得到更深一层的Embedding分布时仍然只有item信息。可以说是从物理层面阻断了side对item信息的入侵。</p>
+<p>由于item信息每层都在变，而<strong>side信息是不变的</strong>，因此在每一层都会<strong>将item信息和side信息用fusing function</strong>进行融合，生成只在本层使用的Integrated Embedding。</p>
+<p>缺点：从梯度传播的角度看，所有sideinfo的回传梯度都是一样的，sideinfo无法根据重要性而“个性化”。所有side information在梯度更新中的影响力是均等的，这就意味着模型无法区分哪些side information是对预测更重要的。</p>
+<p><img src="/assets/image-20240704143805960.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240704143805960"
+	
+	
+></p>
+<h3 id="dif-decoupled-side-information-fusion-for-sequential-recommendation--sigir22">DIF: <a class="link" href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/2204.11046.pdf"  target="_blank" rel="noopener"
+    >Decoupled side information fusion for sequential recommendation</a>  (sigir22)
+</h3><p>通常的融合辅助信息的序列推荐方法都是将序列中交互对应的辅助信息（如商品的品牌，类别，用户打分等）和交互的商品ID一起融合后，再经过注意力机制进行相关性挖掘。本文作者发现提前融合会影响注意力层的表征能力，因此，作者将注意力机制放在融合之前，即下面章节的图3c，然后通过将不同属性的注意力权重进行融合，然后再对embedding进行加权。  得到序列中各个交互的embedding后，采用<strong>最后一次交互的商品embedding和候选商品embedding求用户交互分数</strong>。并且在训练阶段约束交互中商品embedding包含辅助信息，具体可见损失函数部分。</p>
+<p>出发点：过早的信息融合会限制模型的表达力，即rank bottleneck，大白话就是矩阵的秩不可能大于矩阵的长宽。</p>
+<p>矩阵的秩是指矩阵行或列向量的最大线性独立组的大小，它描述了<strong>矩阵中包含的信息量</strong>。矩阵的秩有以下性质：</p>
+<ul>
+<li>秩表示矩阵可以表达的维度或自由度。</li>
+<li>矩阵的秩最大等于其行数和列数的较小值。</li>
+<li>如果矩阵的秩等于其行数或列数，称为满秩，<strong>表示矩阵列（或行）向量组完全线性独立</strong>。</li>
+</ul>
+<p>为了避免这种“rank bottleneck”，模型设计时可以采取一些措施：</p>
+<ul>
+<li><strong>延迟融合</strong>：在保持信息尽可能丰富的阶段延后信息的融合步骤，直到确实需要进行决策或输出之前。</li>
+<li><strong>提高维度</strong>：增加处理和融合信息时的维度，确保信息在融合过程中不会因维度限制而丢失。</li>
+</ul>
+<p>方法：如下图(c)所示，每个sideinfo分别计算attention。这样做还有一个好处是不同的sideinfo可以灵活设置emb大小。</p>
+<p>缺点：特征之间完全没有交互。而且个人认为，作者对于秩的分析不太严谨，有一种“稳定秩”的概念可能会更好</p>
+<p><img src="/assets/image-20240704144522481.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240704144522481"
+	
+	
+></p>
+<h3 id="trans2d-sequential-modeling-with-multiple-attributes-for-watchlist-recommendation-in-e-commerce-wsdm22">Trans2D: Sequential Modeling with Multiple Attributes for Watchlist Recommendation in E-Commerce (wsdm22)
+</h3><p>出发点：用户可能特别关心watchlist（类似于购物车）中商品的一些属性，如：价格、数量。当这些属性发生变化时，用户可能会有购买倾向。</p>
+<p>方法：trans2D，顾名思义即2维的transformer，每个特征+item_id都会和其他所有特征+item_id 计算attention。（这样特征之间就有了交互<strong>这篇文章考虑属性之间的相互关系。</strong>）</p>
+<p>缺点：<strong>复杂度很高</strong>，适合价格这种关键、动态、少量的特征。</p>
+<img src="assets/image-20240704172100451.png" alt="image-20240704172100451" style="zoom:50%;" />
+<img src="assets/image-20240704172148805-17201485042006.png" alt="image-20240704172148805" style="zoom: 50%;" />
+<h2 id="hlen-hierarchical-intention-embedding-network-for-click-through-rate-prediction">HlEN: Hierarchical intention Embedding Network for Click-Through Rate Prediction
+</h2><p>前两篇文章都是在模型层面做优化，这篇文章在做embedding的优化。</p>
+<p>**这篇文章考虑属性之间的结构信息，**比如：一个广告item属于一个广告主advertiser，广告主又属于某个行业industry，用图的方式聚合embedding。</p>
+<p><img src="/assets/image-20240705105527607.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705105527607"
+	
+	
+></p>
+<p>模型结构如下图：</p>
+<p><img src="/assets/image-20240705110100112.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705110100112"
+	
+	
+></p>
+<p>HIEN</p>
+<p>模型从左到右分为3个模块：</p>
+<ol>
+<li>user属性与item属性的聚合模块：相当于一个前置GNN，用GNN的聚合方式得到属性的embedding；</li>
+<li>user-item交互模块：这一步就是正常的GNN模块，不过在聚合属性和id的时候，考虑到属性间的层级结构。</li>
+</ol>
+<h2 id="aligned-side-information-fusion-method-for-sequential-recommendation">Aligned Side Information Fusion Method for Sequential Recommendation
+</h2><h2 id="1-背景">1 背景
+</h2><p>序列除了id特征之外，还有各种辅助信息（sideinfo）。现有的辅助信息融合方法可以分为早期融合、晚期融合和混合融合。早期融合可能会干扰 ID 的表示（即信息入侵），导致负面影响，而后期融合会错过 ID  和辅助信息之间的有效交互。混合融合（比如：NoVA、DIF）只将sideinfo加入到Q和K中参与attention  score的计算，sideinfo不影响V，在sideinfo和id有交互的同时避免信息入侵。</p>
+<p><img src="/assets/v2-8eb145ed191a05a82a4e4e9f1d02203c_1440w.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>现有的混合融合方法有两个缺点：</p>
+<ul>
+<li>ID和属性之间的相关性可能会有所不同，有些强有些弱，这使得很难消除干扰并有效地学习有意义的相关性；</li>
+<li>从最终表示中完全排除辅助信息以防止信息入侵的方法可能会无意中丢弃辅助信息本身中的关键信息。</li>
+</ul>
+<p>第一个缺点里的“强弱”指的就是position，作者做了一个分析，表明ID和属性是强相关，和position是弱相关，因此在模型里把position单独拎出来建模，其他sideinfo还是正常交叉。</p>
+<p><img src="/assets/image-20240705115613987.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705115613987"
+	
+	
+></p>
+<p>第二个缺点是说ID和sideinfo的emb分布是不一样的，直接丢弃或者直接融合都是不合理的</p>
+<img src="assets/image-20240705115849726.png" alt="image-20240705115849726" style="zoom:50%;" />
+<h2 id="2-方法">2 方法
+</h2><p>ASIF模型结构和其他对比模型结构如下，可以看出来，ASIF的模型结构就是FDSA+NOVA+DIF。position和ID弱相关所以单独建模，其他sideinfo正常交叉。</p>
+<p><img src="/assets/image-20240705143330316.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705143330316"
+	
+	
+></p>
+<p>重点看一下Align是怎么对齐的。对齐分为表示空间对齐（Representation Space Alignment ，RSA）和同质信息提取（Homogeneous Information Extraction，HIE），如下图所示：</p>
+<img src="assets/image-20240705143548922.png" alt="image-20240705143548922" style="zoom:50%;" />
+<h3 id="表示空间对齐representation-space-alignment-rsa">表示空间对齐（Representation Space Alignment ，RSA）
+</h3><p>RSA的目标是缩小项目ID和sideinfo的表示空间，以提高交互粒度上的语义一致性。方法就是用对比损失，约束序列级的ID emb和sideinfo emb的cos相似度。就是CLIP中文本和图像的对齐方式。</p>
+<img src="assets/image-20240705143921856.png" alt="image-20240705143921856" style="zoom:50%;" />
+<p>假设序列长度为n，sideinfo个数为m，那么得到序列的ID emb矩阵 X 和 A，shape均为[n*d]：</p>
+<img src="assets/image-20240705144021213.png" alt="image-20240705144021213" style="zoom:50%;" />
+<p>然后计算cos相似度，即归一化之后求内积：</p>
+<img src="assets/image-20240705144036506.png" alt="image-20240705144036506" style="zoom:50%;" />
+<p>最后计算对比损失，让cos相似度趋近单位阵，下式中 Yi为单位阵。（感觉如果sideinfo是商品名称这种和ID强相关的属性，这个损失还比较合理；但如果sideinfo是商品的统计信息，那可能就不太行了）</p>
+<p><img src="/assets/v2-f3d4979805d3ef5978351c6648a6f8d2_1440w.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h3 id="同质信息提取homogeneous-information-extractionhie">同质信息提取（Homogeneous Information Extraction，HIE）
+</h3><p>HIE 提取属性中与项目 ID 相同的信息，并将其融合到 ID 表示中。方法就是将向量映射到一个r维的正交空间中，这样就能直接根据坐标的正负号判断方向是否一致。</p>
+<p><img src="/assets/v2-bce526bf5d9058d5cfc3eb9ec6d7ab36_1440w.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<img src="assets/image-20240705144134115.png" alt="image-20240705144134115" style="zoom: 50%;" />
+<p>整体的模型图如下：</p>
+<p><img src="/assets/image-20240705144302593.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20240705144302593"
+	
+	
+></p>
+<h2 id="3-实验">3 实验
+</h2><p><img src="/assets/v2-7fc502e27e8a2ee045d15297c109331f_1440w.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<p>与图1进行对比，ID-to-ID 和 ID-to-Attribute 的一致性更强。</p>
+<img src="assets/image-20240705144455023.png" alt="image-20240705144455023" style="zoom:67%;" />
+<p>ASIF的ID和sideinfo在表示空间的分布也更加一致。（但好像有个问题，确实是把sideinfo拉得更开了，但也把ID拉得更近了，在计算公式8时给X加一个stop gradient可能会更好）</p>
+<img src="assets/image-20240705144442403.png" alt="image-20240705144442403" style="zoom:67%;" />
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/first/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">First</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

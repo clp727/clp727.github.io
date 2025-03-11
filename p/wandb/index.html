@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="wandb\rwandb.init ：初始化一个新的wandb实验，并开始记录实验的信息和结果\r函数功能：用于初始化一个新的 wandb 实验，并开始记录实验的信息和结果。 函数说明：wandb.init(project=None, entity=None, group=None, job_type=None, config=None, tags=None, resume=False, dir=None, name=None, notes=None, id=None, magic=None, anonymous=None, allow_val_change=False, reinit=False, settings=None,) 参数说明： project：实验所属的项目名称。 entity：实验所属的实体（例如，团队或用户）。 group：实验的分组名称。 job_type：实验的类型（例如，训练、评估等）。 config：实验的配置参数，可以是一个字典或 Namespace 对象。 tags：实验的标签，可以是一个字符串列表。 resume：如果为 True，则尝试恢复先前的实验。默认为 False。 dir：存储实验数据和日志的目录路径。 name：实验的名称。 notes：实验的说明或注释。 id：实验的唯一标识符。 magic：用于指定特殊功能的魔法命令。 anonymous：如果为 True，则匿名上传实验结果。默认为 False。 allow_val_change：如果为 True，则允许修改已存在的配置参数。默认为 False。 reinit：如果为 True，则重新初始化实验，忽略先前的配置。默认为 False。 settings：一个字典，用于设置实验的其他参数。 返回参数： 一个 wandb.Run 对象，代表当前的实验运行。\n">
+<title>wandb</title>
+
+<link rel='canonical' href='http://localhost:1313/p/wandb/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="wandb">
+<meta property='og:description' content="wandb\rwandb.init ：初始化一个新的wandb实验，并开始记录实验的信息和结果\r函数功能：用于初始化一个新的 wandb 实验，并开始记录实验的信息和结果。 函数说明：wandb.init(project=None, entity=None, group=None, job_type=None, config=None, tags=None, resume=False, dir=None, name=None, notes=None, id=None, magic=None, anonymous=None, allow_val_change=False, reinit=False, settings=None,) 参数说明： project：实验所属的项目名称。 entity：实验所属的实体（例如，团队或用户）。 group：实验的分组名称。 job_type：实验的类型（例如，训练、评估等）。 config：实验的配置参数，可以是一个字典或 Namespace 对象。 tags：实验的标签，可以是一个字符串列表。 resume：如果为 True，则尝试恢复先前的实验。默认为 False。 dir：存储实验数据和日志的目录路径。 name：实验的名称。 notes：实验的说明或注释。 id：实验的唯一标识符。 magic：用于指定特殊功能的魔法命令。 anonymous：如果为 True，则匿名上传实验结果。默认为 False。 allow_val_change：如果为 True，则允许修改已存在的配置参数。默认为 False。 reinit：如果为 True，则重新初始化实验，忽略先前的配置。默认为 False。 settings：一个字典，用于设置实验的其他参数。 返回参数： 一个 wandb.Run 对象，代表当前的实验运行。\n">
+<meta property='og:url' content='http://localhost:1313/p/wandb/'>
+<meta property='og:site_name' content='Example Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-02-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-02-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="wandb">
+<meta name="twitter:description" content="wandb\rwandb.init ：初始化一个新的wandb实验，并开始记录实验的信息和结果\r函数功能：用于初始化一个新的 wandb 实验，并开始记录实验的信息和结果。 函数说明：wandb.init(project=None, entity=None, group=None, job_type=None, config=None, tags=None, resume=False, dir=None, name=None, notes=None, id=None, magic=None, anonymous=None, allow_val_change=False, reinit=False, settings=None,) 参数说明： project：实验所属的项目名称。 entity：实验所属的实体（例如，团队或用户）。 group：实验的分组名称。 job_type：实验的类型（例如，训练、评估等）。 config：实验的配置参数，可以是一个字典或 Namespace 对象。 tags：实验的标签，可以是一个字符串列表。 resume：如果为 True，则尝试恢复先前的实验。默认为 False。 dir：存储实验数据和日志的目录路径。 name：实验的名称。 notes：实验的说明或注释。 id：实验的唯一标识符。 magic：用于指定特殊功能的魔法命令。 anonymous：如果为 True，则匿名上传实验结果。默认为 False。 allow_val_change：如果为 True，则允许修改已存在的配置参数。默认为 False。 reinit：如果为 True，则重新初始化实验，忽略先前的配置。默认为 False。 settings：一个字典，用于设置实验的其他参数。 返回参数： 一个 wandb.Run 对象，代表当前的实验运行。\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Example Site</a></h1>
+            <h2 class="site-description">Example description</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="http://localhost:1313/" selected>English</option>
+                                
+                                    <option value="http://localhost:1313/zh-cn/" >中文</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#wandb">wandb</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#wandbinit-初始化一个新的wandb实验并开始记录实验的信息和结果">wandb.init ：初始化一个新的wandb实验，并开始记录实验的信息和结果</a></li>
+            <li><a href="#wandbconfigupdate-更新实验的配置参数">wandb.config.update() ：更新实验的配置参数</a></li>
+            <li><a href="#wandblog-记录实验指标和日志信息">wandb.log ：记录实验指标和日志信息</a></li>
+            <li><a href="#wandbfinish结束实验记录">wandb.finish()：结束实验记录</a></li>
+            <li><a href="#使用超参调优">使用超参调优</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98/" >
+                各种问题
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/wandb/">wandb</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="wandb">wandb
+</h2><h4 id="wandbinit-初始化一个新的wandb实验并开始记录实验的信息和结果">wandb.init ：初始化一个新的wandb实验，并开始记录实验的信息和结果
+</h4><p>函数功能：用于初始化一个新的 wandb 实验，并开始记录实验的信息和结果。
+函数说明：wandb.init(project=None, entity=None, group=None, job_type=None, config=None,
+tags=None, resume=False, dir=None, name=None, notes=None, id=None,
+magic=None, anonymous=None, allow_val_change=False, reinit=False, settings=None,)
+参数说明：
+project：实验所属的项目名称。
+entity：实验所属的实体（例如，团队或用户）。
+group：实验的分组名称。
+job_type：实验的类型（例如，训练、评估等）。
+config：实验的配置参数，可以是一个字典或 Namespace 对象。
+tags：实验的标签，可以是一个字符串列表。
+resume：如果为 True，则尝试恢复先前的实验。默认为 False。
+dir：存储实验数据和日志的目录路径。
+name：实验的名称。
+notes：实验的说明或注释。
+id：实验的唯一标识符。
+magic：用于指定特殊功能的魔法命令。
+anonymous：如果为 True，则匿名上传实验结果。默认为 False。
+allow_val_change：如果为 True，则允许修改已存在的配置参数。默认为 False。
+reinit：如果为 True，则重新初始化实验，忽略先前的配置。默认为 False。
+settings：一个字典，用于设置实验的其他参数。
+返回参数：
+一个 wandb.Run 对象，代表当前的实验运行。</p>
+<h4 id="wandbconfigupdate-更新实验的配置参数">wandb.config.update() ：更新实验的配置参数
+</h4><p>函数功能：用于更新当前实验的配置参数。 ———— 配置参数是在 wandb.init() 函数中指定的，并且可以在实验的整个运行过程中进行更新。
+函数说明：wandb.config.update(new_config=None, allow_val_change=None, **kwargs)
+参数说明：
+new_config：一个字典或 Namespace 对象，包含要更新的配置参数。
+allow_val_change：如果为 True，则允许修改已存在的配置参数。默认为 False。
+**kwargs：关键字参数，用于更新配置参数。</p>
+<h4 id="wandblog-记录实验指标和日志信息">wandb.log ：记录实验指标和日志信息
+</h4><p>函数功能：用于记录实验中的指标、损失、评估结果、日志信息等，并将它们保存到 Weights &amp; Biases（wandb）平台上，以便后续分析和可视化。
+函数说明：wandb.log(data, step=None, commit=True, sync=True)
+参数说明：
+data：要记录的数据，可以是一个字典、列表、数字、字符串等。通常用于记录指标、损失等信息。
+step：可选参数，表示记录的步骤或轮数。如果不提供，则默认为当前步骤或轮数。
+commit：可选参数，表示是否立即提交记录。默认为 True，表示立即提交。
+sync：可选参数，表示是否同步记录到云端。默认为 True，表示同步记录。</p>
+<h4 id="wandbfinish结束实验记录">wandb.finish()：结束实验记录
+</h4><p>函数功能：用于结束当前的实验记录，并将记录的数据保存到 wandb平台上。
+函数说明：wandb.finish(exit_code: Optional[int] = None, quiet: Optional[bool] = None)
+参数说明：
+exit_code	设置为 0 以外的值将运行标记为失败
+quiet	    设置为 true 以最小化日志输出</p>
+<h4 id="使用超参调优">使用超参调优
+</h4><ol>
+<li>
+<p>配置 sweep_config</p>
+<ul>
+<li>
+<p><strong>选择一个调优算法</strong></p>
+<p>(1)网格搜索： grid. 遍历所有可能得<a class="link" href="https://www.zhihu.com/search?q=%e8%b6%85%e5%8f%82%e7%bb%84%e5%90%88&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7b%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A2888653364%7d"  target="_blank" rel="noopener"
+    >超参组合</a>，只在超参空间不大的时候使用，否则会非常慢。(2)随机搜索：random. 每个超参数都选择一个随机值，非常有效，<strong>一般情况下建议使用</strong>。(3)贝叶斯搜索： bayes. 创建一个概率模型估计不同超参数组合的效果，采样有更高概率提升优化目标的超参数组合。对<strong>连续型的超参数特别有效</strong>，但扩展到非常高维度的超参数时效果不好。</p>
+<p>sweep_config = {’method‘：’random‘}</p>
+</li>
+<li>
+<p><strong>定义优化目标</strong></p>
+<p>sweep agents 通过 wandb.log 的形式向 sweep controller 传递优化目标的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">metric</span> <span class="o">=</span> <span class="p">{</span>    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;val_acc&#39;</span><span class="p">,</span>    <span class="s1">&#39;goal&#39;</span><span class="p">:</span> <span class="s1">&#39;maximize&#39;</span>       <span class="p">}</span> 
+</span></span><span class="line"><span class="cl"><span class="n">sweep_config</span><span class="p">[</span><span class="s1">&#39;metric&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>定义超参空间</strong></p>
+<p>超参空间可以分成 固定型，离散型和连续型。</p>
+<p>固定型：指定 value</p>
+<p>离散型：指定 values，列出全部候选取值。</p>
+<p>连续性：需要指定 分布类型 distribution, 和范围 min, max。用于 random 或者 bayes采样。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">sweep_config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 固定不变的超参</span>
+</span></span><span class="line"><span class="cl"><span class="n">sweep_config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;project_name&#39;</span><span class="p">:{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;wandb_demo&#39;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;epochs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;ckpt_path&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="s1">&#39;checkpoint.pt&#39;</span><span class="p">}})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 离散型分布超参</span>
+</span></span><span class="line"><span class="cl"><span class="n">sweep_config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;optim_type&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="s1">&#39;SGD&#39;</span><span class="p">,</span><span class="s1">&#39;AdamW&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;hidden_layer_width&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">48</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">112</span><span class="p">,</span><span class="mi">128</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 连续型分布超参</span>
+</span></span><span class="line"><span class="cl"><span class="n">sweep_config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;lr&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;log_uniform_values&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mf">0.1</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;q_uniform&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;dropout_p&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;distribution&#39;</span><span class="p">:</span> <span class="s1">&#39;uniform&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<img src="assets/image-20240708204835865.png" alt="image-20240708204835865" style="zoom: 67%;" />
+<img src="assets/image-20240708204913858.png" alt="image-20240708204913858" style="zoom:67%;" />
+</li>
+<li>
+<p>初始化sweep controller</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">sweep_id</span> <span class="o">=</span> <span class="n">wandb</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="n">sweep_config</span><span class="p">,</span><span class="n">project</span><span class="p">)</span> <span class="n">projext就是当前项目的名字</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动 sweep agents:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl"><span class="n">wandb</span><span class="o">.</span><span class="n">agent</span><span class="p">(</span><span class="n">sweep_id</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">train</span><span class="err">，</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

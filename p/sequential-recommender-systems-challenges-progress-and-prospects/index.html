@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="一、简介\r首先分析了顺序推荐系统（SRS）兴起的motivation。概括为三点。\n用户跟物品之间的互动是序列依赖的 用户的兴趣与物品的流行程度都是动态变化的 用户-物品的互动通常在特定的序列上下文环境中产生 不同的上下文会催生出不同的用户行为。SRS在丰富推荐结果、避免同质化的任务上比传统推荐系统更容易做到 二、数据特征和挑战\r1. 长的用户-物品交互序列\r长的用户-物品交互序列会包含大量的用户-物品交互，更能产生复杂全面的依赖关系。存在以下两个问题：\n">
+<title>Sequential Recommender Systems: Challenges, Progress and Prospects</title>
+
+<link rel='canonical' href='http://localhost:1313/p/sequential-recommender-systems-challenges-progress-and-prospects/'>
+
+<link rel="stylesheet" href="/scss/style.min.b9c8156d464c343bdacaf14a871581fb94cbbdb9dd5cbce4ba017361187cc930.css"><meta property='og:title' content="Sequential Recommender Systems: Challenges, Progress and Prospects">
+<meta property='og:description' content="一、简介\r首先分析了顺序推荐系统（SRS）兴起的motivation。概括为三点。\n用户跟物品之间的互动是序列依赖的 用户的兴趣与物品的流行程度都是动态变化的 用户-物品的互动通常在特定的序列上下文环境中产生 不同的上下文会催生出不同的用户行为。SRS在丰富推荐结果、避免同质化的任务上比传统推荐系统更容易做到 二、数据特征和挑战\r1. 长的用户-物品交互序列\r长的用户-物品交互序列会包含大量的用户-物品交互，更能产生复杂全面的依赖关系。存在以下两个问题：\n">
+<meta property='og:url' content='http://localhost:1313/p/sequential-recommender-systems-challenges-progress-and-prospects/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-03-08T00:48:44&#43;08:00'/><meta property='article:modified_time' content='2025-03-08T00:48:44&#43;08:00'/>
+<meta name="twitter:title" content="Sequential Recommender Systems: Challenges, Progress and Prospects">
+<meta name="twitter:description" content="一、简介\r首先分析了顺序推荐系统（SRS）兴起的motivation。概括为三点。\n用户跟物品之间的互动是序列依赖的 用户的兴趣与物品的流行程度都是动态变化的 用户-物品的互动通常在特定的序列上下文环境中产生 不同的上下文会催生出不同的用户行为。SRS在丰富推荐结果、避免同质化的任务上比传统推荐系统更容易做到 二、数据特征和挑战\r1. 长的用户-物品交互序列\r长的用户-物品交互序列会包含大量的用户-物品交互，更能产生复杂全面的依赖关系。存在以下两个问题：\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_cd3fd77b5cd603fc.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">分享各种总结</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#一简介">一、简介</a>
+          <ol>
+            <li><a href="#二数据特征和挑战">二、数据特征和挑战</a></li>
+            <li><a href="#1-长的用户-物品交互序列">1. 长的用户-物品交互序列</a></li>
+            <li><a href="#2使用灵活顺序处理用户-物品交互">2.使用灵活顺序处理用户-物品交互</a></li>
+            <li><a href="#3处理带噪声的用户-物品交互序列">3.处理带噪声的用户-物品交互序列</a></li>
+            <li><a href="#4处理具有异构关系的用户商品交互序列">4.处理具有异构关系的用户商品交互序列</a></li>
+            <li><a href="#5处理带层次结构的用户-物品交互序列">5.处理带层次结构的用户-物品交互序列</a></li>
+          </ol>
+        </li>
+        <li><a href="#三研究现状">三、研究现状</a></li>
+        <li><a href="#31-传统序列模型">3.1 传统序列模型</a></li>
+        <li><a href="#32-序列推荐的隐式表示">3.2 序列推荐的隐式表示</a></li>
+        <li><a href="#33-神经网络模型">3.3 神经网络模型</a></li>
+      </ol>
+    </li>
+    <li><a href="#四未来工作">四、未来工作</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="background-color: #2a9d8f; color: #fff;">
+                推荐系统
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/sequential-recommender-systems-challenges-progress-and-prospects/">Sequential Recommender Systems: Challenges, Progress and Prospects</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 08, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h3 id="一简介">一、简介
+</h3><p>首先分析了顺序推荐系统（SRS）兴起的motivation。概括为三点。</p>
+<ol>
+<li><strong>用户跟物品之间的互动是序列依赖的</strong></li>
+<li><strong>用户的兴趣与物品的流行程度都是动态变化的</strong></li>
+<li><strong>用户-物品的互动通常在特定的序列上下文环境中产生</strong>
+不同的上下文会催生出不同的用户行为。SRS在丰富推荐结果、避免同质化的任务上比传统推荐系统更容易做到</li>
+</ol>
+<h4 id="二数据特征和挑战">二、数据特征和挑战
+</h4><h4 id="1-长的用户-物品交互序列">1. 长的用户-物品交互序列
+</h4><p>长的用户-物品交互序列会包含大量的用户-物品交互，更能产生复杂全面的依赖关系。存在以下两个问题：</p>
+<p>①<strong>要学习更高阶序列依赖</strong>：<em>存在复杂的多级别的级联依赖关系</em>。目前主要有高阶马尔可夫链模型和RNN两种基本方法。但马尔科夫链模型参数会呈指数增长，能涉及的历史状态有限；RNN中预设过强的顺序会限制RNN在灵活顺序中的表现。</p>
+<p>②<strong>要学习长期的序列依赖</strong>：两个交互在序列中离得远，但也有依赖关系。eg：珍妮的购物顺序{玫瑰花、鸡蛋、面包、牛奶、花瓶}，玫瑰和花瓶距离远，却有强依赖关系。现实世界中用户的行为是高度不确定的，他们会以各种顺序将物品放入购物车中。<em>如果使用LSTM或GRU来捕捉长期关系，很容易生成一种错误的依赖关系，比如认为牛奶和花瓶之间存在依赖关系，因为模型可能错误地假设一个序列中相邻的项是高度依赖的</em>。目前解决这一问题的工作主要是组合了多个子模型来利用混合模型的优势，但从整体上来看还是受限的。</p>
+<h4 id="2使用灵活顺序处理用户-物品交互">2.使用灵活顺序处理用户-物品交互
+</h4><p>现实世界中，不是所有邻近的交互都有序列依赖关系。eg：购物顺序{牛奶、黄油、面粉}，牛奶和黄油是邻近的，但先买牛奶还是先买黄油的顺序是无所谓的，而牛奶和黄油二者的购买结果会使得下一个购买物品是面粉的可能性提高，即面粉在序列上依赖于牛奶和黄油二者的结合。<em>因此，如何在灵活顺序的假设下捕获集合序列相关性成为SRSs中处理灵活顺序序列的关键问题。</em></p>
+<p>目前国内外对这一问题的研究还不多见。现有的基于Markov链、因子分解机或RNN的SRS只能处理点依赖关系，而不擅长对集合依赖进行建模和捕捉。<strong>目前有些工作试图通过利用CNN的优势来捕捉局部和全局依赖性，即一系列交互作用的嵌入矩阵。</strong></p>
+<h4 id="3处理带噪声的用户-物品交互序列">3.处理带噪声的用户-物品交互序列
+</h4><p>​          在一个用户-商品交互序列中，一些历史交互与下一个交互具有强相关性，而另一些则可能弱相关甚至不相关。eg：购物顺序{培根、玫瑰、鸡蛋、面包}，玫瑰可能是个噪声，因为它与剩余其它物品无关。接下来的物品很可能会是一瓶牛奶，而这仅与培根、鸡蛋、面包有关而与玫瑰无关。因此对SRSs的又一挑战是对交互序列的噪声有识别能力。</p>
+<p><strong>注意力模型和记忆网络被用于解决这个问题，选择性保留利用序列中真正与预期相关的信息</strong>。</p>
+<h4 id="4处理具有异构关系的用户商品交互序列">4.处理具有异构关系的用户商品交互序列
+</h4><p>对于不同类型的关系需要不同的建模方式。例如：1、交互序列中除了存在普遍的<strong>基于发生</strong>的序列依赖，还交互项目之间在特征上也存在<strong>基于相似</strong>的关系。2、长期序列依赖不同于短期，不能用相同的方式建模。所以SRSs又一挑战是高效捕捉嵌在序列中的各种关系，使它们合作产生推荐结果。</p>
+<p>​         <strong>目前处理该关系主要还是基于混合模型进行处理。</strong></p>
+<h4 id="5处理带层次结构的用户-物品交互序列">5.处理带层次结构的用户-物品交互序列
+</h4><p>交互序列中存在两种层级结构。一是元数据（meta  data）与互动之间的层级结构，即用户的人口统计学属性、物品的特征对用户行为、偏好的影响；二是子序列与互动之间的层级关系，很多时候一个长序列中会包含许多子序列。对应的挑战是如何处理这两种层级结构上的依赖关系以生成更精准的推荐。</p>
+<p>一方面，将用户特征的影响考虑在，但现存的SRSs中极少考虑到用户的人口特征，这需要投入更多研究。另一方面，还有引入层级RNN,层级注意力等结构建模历史子序列。</p>
+<h3 id="三研究现状">三、研究现状
+</h3><p>从技术的角度来看，将目前SRS的各种方法划分了三大类</p>
+<h3 id="31-传统序列模型">3.1 传统序列模型
+</h3><ol>
+<li>序列模式挖掘
+基于序列模式的推荐先挖掘序列数据的常用模式，然后利用挖掘到的模式来指导后续的推荐。虽然简单，但是却经常会产生大量的冗余的模式， 这往往会增加非常多不必要时间和空间等代价。<strong>同时此类方法经常会丢失不频繁的模式以及商品，所以对于不是非常流行的商品的推荐会受限。</strong></li>
+<li>马尔可夫链模型
+基于马尔可夫链的推荐系统会采用Markov链模型对用户-商品的交互转换进行建模，以预测下一次交互。根据使用的技术，基于马尔可夫链的推荐系统又可以分为基于基本Markov链的推荐系统和基于潜在Markov embedding的推荐系统方法。前者直接根据显式观测的值计算转移概率，而后者首先将马尔可夫链嵌入欧几里德空间，然后根据其欧几里德距离计算相互作用之间的转移概率。基于Markov链的推荐系统的缺点主要有两块。一方面，由于Markov特性假设当前交互只依赖于一个或几个最近的交互，因此<strong>只能捕获短期依赖关系而忽略长期依赖关系</strong>；另一方面，它们<strong>只能捕获点式依赖，而忽略了用户商品交互的集体依赖</strong>。（近几年在SRSs中越来越少见了。）</li>
+</ol>
+<h3 id="32-序列推荐的隐式表示">3.2 序列推荐的隐式表示
+</h3><p>隐式的表示模型先学习每个用户和商品的潜在表示，然后使用学习得到的表示预测接下来的用户商品交互。</p>
+<ol>
+<li>分解机(Factorization Machines)
+基于因子分解机的序列推荐通常利用矩阵分解或张量分解将观察到的用户-商品交互作用分解为用户和商品的潜在因子。和协同过滤不一样的地方在于，要分解的矩阵或张量是由交互作用组成的,而不是CF中的评分,这样的模型很容易受到观测数据稀疏性的影响，因而不能达到理想的推荐效果。</li>
+<li>嵌入式(Embedding)
+基于Embedding的序列化推荐通过将用户-商品交互序列编码到一个潜在空间，学习每个用户和商品的潜在表示，以供后续推荐。具体而言，一些工作将学习到的潜在表征作为网络的输入，进一步计算用户和商品之间的交互得分。<strong>该模型具有简单、高效、高效的特点，近年来已显示出巨大的潜力。</strong></li>
+</ol>
+<h3 id="33-神经网络模型">3.3 神经网络模型
+</h3><ol>
+<li>
+<p>基本的神经网络模型</p>
+<p>a. <strong>RNN-based SRSs</strong> 循环神经网络
+包括基础RNN模型以及LSTM、GRU等模型，还有层级RNN（针对单层RNN不能捕获长期偏好的问题）等。这一类模型几乎主导了SRS领域的研究，但是仍然存在缺点：<strong>一是容易生成假依赖关系，假设过强（认为序列中每个相邻的项之间都有依赖关系）；二是捕捉点对点的依赖关系，忽略集合依赖。</strong></p>
+<p>b.<strong>CNN-based SRSs</strong> 卷积神经网路
+CNN就是将序列的embedding矩阵看作一个图片（跟NLP差不多）。CNN的优点是序列关系的假设不强，而且学习的是不同区域之间的模式，能够避免RNN假设过强的问题，<strong>缺点是不好捕捉长期依赖关系，因为卷积滤波器尺寸限制。</strong></p>
+<p>c.<strong>GNN-based SRSs</strong> 图神经网络
+在序列数据上建立有向图，将每个交互作为图中的一个节点，每个序列被映射为一条路径。从图中学习用户/物品的词嵌入，从而在整个图上嵌入更复杂的关系。GNN通过挖掘出被推荐物和相应的序列上下文之间的复杂关系来提供可解释的推荐。</p>
+</li>
+<li>
+<p>高级模型：常结合基本DNN解决特定问题。</p>
+<p>a. <strong>Attention models</strong>注意力模型
+注意力可以用来强调相关的、重要的互动，淡化与下一次互动不相关的，广泛地与RNN等模型结合用来处理带噪的互动序列。</p>
+<p>b.<strong>Memory networks</strong>记忆网络
+利用一个外部记忆矩阵，直接捕获任意历史中的用户-物品交互和下一次交互的依赖。这一矩阵能够更准确动态地存储和更新序列中的历史交互，增加模型可解释性，减少无关交互（噪声）的干扰。一些工作使用key-value memory  network来存储和更新序列中交互物品的知识库信息，学习属性级偏好以增强推荐效果。</p>
+<p>c.<strong>Mixture models</strong>混合模型
+指的是通过组合多种模型捕捉多种依赖关系的模型，典型的例子是组合多种编码器来分别捕捉长短期关系，进而学习精准的序列表示。比如说用卷积神经网络捕获短期偏好，循环神经网络捕获长期偏好。</p>
+</li>
+</ol>
+<h2 id="四未来工作">四、未来工作
+</h2><ol>
+<li><strong>情景感知的序列化推荐系统</strong>
+用户或商品所在的当前环境会极大地影响用户对项目的选择，在进行推荐时应考虑到这一点。这在序列化推荐系统中更为必要，因为上下文可能会随着时间而变化。</li>
+<li><strong>社会感知的序列化推荐系统</strong>
+用户生活在一个社会中，并与各种人在线和离线连接。其他人的行为或意见往往会对用户的选择产生很大的影响。</li>
+<li><strong>交互式的序列化推荐系统</strong>
+现实世界中大部分的购物行为是连续的而非独立事件。现有SRSs常忽略用户和平台间的序列化交互，而仅为一个时间步长中的一个操作提供推荐。问题就是如何将用户-卖家交互考虑在内，生成多个时间步下的推荐。</li>
+<li><strong>跨域的序列化推荐</strong>
+在现实世界中，用户在一定时间段内购买的商品通常来自多个域，而不是一个域。来自不同领域的项目之间存在一些顺序依赖关系，可以利用来自其他领域的信息和来自不同领域的更多不同的推荐来生成更准确的推荐。</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/2024%E4%BC%9A%E8%AE%AE%E8%AE%BA%E6%96%87/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2024会议论文</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/an-attentive-inductive-bias-for-sequential-recommendation-beyond-the-self-attention/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">An Attentive Inductive Bias for Sequential Recommendation beyond the Self-Attention</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/graph-neural-networks-in-recommender-systems-a-survey/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Graph Neural Networks in Recommender Systems: A Survey</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/time-interval-aware-self-attention-for-sequential-recommendation/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Time Interval Aware Self-Attention for Sequential Recommendation</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E4%B8%ADsideinfo%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">序列推荐中sideinfo的处理方法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2025 clp
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.a32e1d830de39b4f54beb818df5fa0fd0b5d098155f1ee7fb4f5cee4d313bb2a.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
